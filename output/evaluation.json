@@ -1,0 +1,586 @@
+{
+ "n_patients": 598,
+ "lineage": {
+  "correct": 587,
+  "abstained": 11
+ },
+ "histology_subtype": {
+  "correct": 527,
+  "abstained": 43,
+  "correct_less_specific": 27,
+  "wrong": 1
+ },
+ "malignancy": {
+  "cancers_called_malignant": 528,
+  "cancers": 558,
+  "cancers_called_benign": 0,
+  "benign_called_benign": 37,
+  "benign": 40,
+  "benign_called_cancer": 0
+ },
+ "molecular": {
+  "missed": 17,
+  "correct": 128,
+  "false_positive": 1
+ },
+ "per_class": [
+  {
+   "cls": "ALKRearrangedNSCLC",
+   "label": "ALK-rearranged NSCLC",
+   "rare": true,
+   "tier": "rare",
+   "n_true": 12,
+   "n_pred": 12,
+   "tp": 12,
+   "sensitivity": 1.0,
+   "ppv": 1.0
+  },
+  {
+   "cls": "BRAFV600EMutantNSCLC",
+   "label": "BRAF V600E-mutant NSCLC",
+   "rare": true,
+   "tier": "rare",
+   "n_true": 6,
+   "n_pred": 4,
+   "tp": 4,
+   "sensitivity": 0.667,
+   "ppv": 1.0
+  },
+  {
+   "cls": "BreastCancer",
+   "label": "Breast cancer",
+   "rare": false,
+   "tier": "",
+   "n_true": 8,
+   "n_pred": 10,
+   "tp": 7,
+   "sensitivity": 0.875,
+   "ppv": 0.7
+  },
+  {
+   "cls": "EGFRMutantNSCLC",
+   "label": "EGFR-mutant NSCLC",
+   "rare": false,
+   "tier": "common",
+   "n_true": 40,
+   "n_pred": 35,
+   "tp": 35,
+   "sensitivity": 0.875,
+   "ppv": 1.0
+  },
+  {
+   "cls": "ERLowHER2NegativeBreastCancer",
+   "label": "ER-low (1-10%), HER2-negative breast cancer",
+   "rare": true,
+   "tier": "rare",
+   "n_true": 10,
+   "n_pred": 8,
+   "tp": 8,
+   "sensitivity": 0.8,
+   "ppv": 1.0
+  },
+  {
+   "cls": "HER2Enriched",
+   "label": "HER2-enriched (HR-/HER2+)",
+   "rare": true,
+   "tier": "uncommon",
+   "n_true": 20,
+   "n_pred": 20,
+   "tp": 20,
+   "sensitivity": 1.0,
+   "ppv": 1.0
+  },
+  {
+   "cls": "HRRDeficientProstateCancer",
+   "label": "HRR-deficient prostate adenocarcinoma",
+   "rare": true,
+   "tier": "uncommon",
+   "n_true": 25,
+   "n_pred": 24,
+   "tp": 24,
+   "sensitivity": 0.96,
+   "ppv": 1.0
+  },
+  {
+   "cls": "KRASG12CMutantNSCLC",
+   "label": "KRAS G12C-mutant NSCLC",
+   "rare": true,
+   "tier": "uncommon",
+   "n_true": 30,
+   "n_pred": 23,
+   "tp": 23,
+   "sensitivity": 0.767,
+   "ppv": 1.0
+  },
+  {
+   "cls": "LuminalALike",
+   "label": "Luminal A-like",
+   "rare": false,
+   "tier": "common",
+   "n_true": 75,
+   "n_pred": 50,
+   "tp": 50,
+   "sensitivity": 0.667,
+   "ppv": 1.0
+  },
+  {
+   "cls": "LuminalBLikeHER2Negative",
+   "label": "Luminal B-like (HER2-negative)",
+   "rare": false,
+   "tier": "common",
+   "n_true": 45,
+   "n_pred": 35,
+   "tp": 35,
+   "sensitivity": 0.778,
+   "ppv": 1.0
+  },
+  {
+   "cls": "LuminalBLikeHER2Positive",
+   "label": "Luminal B-like (HER2-positive)",
+   "rare": false,
+   "tier": "uncommon",
+   "n_true": 25,
+   "n_pred": 25,
+   "tp": 25,
+   "sensitivity": 1.0,
+   "ppv": 1.0
+  },
+  {
+   "cls": "LungAdenocarcinoma",
+   "label": "Lung adenocarcinoma",
+   "rare": false,
+   "tier": "common",
+   "n_true": 30,
+   "n_pred": 31,
+   "tp": 27,
+   "sensitivity": 0.9,
+   "ppv": 0.871
+  },
+  {
+   "cls": "LungSquamousCellCarcinoma",
+   "label": "Lung squamous cell carcinoma",
+   "rare": false,
+   "tier": "common",
+   "n_true": 40,
+   "n_pred": 34,
+   "tp": 34,
+   "sensitivity": 0.85,
+   "ppv": 1.0
+  },
+  {
+   "cls": "METEx14SkippingNSCLC",
+   "label": "MET exon 14 skipping NSCLC",
+   "rare": true,
+   "tier": "rare",
+   "n_true": 8,
+   "n_pred": 8,
+   "tp": 8,
+   "sensitivity": 1.0,
+   "ppv": 1.0
+  },
+  {
+   "cls": "NTRKFusionNSCLC",
+   "label": "NTRK fusion-positive NSCLC",
+   "rare": true,
+   "tier": "rare",
+   "n_true": 3,
+   "n_pred": 2,
+   "tp": 2,
+   "sensitivity": 0.667,
+   "ppv": 1.0
+  },
+  {
+   "cls": "NeuroendocrineProstateCancer",
+   "label": "Neuroendocrine prostate cancer (NEPC)",
+   "rare": true,
+   "tier": "rare",
+   "n_true": 15,
+   "n_pred": 15,
+   "tp": 15,
+   "sensitivity": 1.0,
+   "ppv": 1.0
+  },
+  {
+   "cls": "NoMalignancyDetected",
+   "label": "No malignancy detected",
+   "rare": false,
+   "tier": "",
+   "n_true": 40,
+   "n_pred": 37,
+   "tp": 37,
+   "sensitivity": 0.925,
+   "ppv": 1.0
+  },
+  {
+   "cls": "ProstateAdenocarcinoma",
+   "label": "Prostate adenocarcinoma (acinar)",
+   "rare": false,
+   "tier": "common",
+   "n_true": 80,
+   "n_pred": 76,
+   "tp": 75,
+   "sensitivity": 0.938,
+   "ppv": 0.987
+  },
+  {
+   "cls": "RETRearrangedNSCLC",
+   "label": "RET-rearranged NSCLC",
+   "rare": true,
+   "tier": "rare",
+   "n_true": 5,
+   "n_pred": 5,
+   "tp": 5,
+   "sensitivity": 1.0,
+   "ppv": 1.0
+  },
+  {
+   "cls": "ROS1RearrangedNSCLC",
+   "label": "ROS1-rearranged NSCLC",
+   "rare": true,
+   "tier": "rare",
+   "n_true": 6,
+   "n_pred": 5,
+   "tp": 5,
+   "sensitivity": 0.833,
+   "ppv": 1.0
+  },
+  {
+   "cls": "SmallCellLungCancer",
+   "label": "Small cell lung cancer (SCLC)",
+   "rare": true,
+   "tier": "uncommon",
+   "n_true": 30,
+   "n_pred": 27,
+   "tp": 27,
+   "sensitivity": 0.9,
+   "ppv": 1.0
+  },
+  {
+   "cls": "TNBCLuminalAndrogenReceptor",
+   "label": "TNBC, luminal androgen receptor (LAR)-like",
+   "rare": true,
+   "tier": "rare",
+   "n_true": 10,
+   "n_pred": 11,
+   "tp": 10,
+   "sensitivity": 1.0,
+   "ppv": 0.909
+  },
+  {
+   "cls": "TripleNegativeBreastCancer",
+   "label": "Triple-negative breast cancer (TNBC)",
+   "rare": true,
+   "tier": "uncommon",
+   "n_true": 35,
+   "n_pred": 34,
+   "tp": 34,
+   "sensitivity": 0.971,
+   "ppv": 1.0
+  }
+ ],
+ "rare_subtypes": {
+  "n_true": 215,
+  "tp": 197,
+  "n_pred": 198
+ },
+ "tnbc": {
+  "true": 45,
+  "predicted": 45,
+  "tp": 44,
+  "sensitivity": 0.978,
+  "ppv": 0.978,
+  "missed_as": {
+   "IndeterminateDiagnosis": 1
+  }
+ },
+ "modifiers": [
+  {
+   "modifier": "MOD_ATM",
+   "n_true": 5,
+   "n_pred": 4,
+   "tp": 4,
+   "recall": 0.8,
+   "precision": 1.0
+  },
+  {
+   "modifier": "MOD_AURKA",
+   "n_true": 8,
+   "n_pred": 8,
+   "tp": 8,
+   "recall": 1.0,
+   "precision": 1.0
+  },
+  {
+   "modifier": "MOD_BRCA1",
+   "n_true": 13,
+   "n_pred": 12,
+   "tp": 12,
+   "recall": 0.923,
+   "precision": 1.0
+  },
+  {
+   "modifier": "MOD_BRCA2",
+   "n_true": 16,
+   "n_pred": 16,
+   "tp": 16,
+   "recall": 1.0,
+   "precision": 1.0
+  },
+  {
+   "modifier": "MOD_CDK12",
+   "n_true": 3,
+   "n_pred": 3,
+   "tp": 3,
+   "recall": 1.0,
+   "precision": 1.0
+  },
+  {
+   "modifier": "MOD_EGFR_T790M",
+   "n_true": 8,
+   "n_pred": 4,
+   "tp": 4,
+   "recall": 0.5,
+   "precision": 1.0
+  },
+  {
+   "modifier": "MOD_ER_LOW",
+   "n_true": 10,
+   "n_pred": 8,
+   "tp": 8,
+   "recall": 0.8,
+   "precision": 1.0
+  },
+  {
+   "modifier": "MOD_ESR1",
+   "n_true": 2,
+   "n_pred": 2,
+   "tp": 2,
+   "recall": 1.0,
+   "precision": 1.0
+  },
+  {
+   "modifier": "MOD_HER2_LOW",
+   "n_true": 92,
+   "n_pred": 86,
+   "tp": 86,
+   "recall": 0.935,
+   "precision": 1.0
+  },
+  {
+   "modifier": "MOD_HER2_NULL",
+   "n_true": 37,
+   "n_pred": 36,
+   "tp": 36,
+   "recall": 0.973,
+   "precision": 1.0
+  },
+  {
+   "modifier": "MOD_HER2_ULTRALOW",
+   "n_true": 49,
+   "n_pred": 43,
+   "tp": 43,
+   "recall": 0.878,
+   "precision": 1.0
+  },
+  {
+   "modifier": "MOD_KEAP1",
+   "n_true": 11,
+   "n_pred": 10,
+   "tp": 10,
+   "recall": 0.909,
+   "precision": 1.0
+  },
+  {
+   "modifier": "MOD_KRAS_OTHER",
+   "n_true": 15,
+   "n_pred": 14,
+   "tp": 14,
+   "recall": 0.933,
+   "precision": 1.0
+  },
+  {
+   "modifier": "MOD_MYCN",
+   "n_true": 5,
+   "n_pred": 5,
+   "tp": 5,
+   "recall": 1.0,
+   "precision": 1.0
+  },
+  {
+   "modifier": "MOD_PDL1_HIGH",
+   "n_true": 43,
+   "n_pred": 33,
+   "tp": 33,
+   "recall": 0.767,
+   "precision": 1.0
+  },
+  {
+   "modifier": "MOD_PDL1_LOW",
+   "n_true": 84,
+   "n_pred": 70,
+   "tp": 70,
+   "recall": 0.833,
+   "precision": 1.0
+  },
+  {
+   "modifier": "MOD_PDL1_NEG",
+   "n_true": 53,
+   "n_pred": 40,
+   "tp": 40,
+   "recall": 0.755,
+   "precision": 1.0
+  },
+  {
+   "modifier": "MOD_PIK3CA",
+   "n_true": 57,
+   "n_pred": 54,
+   "tp": 54,
+   "recall": 0.947,
+   "precision": 1.0
+  },
+  {
+   "modifier": "MOD_PTEN",
+   "n_true": 18,
+   "n_pred": 15,
+   "tp": 15,
+   "recall": 0.833,
+   "precision": 1.0
+  },
+  {
+   "modifier": "MOD_RB1",
+   "n_true": 44,
+   "n_pred": 33,
+   "tp": 33,
+   "recall": 0.75,
+   "precision": 1.0
+  },
+  {
+   "modifier": "MOD_SPOP",
+   "n_true": 11,
+   "n_pred": 11,
+   "tp": 11,
+   "recall": 1.0,
+   "precision": 1.0
+  },
+  {
+   "modifier": "MOD_STK11",
+   "n_true": 10,
+   "n_pred": 8,
+   "tp": 8,
+   "recall": 0.8,
+   "precision": 1.0
+  },
+  {
+   "modifier": "MOD_TMPRSS2_ERG",
+   "n_true": 55,
+   "n_pred": 45,
+   "tp": 45,
+   "recall": 0.818,
+   "precision": 1.0
+  },
+  {
+   "modifier": "MOD_TP53",
+   "n_true": 224,
+   "n_pred": 185,
+   "tp": 185,
+   "recall": 0.826,
+   "precision": 1.0
+  }
+ ],
+ "errors": [
+  {
+   "patient_id": "PT0530",
+   "scenario": "breast:ERNEG_PRPOS",
+   "true_histology": "BreastCancer",
+   "true_molecular": "",
+   "histology": "TripleNegativeBreastCancer",
+   "molecular": "TNBCLuminalAndrogenReceptor",
+   "note": "low purity; metastatic specimen",
+   "flags": "Low tumour cellularity (16%): sensitivity for variants/CNAs reduced | PR status inferred from PGR RNA (IHC missing) - confirm by IHC | TNBC/ER-low: recommend germline BRCA1/2 testing (PARP inhibitor eligibility)"
+  }
+ ],
+ "abstentions_by_reason": {
+  "malignancy equivocal": 32,
+  "lineage unresolved": 11
+ },
+ "edge_cases": [
+  {
+   "patient_id": "PT0031",
+   "edge_case": "HER2 IHC 2+ with ISH pending (expect HER2-equivocal flag)",
+   "histology": "BreastCancer",
+   "flags": "HER2 IHC 2+ (equivocal) - reflex ISH required before subtype assignment"
+  },
+  {
+   "patient_id": "PT0083",
+   "edge_case": "TTF-1/Napsin A double-negative adenocarcinoma (expect NSCLC-NOS)",
+   "histology": "IndeterminateDiagnosis",
+   "flags": "Tissue of origin not resolved (top Lung (thoracic) lineage 2.0, margin 1.5) - consider broader lineage IHC panel / clinical correlation"
+  },
+  {
+   "patient_id": "PT0111",
+   "edge_case": "HER2 IHC 2+ with ISH pending (expect HER2-equivocal flag)",
+   "histology": "BreastCancer",
+   "flags": "HER2 IHC 2+ (equivocal) - reflex ISH required before subtype assignment"
+  },
+  {
+   "patient_id": "PT0180",
+   "edge_case": "ER-/PR+ discordant phenotype (expect flag + retest)",
+   "histology": "BreastCancer",
+   "flags": "ER-negative / PR-positive: rare discordant phenotype - repeat ER/PR testing advised"
+  },
+  {
+   "patient_id": "PT0232",
+   "edge_case": "HER2 IHC 2+ with ISH pending (expect HER2-equivocal flag)",
+   "histology": "BreastCancer",
+   "flags": "HER2 IHC 2+ (equivocal) - reflex ISH required before subtype assignment"
+  },
+  {
+   "patient_id": "PT0311",
+   "edge_case": "TTF-1/Napsin A double-negative adenocarcinoma (expect NSCLC-NOS)",
+   "histology": "IndeterminateDiagnosis",
+   "flags": "Tissue of origin not resolved (top Lung (thoracic) lineage 2.0, margin 1.5) - consider broader lineage IHC panel / clinical correlation | No malignancy evidence, but required data absent (fga) - cannot exclude malignancy | Malignancy evidence equivocal (score 0.0) - histopathologic correlation required"
+  },
+  {
+   "patient_id": "PT0335",
+   "edge_case": "HER2 IHC 2+ with ISH pending (expect HER2-equivocal flag)",
+   "histology": "BreastCancer",
+   "flags": "HER2 IHC 2+ (equivocal) - reflex ISH required before subtype assignment"
+  },
+  {
+   "patient_id": "PT0340",
+   "edge_case": "HER2 IHC 2+ with ISH pending (expect HER2-equivocal flag)",
+   "histology": "BreastCancer",
+   "flags": "HER2 IHC 2+ (equivocal) - reflex ISH required before subtype assignment | AMACR: IHC Negative vs RNA High - discordant (IHC used) | CHGA: IHC Negative vs RNA High - discordant (IHC used)"
+  },
+  {
+   "patient_id": "PT0419",
+   "edge_case": "TTF-1/Napsin A double-negative adenocarcinoma (expect NSCLC-NOS)",
+   "histology": "IndeterminateDiagnosis",
+   "flags": "Tissue of origin not resolved (top Lung (thoracic) lineage 1.5, margin 1.0) - consider broader lineage IHC panel / clinical correlation"
+  },
+  {
+   "patient_id": "PT0438",
+   "edge_case": "TTF-1/Napsin A double-negative adenocarcinoma (expect NSCLC-NOS)",
+   "histology": "IndeterminateDiagnosis",
+   "flags": "Tissue of origin not resolved (top Lung (thoracic) lineage 2.0, margin 1.5) - consider broader lineage IHC panel / clinical correlation"
+  },
+  {
+   "patient_id": "PT0461",
+   "edge_case": "ER-/PR+ discordant phenotype (expect flag + retest)",
+   "histology": "BreastCancer",
+   "flags": "ER-negative / PR-positive: rare discordant phenotype - repeat ER/PR testing advised"
+  },
+  {
+   "patient_id": "PT0530",
+   "edge_case": "ER-/PR+ discordant phenotype (expect flag + retest)",
+   "histology": "TripleNegativeBreastCancer",
+   "flags": "Low tumour cellularity (16%): sensitivity for variants/CNAs reduced | PR status inferred from PGR RNA (IHC missing) - confirm by IHC | TNBC/ER-low: recommend germline BRCA1/2 testing (PARP inhibitor eligibility)"
+  },
+  {
+   "patient_id": "PT0592",
+   "edge_case": "TTF-1/Napsin A double-negative adenocarcinoma (expect NSCLC-NOS)",
+   "histology": "NonSmallCellLungCancer",
+   "flags": ""
+  }
+ ]
+}

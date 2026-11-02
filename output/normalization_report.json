@@ -1,0 +1,29 @@
+{
+ "purity_converted_from_percent": 367,
+ "ihc_stain_synonyms_mapped": 5443,
+ "ki67_fraction_converted": 192,
+ "receptor_percent_parsed": 636,
+ "allred_converted": 155,
+ "ihc_unmapped_stains": 0,
+ "vaf_scale_by_site": {
+  "SITE_A": "fraction",
+  "SITE_B": "percent",
+  "SITE_C": "percent"
+ },
+ "hgvs_3letter_converted": 238,
+ "hgvs_prefix_added": 222,
+ "variant_qc_PASS": 576,
+ "variant_qc_LOW_DEPTH": 37,
+ "variant_qc_LOW_VAF": 79,
+ "fusion_qc_LOW_SUPPORT": 7,
+ "fusion_qc_PASS": 70,
+ "cnv_metric_log2R": 1169,
+ "cnv_metric_CN": 1316,
+ "cn_not_called_low_purity": 168,
+ "cnv_metric_FC": 1260,
+ "serum_unit_converted": 368,
+ "rna_gene_ids_remapped": 14,
+ "status_from_rna_only": 3034,
+ "ihc_rna_discordance": 143,
+ "receptor_status_from_rna": 23
+}

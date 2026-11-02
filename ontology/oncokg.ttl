@@ -1,0 +1,3835 @@
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix okg: <http://example.org/oncokg#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://example.org/oncokg> a owl:Ontology ;
+    dcterms:created "2026-11-02"^^xsd:date ;
+    dcterms:title "OncoKG - Molecular Biomarker Ontology for Lung, Breast and Prostate Cancer Identification" ;
+    rdfs:comment "Research/educational knowledge model. Thresholds follow published guidelines where cited, but this is NOT a validated clinical decision tool." ;
+    owl:versionInfo "1.0.0" .
+
+okg:AGG_HRR_ANY a okg:CompositeBiomarker,
+        owl:NamedIndividual ;
+    rdfs:label "BRCA1/BRCA2/ATM/CDK12/PALB2 pathogenic variant" ;
+    okg:featureKey "alt.HRR_ANY" ;
+    skos:prefLabel "BRCA1/BRCA2/ATM/CDK12/PALB2 pathogenic variant" .
+
+okg:AGG_NTRK_ANY a okg:CompositeBiomarker,
+        owl:NamedIndividual ;
+    rdfs:label "any NTRK1/2/3 fusion" ;
+    okg:featureKey "alt.NTRK_ANY" ;
+    skos:prefLabel "any NTRK1/2/3 fusion" .
+
+okg:AGG_PTEN_ANY a okg:CompositeBiomarker,
+        owl:NamedIndividual ;
+    rdfs:label "PTEN pathogenic variant OR homozygous deletion" ;
+    okg:featureKey "alt.PTEN_ANY" ;
+    skos:prefLabel "PTEN pathogenic variant OR homozygous deletion" .
+
+okg:AGG_RB1_ANY a okg:CompositeBiomarker,
+        owl:NamedIndividual ;
+    rdfs:label "RB1 pathogenic variant OR homozygous deletion" ;
+    okg:featureKey "alt.RB1_ANY" ;
+    skos:prefLabel "RB1 pathogenic variant OR homozygous deletion" .
+
+okg:ALK_FISH_POS_PCT a okg:Parameter,
+        owl:NamedIndividual ;
+    rdfs:label "ALK_FISH_POS_PCT" ;
+    okg:clinicalNote ">=15% cells with split signals" ;
+    okg:hasGuideline okg:CAP_IASLC_AMP_2018 ;
+    okg:paramValue 15.0 ;
+    skos:prefLabel "ALK_FISH_POS_PCT" .
+
+okg:ALT_ALK_FUSION a okg:GeneFusionAlteration,
+        owl:NamedIndividual ;
+    rdfs:label "ALK fusion (any 5' partner)" ;
+    okg:featureKey "alt.ALK_FUSION" ;
+    okg:fusion3Prime "ALK" ;
+    okg:isDriver true ;
+    okg:matchGene "ALK" ;
+    skos:prefLabel "ALK fusion (any 5' partner)" .
+
+okg:ALT_ATM_PATHOGENIC a okg:SequenceVariantAlteration,
+        owl:NamedIndividual ;
+    rdfs:label "ATM pathogenic / likely pathogenic variant" ;
+    okg:featureKey "alt.ATM_PATHOGENIC" ;
+    okg:isDriver false ;
+    okg:matchGene "ATM" ;
+    okg:requiresPathogenic true ;
+    skos:prefLabel "ATM pathogenic / likely pathogenic variant" .
+
+okg:ALT_AURKA_AMP a okg:CopyNumberAlteration,
+        owl:NamedIndividual ;
+    rdfs:label "AURKA amplification" ;
+    okg:cnaType "amp" ;
+    okg:featureKey "alt.AURKA_AMP" ;
+    okg:isDriver true ;
+    okg:matchGene "AURKA" ;
+    skos:prefLabel "AURKA amplification" .
+
+okg:ALT_BRAF_V600E a okg:SequenceVariantAlteration,
+        owl:NamedIndividual ;
+    rdfs:label "BRAF V600E" ;
+    okg:featureKey "alt.BRAF_V600E" ;
+    okg:isDriver true ;
+    okg:matchGene "BRAF" ;
+    okg:matchProteinRegex "^p\\.V600E$" ;
+    okg:requiresPathogenic false ;
+    skos:prefLabel "BRAF V600E" .
+
+okg:ALT_BRCA1_PATHOGENIC a okg:SequenceVariantAlteration,
+        owl:NamedIndividual ;
+    rdfs:label "BRCA1 pathogenic / likely pathogenic variant" ;
+    okg:featureKey "alt.BRCA1_PATHOGENIC" ;
+    okg:isDriver false ;
+    okg:matchGene "BRCA1" ;
+    okg:requiresPathogenic true ;
+    skos:prefLabel "BRCA1 pathogenic / likely pathogenic variant" .
+
+okg:ALT_BRCA2_PATHOGENIC a okg:SequenceVariantAlteration,
+        owl:NamedIndividual ;
+    rdfs:label "BRCA2 pathogenic / likely pathogenic variant" ;
+    okg:featureKey "alt.BRCA2_PATHOGENIC" ;
+    okg:isDriver false ;
+    okg:matchGene "BRCA2" ;
+    okg:requiresPathogenic true ;
+    skos:prefLabel "BRCA2 pathogenic / likely pathogenic variant" .
+
+okg:ALT_CDK12_PATHOGENIC a okg:SequenceVariantAlteration,
+        owl:NamedIndividual ;
+    rdfs:label "CDK12 pathogenic / likely pathogenic variant" ;
+    okg:featureKey "alt.CDK12_PATHOGENIC" ;
+    okg:isDriver false ;
+    okg:matchGene "CDK12" ;
+    okg:requiresPathogenic true ;
+    skos:prefLabel "CDK12 pathogenic / likely pathogenic variant" .
+
+okg:ALT_EGFR_SENSITIZING a okg:SequenceVariantAlteration,
+        owl:NamedIndividual ;
+    rdfs:label "EGFR sensitizing mutation (L858R, exon19 del, G719X, L861Q, S768I)" ;
+    okg:featureKey "alt.EGFR_SENSITIZING" ;
+    okg:isDriver true ;
+    okg:matchGene "EGFR" ;
+    okg:matchProteinRegex "^p\\.(L858R|G719[ACSD]|L861Q|S768I)$",
+        "^p\\.[A-Z](74[5-9]|75[0-9])_[A-Z](74[5-9]|75[0-9])(del|delins[A-Z]+)$" ;
+    okg:requiresPathogenic false ;
+    skos:prefLabel "EGFR sensitizing mutation (L858R, exon19 del, G719X, L861Q, S768I)" .
+
+okg:ALT_EGFR_T790M a okg:SequenceVariantAlteration,
+        owl:NamedIndividual ;
+    rdfs:label "EGFR T790M" ;
+    okg:featureKey "alt.EGFR_T790M" ;
+    okg:isDriver false ;
+    okg:matchGene "EGFR" ;
+    okg:matchProteinRegex "^p\\.T790M$" ;
+    okg:requiresPathogenic false ;
+    skos:prefLabel "EGFR T790M" .
+
+okg:ALT_ERBB2_AMP a okg:CopyNumberAlteration,
+        owl:NamedIndividual ;
+    rdfs:label "ERBB2 amplification" ;
+    okg:cnaType "amp" ;
+    okg:featureKey "alt.ERBB2_AMP" ;
+    okg:isDriver true ;
+    okg:matchGene "ERBB2" ;
+    skos:prefLabel "ERBB2 amplification" .
+
+okg:ALT_ESR1_LBD a okg:SequenceVariantAlteration,
+        owl:NamedIndividual ;
+    rdfs:label "ESR1 ligand-binding-domain mutation" ;
+    okg:featureKey "alt.ESR1_LBD" ;
+    okg:isDriver false ;
+    okg:matchGene "ESR1" ;
+    okg:matchProteinRegex "^p\\.(Y537[SNC]|D538G|E380Q)$" ;
+    okg:requiresPathogenic false ;
+    skos:prefLabel "ESR1 ligand-binding-domain mutation" .
+
+okg:ALT_KEAP1_PATHOGENIC a okg:SequenceVariantAlteration,
+        owl:NamedIndividual ;
+    rdfs:label "KEAP1 pathogenic / likely pathogenic variant" ;
+    okg:featureKey "alt.KEAP1_PATHOGENIC" ;
+    okg:isDriver false ;
+    okg:matchGene "KEAP1" ;
+    okg:requiresPathogenic true ;
+    skos:prefLabel "KEAP1 pathogenic / likely pathogenic variant" .
+
+okg:ALT_KRAS_G12C a okg:SequenceVariantAlteration,
+        owl:NamedIndividual ;
+    rdfs:label "KRAS G12C" ;
+    okg:featureKey "alt.KRAS_G12C" ;
+    okg:isDriver true ;
+    okg:matchGene "KRAS" ;
+    okg:matchProteinRegex "^p\\.G12C$" ;
+    okg:requiresPathogenic false ;
+    skos:prefLabel "KRAS G12C" .
+
+okg:ALT_KRAS_OTHER a okg:SequenceVariantAlteration,
+        owl:NamedIndividual ;
+    rdfs:label "KRAS non-G12C hotspot" ;
+    okg:featureKey "alt.KRAS_OTHER" ;
+    okg:isDriver true ;
+    okg:matchGene "KRAS" ;
+    okg:matchProteinRegex "^p\\.(G12[ADRSV]|G13[CD]|Q61[HLKR])$" ;
+    okg:requiresPathogenic false ;
+    skos:prefLabel "KRAS non-G12C hotspot" .
+
+okg:ALT_MET_EX14 a okg:SequenceVariantAlteration,
+        owl:NamedIndividual ;
+    rdfs:label "MET exon 14 skipping" ;
+    okg:featureKey "alt.MET_EX14" ;
+    okg:isDriver true ;
+    okg:matchCdnaRegex "^c\\.(3028|3082)\\+[1-3]" ;
+    okg:matchGene "MET" ;
+    okg:matchProteinRegex "^exon14skip$" ;
+    okg:requiresPathogenic false ;
+    skos:prefLabel "MET exon 14 skipping" .
+
+okg:ALT_MYCN_AMP a okg:CopyNumberAlteration,
+        owl:NamedIndividual ;
+    rdfs:label "MYCN amplification" ;
+    okg:cnaType "amp" ;
+    okg:featureKey "alt.MYCN_AMP" ;
+    okg:isDriver true ;
+    okg:matchGene "MYCN" ;
+    skos:prefLabel "MYCN amplification" .
+
+okg:ALT_NTRK1_FUSION a okg:GeneFusionAlteration,
+        owl:NamedIndividual ;
+    rdfs:label "NTRK1 fusion" ;
+    okg:featureKey "alt.NTRK1_FUSION" ;
+    okg:fusion3Prime "NTRK1" ;
+    okg:isDriver true ;
+    okg:matchGene "NTRK1" ;
+    skos:prefLabel "NTRK1 fusion" .
+
+okg:ALT_NTRK2_FUSION a okg:GeneFusionAlteration,
+        owl:NamedIndividual ;
+    rdfs:label "NTRK2 fusion" ;
+    okg:featureKey "alt.NTRK2_FUSION" ;
+    okg:fusion3Prime "NTRK2" ;
+    okg:isDriver true ;
+    okg:matchGene "NTRK2" ;
+    skos:prefLabel "NTRK2 fusion" .
+
+okg:ALT_NTRK3_FUSION a okg:GeneFusionAlteration,
+        owl:NamedIndividual ;
+    rdfs:label "NTRK3 fusion" ;
+    okg:featureKey "alt.NTRK3_FUSION" ;
+    okg:fusion3Prime "NTRK3" ;
+    okg:isDriver true ;
+    okg:matchGene "NTRK3" ;
+    skos:prefLabel "NTRK3 fusion" .
+
+okg:ALT_PALB2_PATHOGENIC a okg:SequenceVariantAlteration,
+        owl:NamedIndividual ;
+    rdfs:label "PALB2 pathogenic / likely pathogenic variant" ;
+    okg:featureKey "alt.PALB2_PATHOGENIC" ;
+    okg:isDriver false ;
+    okg:matchGene "PALB2" ;
+    okg:requiresPathogenic true ;
+    skos:prefLabel "PALB2 pathogenic / likely pathogenic variant" .
+
+okg:ALT_PIK3CA_HOTSPOT a okg:SequenceVariantAlteration,
+        owl:NamedIndividual ;
+    rdfs:label "PIK3CA hotspot (H1047R/L, E545K, E542K)" ;
+    okg:featureKey "alt.PIK3CA_HOTSPOT" ;
+    okg:isDriver true ;
+    okg:matchGene "PIK3CA" ;
+    okg:matchProteinRegex "^p\\.(H1047[RL]|E545K|E542K)$" ;
+    okg:requiresPathogenic false ;
+    skos:prefLabel "PIK3CA hotspot (H1047R/L, E545K, E542K)" .
+
+okg:ALT_PTEN_HOMDEL a okg:CopyNumberAlteration,
+        owl:NamedIndividual ;
+    rdfs:label "PTEN homozygous deletion" ;
+    okg:cnaType "homdel" ;
+    okg:featureKey "alt.PTEN_HOMDEL" ;
+    okg:isDriver true ;
+    okg:matchGene "PTEN" ;
+    skos:prefLabel "PTEN homozygous deletion" .
+
+okg:ALT_PTEN_TRUNC a okg:SequenceVariantAlteration,
+        owl:NamedIndividual ;
+    rdfs:label "PTEN pathogenic variant" ;
+    okg:featureKey "alt.PTEN_TRUNC" ;
+    okg:isDriver true ;
+    okg:matchGene "PTEN" ;
+    okg:requiresPathogenic true ;
+    skos:prefLabel "PTEN pathogenic variant" .
+
+okg:ALT_RB1_HOMDEL a okg:CopyNumberAlteration,
+        owl:NamedIndividual ;
+    rdfs:label "RB1 homozygous deletion" ;
+    okg:cnaType "homdel" ;
+    okg:featureKey "alt.RB1_HOMDEL" ;
+    okg:isDriver true ;
+    okg:matchGene "RB1" ;
+    skos:prefLabel "RB1 homozygous deletion" .
+
+okg:ALT_RB1_TRUNC a okg:SequenceVariantAlteration,
+        owl:NamedIndividual ;
+    rdfs:label "RB1 pathogenic variant" ;
+    okg:featureKey "alt.RB1_TRUNC" ;
+    okg:isDriver true ;
+    okg:matchGene "RB1" ;
+    okg:requiresPathogenic true ;
+    skos:prefLabel "RB1 pathogenic variant" .
+
+okg:ALT_RET_FUSION a okg:GeneFusionAlteration,
+        owl:NamedIndividual ;
+    rdfs:label "RET fusion" ;
+    okg:featureKey "alt.RET_FUSION" ;
+    okg:fusion3Prime "RET" ;
+    okg:isDriver true ;
+    okg:matchGene "RET" ;
+    skos:prefLabel "RET fusion" .
+
+okg:ALT_ROS1_FUSION a okg:GeneFusionAlteration,
+        owl:NamedIndividual ;
+    rdfs:label "ROS1 fusion" ;
+    okg:featureKey "alt.ROS1_FUSION" ;
+    okg:fusion3Prime "ROS1" ;
+    okg:isDriver true ;
+    okg:matchGene "ROS1" ;
+    skos:prefLabel "ROS1 fusion" .
+
+okg:ALT_SPOP_MUT a okg:SequenceVariantAlteration,
+        owl:NamedIndividual ;
+    rdfs:label "SPOP MATH-domain mutation" ;
+    okg:featureKey "alt.SPOP_MUT" ;
+    okg:isDriver true ;
+    okg:matchGene "SPOP" ;
+    okg:matchProteinRegex "^p\\.(F133[VLC]|W131[GC]|Y87[CN]|F102C)$" ;
+    okg:requiresPathogenic false ;
+    skos:prefLabel "SPOP MATH-domain mutation" .
+
+okg:ALT_STK11_PATHOGENIC a okg:SequenceVariantAlteration,
+        owl:NamedIndividual ;
+    rdfs:label "STK11 pathogenic / likely pathogenic variant" ;
+    okg:featureKey "alt.STK11_PATHOGENIC" ;
+    okg:isDriver false ;
+    okg:matchGene "STK11" ;
+    okg:requiresPathogenic true ;
+    skos:prefLabel "STK11 pathogenic / likely pathogenic variant" .
+
+okg:ALT_TMPRSS2_ERG a okg:GeneFusionAlteration,
+        owl:NamedIndividual ;
+    rdfs:label "TMPRSS2::ERG fusion" ;
+    okg:featureKey "alt.TMPRSS2_ERG" ;
+    okg:fusion3Prime "ERG" ;
+    okg:fusion5Prime "TMPRSS2" ;
+    okg:isDriver true ;
+    okg:matchGene "ERG" ;
+    skos:prefLabel "TMPRSS2::ERG fusion" .
+
+okg:ALT_TP53_PATHOGENIC a okg:SequenceVariantAlteration,
+        owl:NamedIndividual ;
+    rdfs:label "TP53 pathogenic / likely pathogenic variant" ;
+    okg:featureKey "alt.TP53_PATHOGENIC" ;
+    okg:isDriver true ;
+    okg:matchGene "TP53" ;
+    okg:requiresPathogenic true ;
+    skos:prefLabel "TP53 pathogenic / likely pathogenic variant" .
+
+okg:AR_POS_MIN_PCT a okg:Parameter,
+        owl:NamedIndividual ;
+    rdfs:label "AR_POS_MIN_PCT" ;
+    okg:clinicalNote "AR IHC >=10% used for LAR-like TNBC" ;
+    okg:hasGuideline okg:LEHMANN_TNBC ;
+    okg:paramValue 10.0 ;
+    skos:prefLabel "AR_POS_MIN_PCT" .
+
+okg:BENIGN_MAX_SCORE a okg:Parameter,
+        owl:NamedIndividual ;
+    rdfs:label "BENIGN_MAX_SCORE" ;
+    okg:clinicalNote "score <= this (and genomic profiling done): no malignancy detected" ;
+    okg:hasGuideline okg:SYNTHETIC_DESIGN ;
+    okg:paramValue 0.5 ;
+    skos:prefLabel "BENIGN_MAX_SCORE" .
+
+okg:BM_ALK a okg:ProteinExpressionBiomarker,
+        owl:NamedIndividual ;
+    rdfs:label "ALK protein" ;
+    okg:clinicalNote "role: fusion-surrogate" ;
+    okg:encodedBy okg:Gene_ALK ;
+    okg:featureKey "status.ALK" ;
+    okg:hgncSymbol "ALK" ;
+    okg:ihcName "ALK",
+        "ALK (D5F3)",
+        "ALK D5F3" ;
+    skos:altLabel "ALK",
+        "ALK (D5F3)",
+        "ALK D5F3" ;
+    skos:prefLabel "ALK protein" .
+
+okg:BM_AMACR a okg:ProteinExpressionBiomarker,
+        owl:NamedIndividual ;
+    rdfs:label "AMACR (P504S)" ;
+    okg:clinicalNote "role: malignancy" ;
+    okg:encodedBy okg:Gene_AMACR ;
+    okg:featureKey "status.AMACR" ;
+    okg:hasLineageEvidence okg:LE_AMACR_ProstateLineage ;
+    okg:hgncSymbol "AMACR" ;
+    okg:ihcName "AMACR",
+        "P504S" ;
+    skos:altLabel "AMACR",
+        "P504S" ;
+    skos:prefLabel "AMACR (P504S)" .
+
+okg:BM_AR a okg:ProteinExpressionBiomarker,
+        owl:NamedIndividual ;
+    rdfs:label "Androgen receptor" ;
+    okg:clinicalNote "role: receptor" ;
+    okg:encodedBy okg:Gene_AR ;
+    okg:featureKey "status.AR" ;
+    okg:hasLineageEvidence okg:LE_AR_ProstateLineage ;
+    okg:hgncSymbol "AR" ;
+    okg:ihcName "AR",
+        "Androgen receptor" ;
+    skos:altLabel "AR",
+        "Androgen receptor" ;
+    skos:prefLabel "Androgen receptor" .
+
+okg:BM_ASCL1 a okg:ProteinExpressionBiomarker,
+        owl:NamedIndividual ;
+    rdfs:label "ASCL1" ;
+    okg:clinicalNote "role: neuroendocrine" ;
+    okg:encodedBy okg:Gene_ASCL1 ;
+    okg:featureKey "status.ASCL1" ;
+    okg:hgncSymbol "ASCL1" ;
+    skos:prefLabel "ASCL1" .
+
+okg:BM_BIRC5 a okg:ProteinExpressionBiomarker,
+        owl:NamedIndividual ;
+    rdfs:label "Survivin (BIRC5)" ;
+    okg:clinicalNote "role: proliferation" ;
+    okg:encodedBy okg:Gene_BIRC5 ;
+    okg:featureKey "status.BIRC5" ;
+    okg:hgncSymbol "BIRC5" ;
+    skos:prefLabel "Survivin (BIRC5)" .
+
+okg:BM_CCNB1 a okg:ProteinExpressionBiomarker,
+        owl:NamedIndividual ;
+    rdfs:label "Cyclin B1" ;
+    okg:clinicalNote "role: proliferation" ;
+    okg:encodedBy okg:Gene_CCNB1 ;
+    okg:featureKey "status.CCNB1" ;
+    okg:hgncSymbol "CCNB1" ;
+    skos:prefLabel "Cyclin B1" .
+
+okg:BM_CD274 a okg:ProteinExpressionBiomarker,
+        owl:NamedIndividual ;
+    rdfs:label "PD-L1 (CD274)" ;
+    okg:clinicalNote "role: immune" ;
+    okg:encodedBy okg:Gene_CD274 ;
+    okg:featureKey "status.CD274" ;
+    okg:hgncSymbol "CD274" ;
+    okg:ihcName "CD274",
+        "PD-L1",
+        "PD-L1 (22C3)",
+        "PDL1" ;
+    skos:altLabel "CD274",
+        "PD-L1",
+        "PD-L1 (22C3)",
+        "PDL1" ;
+    skos:prefLabel "PD-L1 (CD274)" .
+
+okg:BM_CHGA a okg:ProteinExpressionBiomarker,
+        owl:NamedIndividual ;
+    rdfs:label "Chromogranin A" ;
+    okg:clinicalNote "role: neuroendocrine" ;
+    okg:encodedBy okg:Gene_CHGA ;
+    okg:featureKey "status.CHGA" ;
+    okg:hgncSymbol "CHGA" ;
+    okg:ihcName "CHGA",
+        "CgA",
+        "Chromogranin A" ;
+    skos:altLabel "CHGA",
+        "CgA",
+        "Chromogranin A" ;
+    skos:prefLabel "Chromogranin A" .
+
+okg:BM_ERBB2 a okg:ProteinExpressionBiomarker,
+        owl:NamedIndividual ;
+    rdfs:label "HER2 (ERBB2)" ;
+    okg:clinicalNote "role: receptor" ;
+    okg:encodedBy okg:Gene_ERBB2 ;
+    okg:featureKey "status.ERBB2" ;
+    okg:hgncSymbol "ERBB2" ;
+    okg:ihcName "ERBB2",
+        "HER-2/neu",
+        "HER2",
+        "c-erbB-2" ;
+    skos:altLabel "ERBB2",
+        "HER-2/neu",
+        "HER2",
+        "c-erbB-2" ;
+    skos:prefLabel "HER2 (ERBB2)" .
+
+okg:BM_ERG a okg:ProteinExpressionBiomarker,
+        owl:NamedIndividual ;
+    rdfs:label "ERG" ;
+    okg:clinicalNote "role: fusion-surrogate" ;
+    okg:encodedBy okg:Gene_ERG ;
+    okg:featureKey "status.ERG" ;
+    okg:hgncSymbol "ERG" ;
+    okg:ihcName "ERG" ;
+    skos:altLabel "ERG" ;
+    skos:prefLabel "ERG" .
+
+okg:BM_ESR1 a okg:ProteinExpressionBiomarker,
+        owl:NamedIndividual ;
+    rdfs:label "Estrogen receptor (ESR1)" ;
+    okg:clinicalNote "role: receptor" ;
+    okg:encodedBy okg:Gene_ESR1 ;
+    okg:featureKey "status.ESR1" ;
+    okg:hasLineageEvidence okg:LE_ESR1_BreastLineage ;
+    okg:hgncSymbol "ESR1" ;
+    okg:ihcName "ER",
+        "ER-alpha",
+        "ESR1",
+        "Estrogen receptor" ;
+    skos:altLabel "ER",
+        "ER-alpha",
+        "ESR1",
+        "Estrogen receptor" ;
+    skos:prefLabel "Estrogen receptor (ESR1)" .
+
+okg:BM_FOLH1 a okg:ProteinExpressionBiomarker,
+        owl:NamedIndividual ;
+    rdfs:label "PSMA (FOLH1)" ;
+    okg:clinicalNote "role: lineage" ;
+    okg:encodedBy okg:Gene_FOLH1 ;
+    okg:featureKey "status.FOLH1" ;
+    okg:hasLineageEvidence okg:LE_FOLH1_ProstateLineage ;
+    okg:hgncSymbol "FOLH1" ;
+    okg:ihcName "FOLH1",
+        "PSMA" ;
+    skos:altLabel "FOLH1",
+        "PSMA" ;
+    skos:prefLabel "PSMA (FOLH1)" .
+
+okg:BM_GATA3 a okg:ProteinExpressionBiomarker,
+        owl:NamedIndividual ;
+    rdfs:label "GATA3" ;
+    okg:clinicalNote "role: lineage" ;
+    okg:encodedBy okg:Gene_GATA3 ;
+    okg:featureKey "status.GATA3" ;
+    okg:hasLineageEvidence okg:LE_GATA3_BreastLineage ;
+    okg:hgncSymbol "GATA3" ;
+    okg:ihcName "GATA-3",
+        "GATA3" ;
+    skos:altLabel "GATA-3",
+        "GATA3" ;
+    skos:prefLabel "GATA3" .
+
+okg:BM_HOXB13 a okg:ProteinExpressionBiomarker,
+        owl:NamedIndividual ;
+    rdfs:label "HOXB13" ;
+    okg:clinicalNote "role: lineage" ;
+    okg:encodedBy okg:Gene_HOXB13 ;
+    okg:featureKey "status.HOXB13" ;
+    okg:hasLineageEvidence okg:LE_HOXB13_ProstateLineage ;
+    okg:hgncSymbol "HOXB13" ;
+    okg:ihcName "HOXB13" ;
+    skos:altLabel "HOXB13" ;
+    skos:prefLabel "HOXB13" .
+
+okg:BM_INSM1 a okg:ProteinExpressionBiomarker,
+        owl:NamedIndividual ;
+    rdfs:label "INSM1" ;
+    okg:clinicalNote "role: neuroendocrine" ;
+    okg:encodedBy okg:Gene_INSM1 ;
+    okg:featureKey "status.INSM1" ;
+    okg:hgncSymbol "INSM1" ;
+    okg:ihcName "INSM1" ;
+    skos:altLabel "INSM1" ;
+    skos:prefLabel "INSM1" .
+
+okg:BM_KLK3 a okg:ProteinExpressionBiomarker,
+        owl:NamedIndividual ;
+    rdfs:label "PSA (KLK3)" ;
+    okg:clinicalNote "role: lineage" ;
+    okg:encodedBy okg:Gene_KLK3 ;
+    okg:featureKey "status.KLK3" ;
+    okg:hasLineageEvidence okg:LE_KLK3_ProstateLineage ;
+    okg:hgncSymbol "KLK3" ;
+    okg:ihcName "KLK3",
+        "PSA",
+        "Prostate specific antigen" ;
+    skos:altLabel "KLK3",
+        "PSA",
+        "Prostate specific antigen" ;
+    skos:prefLabel "PSA (KLK3)" .
+
+okg:BM_KRT5 a okg:ProteinExpressionBiomarker,
+        owl:NamedIndividual ;
+    rdfs:label "Cytokeratin 5" ;
+    okg:clinicalNote "role: squamous" ;
+    okg:encodedBy okg:Gene_KRT5 ;
+    okg:featureKey "status.KRT5" ;
+    okg:hasLineageEvidence okg:LE_KRT5_LungLineage ;
+    okg:hgncSymbol "KRT5" ;
+    okg:ihcName "CK5/6",
+        "KRT5" ;
+    skos:altLabel "CK5/6",
+        "KRT5" ;
+    skos:prefLabel "Cytokeratin 5" .
+
+okg:BM_MKI67 a okg:ProteinExpressionBiomarker,
+        owl:NamedIndividual ;
+    rdfs:label "Ki-67 (MKI67)" ;
+    okg:clinicalNote "role: proliferation" ;
+    okg:encodedBy okg:Gene_MKI67 ;
+    okg:featureKey "status.MKI67" ;
+    okg:hgncSymbol "MKI67" ;
+    okg:ihcName "Ki-67",
+        "Ki67",
+        "MIB-1",
+        "MKI67" ;
+    skos:altLabel "Ki-67",
+        "Ki67",
+        "MIB-1",
+        "MKI67" ;
+    skos:prefLabel "Ki-67 (MKI67)" .
+
+okg:BM_NAPSA a okg:ProteinExpressionBiomarker,
+        owl:NamedIndividual ;
+    rdfs:label "Napsin A" ;
+    okg:clinicalNote "role: lineage" ;
+    okg:encodedBy okg:Gene_NAPSA ;
+    okg:featureKey "status.NAPSA" ;
+    okg:hasLineageEvidence okg:LE_NAPSA_LungLineage ;
+    okg:hgncSymbol "NAPSA" ;
+    okg:ihcName "NAPSA",
+        "Napsin A",
+        "napsin-a" ;
+    skos:altLabel "NAPSA",
+        "Napsin A",
+        "napsin-a" ;
+    skos:prefLabel "Napsin A" .
+
+okg:BM_NKX2_1 a okg:ProteinExpressionBiomarker,
+        owl:NamedIndividual ;
+    rdfs:label "TTF-1 (NKX2-1)" ;
+    okg:clinicalNote "role: lineage" ;
+    okg:encodedBy okg:Gene_NKX2_1 ;
+    okg:featureKey "status.NKX2-1" ;
+    okg:hasLineageEvidence okg:LE_NKX2_1_LungLineage ;
+    okg:hgncSymbol "NKX2-1" ;
+    okg:ihcName "NKX2-1",
+        "TTF-1",
+        "TTF1",
+        "Thyroid transcription factor 1" ;
+    skos:altLabel "NKX2-1",
+        "TTF-1",
+        "TTF1",
+        "Thyroid transcription factor 1" ;
+    skos:prefLabel "TTF-1 (NKX2-1)" .
+
+okg:BM_NKX3_1 a okg:ProteinExpressionBiomarker,
+        owl:NamedIndividual ;
+    rdfs:label "NKX3.1" ;
+    okg:clinicalNote "role: lineage" ;
+    okg:encodedBy okg:Gene_NKX3_1 ;
+    okg:featureKey "status.NKX3-1" ;
+    okg:hasLineageEvidence okg:LE_NKX3_1_ProstateLineage ;
+    okg:hgncSymbol "NKX3-1" ;
+    okg:ihcName "NKX3-1",
+        "NKX3.1" ;
+    skos:altLabel "NKX3-1",
+        "NKX3.1" ;
+    skos:prefLabel "NKX3.1" .
+
+okg:BM_PGR a okg:ProteinExpressionBiomarker,
+        owl:NamedIndividual ;
+    rdfs:label "Progesterone receptor (PGR)" ;
+    okg:clinicalNote "role: receptor" ;
+    okg:encodedBy okg:Gene_PGR ;
+    okg:featureKey "status.PGR" ;
+    okg:hasLineageEvidence okg:LE_PGR_BreastLineage ;
+    okg:hgncSymbol "PGR" ;
+    okg:ihcName "PGR",
+        "PR",
+        "PgR",
+        "Progesterone receptor" ;
+    skos:altLabel "PGR",
+        "PR",
+        "PgR",
+        "Progesterone receptor" ;
+    skos:prefLabel "Progesterone receptor (PGR)" .
+
+okg:BM_SCGB2A2 a okg:ProteinExpressionBiomarker,
+        owl:NamedIndividual ;
+    rdfs:label "Mammaglobin (SCGB2A2)" ;
+    okg:clinicalNote "role: lineage" ;
+    okg:encodedBy okg:Gene_SCGB2A2 ;
+    okg:featureKey "status.SCGB2A2" ;
+    okg:hasLineageEvidence okg:LE_SCGB2A2_BreastLineage ;
+    okg:hgncSymbol "SCGB2A2" ;
+    okg:ihcName "MGB1",
+        "Mammaglobin",
+        "SCGB2A2" ;
+    skos:altLabel "MGB1",
+        "Mammaglobin",
+        "SCGB2A2" ;
+    skos:prefLabel "Mammaglobin (SCGB2A2)" .
+
+okg:BM_SFTPC a okg:ProteinExpressionBiomarker,
+        owl:NamedIndividual ;
+    rdfs:label "Surfactant protein C" ;
+    okg:clinicalNote "role: lineage" ;
+    okg:encodedBy okg:Gene_SFTPC ;
+    okg:featureKey "status.SFTPC" ;
+    okg:hasLineageEvidence okg:LE_SFTPC_LungLineage ;
+    okg:hgncSymbol "SFTPC" ;
+    skos:prefLabel "Surfactant protein C" .
+
+okg:BM_SOX2 a okg:ProteinExpressionBiomarker,
+        owl:NamedIndividual ;
+    rdfs:label "SOX2" ;
+    okg:clinicalNote "role: squamous" ;
+    okg:encodedBy okg:Gene_SOX2 ;
+    okg:featureKey "status.SOX2" ;
+    okg:hasLineageEvidence okg:LE_SOX2_LungLineage ;
+    okg:hgncSymbol "SOX2" ;
+    okg:ihcName "SOX2" ;
+    skos:altLabel "SOX2" ;
+    skos:prefLabel "SOX2" .
+
+okg:BM_SYP a okg:ProteinExpressionBiomarker,
+        owl:NamedIndividual ;
+    rdfs:label "Synaptophysin" ;
+    okg:clinicalNote "role: neuroendocrine" ;
+    okg:encodedBy okg:Gene_SYP ;
+    okg:featureKey "status.SYP" ;
+    okg:hgncSymbol "SYP" ;
+    okg:ihcName "SYP",
+        "Synaptophysin" ;
+    skos:altLabel "SYP",
+        "Synaptophysin" ;
+    skos:prefLabel "Synaptophysin" .
+
+okg:BM_TOP2A a okg:ProteinExpressionBiomarker,
+        owl:NamedIndividual ;
+    rdfs:label "TOP2A" ;
+    okg:clinicalNote "role: proliferation" ;
+    okg:encodedBy okg:Gene_TOP2A ;
+    okg:featureKey "status.TOP2A" ;
+    okg:hgncSymbol "TOP2A" ;
+    skos:prefLabel "TOP2A" .
+
+okg:BM_TP63 a okg:ProteinExpressionBiomarker,
+        owl:NamedIndividual ;
+    rdfs:label "p40 / p63 (TP63)" ;
+    okg:clinicalNote "role: squamous" ;
+    okg:encodedBy okg:Gene_TP63 ;
+    okg:featureKey "status.TP63" ;
+    okg:hasLineageEvidence okg:LE_TP63_LungLineage ;
+    okg:hgncSymbol "TP63" ;
+    okg:ihcName "TP63",
+        "dNp63",
+        "deltaNp63",
+        "p40" ;
+    skos:altLabel "TP63",
+        "dNp63",
+        "deltaNp63",
+        "p40" ;
+    skos:prefLabel "p40 / p63 (TP63)" .
+
+okg:BM_TRPS1 a okg:ProteinExpressionBiomarker,
+        owl:NamedIndividual ;
+    rdfs:label "TRPS1" ;
+    okg:clinicalNote "role: lineage" ;
+    okg:encodedBy okg:Gene_TRPS1 ;
+    okg:featureKey "status.TRPS1" ;
+    okg:hasLineageEvidence okg:LE_TRPS1_BreastLineage ;
+    okg:hgncSymbol "TRPS1" ;
+    okg:ihcName "TRPS1" ;
+    skos:altLabel "TRPS1" ;
+    skos:prefLabel "TRPS1" .
+
+okg:CB_ALK_rearranged a okg:CompositeBiomarker,
+        owl:NamedIndividual ;
+    rdfs:label "ALK rearrangement (NGS fusion, FISH >=15% or D5F3 IHC)" ;
+    okg:featureKey "ALK_rearranged" ;
+    okg:hasGuideline okg:CAP_IASLC_AMP_2018 ;
+    skos:prefLabel "ALK rearrangement (NGS fusion, FISH >=15% or D5F3 IHC)" .
+
+okg:CB_ER_status a okg:CompositeBiomarker,
+        owl:NamedIndividual ;
+    rdfs:label "ER status (negative / low / positive)" ;
+    okg:featureKey "ER_status" ;
+    okg:hasGuideline okg:ASCO_CAP_ER_PR_2020 ;
+    skos:prefLabel "ER status (negative / low / positive)" .
+
+okg:CB_HER2_status a okg:CompositeBiomarker,
+        owl:NamedIndividual ;
+    rdfs:label "HER2 status (IHC + ISH, ASCO/CAP; NCCN null/ultralow/low)" ;
+    okg:featureKey "HER2_status" ;
+    okg:hasGuideline okg:ASCO_CAP_HER2_2018 ;
+    skos:prefLabel "HER2 status (IHC + ISH, ASCO/CAP; NCCN null/ultralow/low)" .
+
+okg:CB_NE_count a okg:CompositeBiomarker,
+        owl:NamedIndividual ;
+    rdfs:label "Number of positive neuroendocrine markers (SYP, CHGA, INSM1, ASCL1)" ;
+    okg:featureKey "NE_count" ;
+    okg:hasGuideline okg:WHO_THORACIC_2021 ;
+    skos:prefLabel "Number of positive neuroendocrine markers (SYP, CHGA, INSM1, ASCL1)" .
+
+okg:CB_PDL1_status a okg:CompositeBiomarker,
+        owl:NamedIndividual ;
+    rdfs:label "PD-L1 tumor proportion score category" ;
+    okg:featureKey "PDL1_status" ;
+    okg:hasGuideline okg:CAP_IASLC_AMP_2018 ;
+    skos:prefLabel "PD-L1 tumor proportion score category" .
+
+okg:CB_PR_status a okg:CompositeBiomarker,
+        owl:NamedIndividual ;
+    rdfs:label "PR status" ;
+    okg:featureKey "PR_status" ;
+    okg:hasGuideline okg:ASCO_CAP_ER_PR_2020 ;
+    skos:prefLabel "PR status" .
+
+okg:CB_prolif_high a okg:CompositeBiomarker,
+        owl:NamedIndividual ;
+    rdfs:label "Proliferation RNA score high" ;
+    okg:featureKey "prolif_high" ;
+    okg:hasGuideline okg:SYNTHETIC_DESIGN ;
+    skos:prefLabel "Proliferation RNA score high" .
+
+okg:CN_AMP_MIN a okg:Parameter,
+        owl:NamedIndividual ;
+    rdfs:label "CN_AMP_MIN" ;
+    okg:clinicalNote "purity-adjusted copy number for amplification" ;
+    okg:hasGuideline okg:SYNTHETIC_DESIGN ;
+    okg:paramValue 6.0 ;
+    skos:prefLabel "CN_AMP_MIN" .
+
+okg:CN_HOMDEL_MAX a okg:Parameter,
+        owl:NamedIndividual ;
+    rdfs:label "CN_HOMDEL_MAX" ;
+    okg:clinicalNote "purity-adjusted copy number for homozygous deletion" ;
+    okg:hasGuideline okg:SYNTHETIC_DESIGN ;
+    okg:paramValue 0.5 ;
+    skos:prefLabel "CN_HOMDEL_MAX" .
+
+okg:Conv_CA15_3_U_per_mL a okg:UnitConversion,
+        owl:NamedIndividual ;
+    rdfs:label "CA15_3: U/mL -> U/mL" ;
+    okg:analyteKey "CA15_3" ;
+    okg:conversionFactor 1.0 ;
+    okg:fromUnit okg:U_per_mL ;
+    okg:toUnit okg:U_per_mL ;
+    skos:prefLabel "CA15_3: U/mL -> U/mL" .
+
+okg:Conv_CA15_3_kU_per_L a okg:UnitConversion,
+        owl:NamedIndividual ;
+    rdfs:label "CA15_3: kU/L -> U/mL" ;
+    okg:analyteKey "CA15_3" ;
+    okg:conversionFactor 1.0 ;
+    okg:fromUnit okg:kU_per_L ;
+    okg:toUnit okg:U_per_mL ;
+    skos:prefLabel "CA15_3: kU/L -> U/mL" .
+
+okg:Conv_CEA_ng_per_mL a okg:UnitConversion,
+        owl:NamedIndividual ;
+    rdfs:label "CEA: ng/mL -> ng/mL" ;
+    okg:analyteKey "CEA" ;
+    okg:conversionFactor 1.0 ;
+    okg:fromUnit okg:ng_per_mL ;
+    okg:toUnit okg:ng_per_mL ;
+    skos:prefLabel "CEA: ng/mL -> ng/mL" .
+
+okg:Conv_CEA_ug_per_L a okg:UnitConversion,
+        owl:NamedIndividual ;
+    rdfs:label "CEA: ug/L -> ng/mL" ;
+    okg:analyteKey "CEA" ;
+    okg:conversionFactor 1.0 ;
+    okg:fromUnit okg:ug_per_L ;
+    okg:toUnit okg:ng_per_mL ;
+    skos:prefLabel "CEA: ug/L -> ng/mL" .
+
+okg:Conv_CYFRA21_1_ng_per_mL a okg:UnitConversion,
+        owl:NamedIndividual ;
+    rdfs:label "CYFRA21_1: ng/mL -> ng/mL" ;
+    okg:analyteKey "CYFRA21_1" ;
+    okg:conversionFactor 1.0 ;
+    okg:fromUnit okg:ng_per_mL ;
+    okg:toUnit okg:ng_per_mL ;
+    skos:prefLabel "CYFRA21_1: ng/mL -> ng/mL" .
+
+okg:Conv_CYFRA21_1_ug_per_L a okg:UnitConversion,
+        owl:NamedIndividual ;
+    rdfs:label "CYFRA21_1: ug/L -> ng/mL" ;
+    okg:analyteKey "CYFRA21_1" ;
+    okg:conversionFactor 1.0 ;
+    okg:fromUnit okg:ug_per_L ;
+    okg:toUnit okg:ng_per_mL ;
+    skos:prefLabel "CYFRA21_1: ug/L -> ng/mL" .
+
+okg:Conv_NSE_ng_per_mL a okg:UnitConversion,
+        owl:NamedIndividual ;
+    rdfs:label "NSE: ng/mL -> ng/mL" ;
+    okg:analyteKey "NSE" ;
+    okg:conversionFactor 1.0 ;
+    okg:fromUnit okg:ng_per_mL ;
+    okg:toUnit okg:ng_per_mL ;
+    skos:prefLabel "NSE: ng/mL -> ng/mL" .
+
+okg:Conv_NSE_ug_per_L a okg:UnitConversion,
+        owl:NamedIndividual ;
+    rdfs:label "NSE: ug/L -> ng/mL" ;
+    okg:analyteKey "NSE" ;
+    okg:conversionFactor 1.0 ;
+    okg:fromUnit okg:ug_per_L ;
+    okg:toUnit okg:ng_per_mL ;
+    skos:prefLabel "NSE: ug/L -> ng/mL" .
+
+okg:Conv_PSA_ng_per_mL a okg:UnitConversion,
+        owl:NamedIndividual ;
+    rdfs:label "PSA: ng/mL -> ng/mL" ;
+    okg:analyteKey "PSA" ;
+    okg:conversionFactor 1.0 ;
+    okg:fromUnit okg:ng_per_mL ;
+    okg:toUnit okg:ng_per_mL ;
+    skos:prefLabel "PSA: ng/mL -> ng/mL" .
+
+okg:Conv_PSA_ug_per_L a okg:UnitConversion,
+        owl:NamedIndividual ;
+    rdfs:label "PSA: ug/L -> ng/mL" ;
+    okg:analyteKey "PSA" ;
+    okg:conversionFactor 1.0 ;
+    okg:fromUnit okg:ug_per_L ;
+    okg:toUnit okg:ng_per_mL ;
+    skos:prefLabel "PSA: ug/L -> ng/mL" .
+
+okg:Conv_ProGRP_ng_per_L a okg:UnitConversion,
+        owl:NamedIndividual ;
+    rdfs:label "ProGRP: ng/L -> pg/mL" ;
+    okg:analyteKey "ProGRP" ;
+    okg:conversionFactor 1.0 ;
+    okg:fromUnit okg:ng_per_L ;
+    okg:toUnit okg:pg_per_mL ;
+    skos:prefLabel "ProGRP: ng/L -> pg/mL" .
+
+okg:Conv_ProGRP_ng_per_mL a okg:UnitConversion,
+        owl:NamedIndividual ;
+    rdfs:label "ProGRP: ng/mL -> pg/mL" ;
+    okg:analyteKey "ProGRP" ;
+    okg:conversionFactor 1000.0 ;
+    okg:fromUnit okg:ng_per_mL ;
+    okg:toUnit okg:pg_per_mL ;
+    skos:prefLabel "ProGRP: ng/mL -> pg/mL" .
+
+okg:Conv_ProGRP_pg_per_mL a okg:UnitConversion,
+        owl:NamedIndividual ;
+    rdfs:label "ProGRP: pg/mL -> pg/mL" ;
+    okg:analyteKey "ProGRP" ;
+    okg:conversionFactor 1.0 ;
+    okg:fromUnit okg:pg_per_mL ;
+    okg:toUnit okg:pg_per_mL ;
+    skos:prefLabel "ProGRP: pg/mL -> pg/mL" .
+
+okg:CopyNumberAssay a owl:Class ;
+    rdfs:label "CopyNumberAssay" ;
+    rdfs:subClassOf okg:Assay .
+
+okg:DNASequencingAssay a owl:Class ;
+    rdfs:label "DNASequencingAssay" ;
+    rdfs:subClassOf okg:Assay .
+
+okg:ER_LOW_MAX_PCT a okg:Parameter,
+        owl:NamedIndividual ;
+    rdfs:label "ER_LOW_MAX_PCT" ;
+    okg:clinicalNote "ER 1-10% = ER-low positive" ;
+    okg:hasGuideline okg:ASCO_CAP_ER_PR_2020 ;
+    okg:paramValue 10.0 ;
+    skos:prefLabel "ER_LOW_MAX_PCT" .
+
+okg:ER_LOW_MIN_PCT a okg:Parameter,
+        owl:NamedIndividual ;
+    rdfs:label "ER_LOW_MIN_PCT" ;
+    okg:clinicalNote "ER <1% = negative" ;
+    okg:hasGuideline okg:ASCO_CAP_ER_PR_2020 ;
+    okg:paramValue 1.0 ;
+    skos:prefLabel "ER_LOW_MIN_PCT" .
+
+okg:Gene_ACTB a okg:Gene,
+        okg:HousekeepingGene,
+        owl:NamedIndividual ;
+    rdfs:label "ACTB" ;
+    okg:effectiveLengthBp 1800 ;
+    okg:hgncSymbol "ACTB" ;
+    skos:prefLabel "ACTB" .
+
+okg:Gene_CDKN2A a okg:Gene ;
+    okg:hgncSymbol "CDKN2A" ;
+    skos:altLabel "p16" .
+
+okg:Gene_GAPDH a okg:Gene,
+        okg:HousekeepingGene,
+        owl:NamedIndividual ;
+    rdfs:label "GAPDH" ;
+    okg:effectiveLengthBp 1400 ;
+    okg:hgncSymbol "GAPDH" ;
+    skos:prefLabel "GAPDH" .
+
+okg:Gene_HPRT1 a okg:Gene,
+        okg:HousekeepingGene,
+        owl:NamedIndividual ;
+    rdfs:label "HPRT1" ;
+    okg:effectiveLengthBp 1400 ;
+    okg:hgncSymbol "HPRT1" ;
+    skos:prefLabel "HPRT1" .
+
+okg:Gene_MET a okg:Gene ;
+    okg:hgncSymbol "MET" ;
+    skos:altLabel "HGFR",
+        "c-MET" .
+
+okg:Gene_PGK1 a okg:Gene,
+        okg:HousekeepingGene,
+        owl:NamedIndividual ;
+    rdfs:label "PGK1" ;
+    okg:effectiveLengthBp 2400 ;
+    okg:hgncSymbol "PGK1" ;
+    skos:prefLabel "PGK1" .
+
+okg:Gene_RPLP0 a okg:Gene,
+        okg:HousekeepingGene,
+        owl:NamedIndividual ;
+    rdfs:label "RPLP0" ;
+    okg:effectiveLengthBp 1100 ;
+    okg:hgncSymbol "RPLP0" ;
+    skos:prefLabel "RPLP0" .
+
+okg:Gene_TBP a okg:Gene,
+        okg:HousekeepingGene,
+        owl:NamedIndividual ;
+    rdfs:label "TBP" ;
+    okg:effectiveLengthBp 1900 ;
+    okg:hgncSymbol "TBP" ;
+    skos:prefLabel "TBP" .
+
+okg:Gene_TMPRSS2 a okg:Gene ;
+    okg:hgncSymbol "TMPRSS2" ;
+    skos:altLabel "TMPRSS-2" .
+
+okg:HER2_ISH_COPY_HIGH a okg:Parameter,
+        owl:NamedIndividual ;
+    rdfs:label "HER2_ISH_COPY_HIGH" ;
+    okg:clinicalNote "average HER2 copies/cell upper cut" ;
+    okg:hasGuideline okg:ASCO_CAP_HER2_2018 ;
+    okg:paramValue 6.0 ;
+    skos:prefLabel "HER2_ISH_COPY_HIGH" .
+
+okg:HER2_ISH_COPY_LOW a okg:Parameter,
+        owl:NamedIndividual ;
+    rdfs:label "HER2_ISH_COPY_LOW" ;
+    okg:clinicalNote "average HER2 copies/cell lower cut" ;
+    okg:hasGuideline okg:ASCO_CAP_HER2_2018 ;
+    okg:paramValue 4.0 ;
+    skos:prefLabel "HER2_ISH_COPY_LOW" .
+
+okg:HER2_ISH_RATIO_CUT a okg:Parameter,
+        owl:NamedIndividual ;
+    rdfs:label "HER2_ISH_RATIO_CUT" ;
+    okg:clinicalNote "HER2/CEP17 ratio" ;
+    okg:hasGuideline okg:ASCO_CAP_HER2_2018 ;
+    okg:paramValue 2.0 ;
+    skos:prefLabel "HER2_ISH_RATIO_CUT" .
+
+okg:HER2_ULTRALOW_MAX_PCT a okg:Parameter,
+        owl:NamedIndividual ;
+    rdfs:label "HER2_ULTRALOW_MAX_PCT" ;
+    okg:clinicalNote "IHC 0 with faint/incomplete staining in <=10% cells" ;
+    okg:hasGuideline okg:NCCN_BREAST_2026 ;
+    okg:paramValue 10.0 ;
+    skos:prefLabel "HER2_ULTRALOW_MAX_PCT" .
+
+okg:IHCAssay a owl:Class ;
+    rdfs:label "IHCAssay" ;
+    rdfs:subClassOf okg:Assay .
+
+okg:ISHAssay a owl:Class ;
+    rdfs:label "ISHAssay" ;
+    rdfs:subClassOf okg:Assay .
+
+okg:IndeterminateDiagnosis a owl:Class ;
+    rdfs:label "Indeterminate" ;
+    rdfs:comment "Insufficient or conflicting evidence; human review required." ;
+    rdfs:subClassOf okg:Disease .
+
+okg:KI67_LUMB_MIN_PCT a okg:Parameter,
+        owl:NamedIndividual ;
+    rdfs:label "KI67_LUMB_MIN_PCT" ;
+    okg:clinicalNote "Ki-67 >=20% luminal B-like" ;
+    okg:hasGuideline okg:ST_GALLEN_2013 ;
+    okg:paramValue 20.0 ;
+    skos:prefLabel "KI67_LUMB_MIN_PCT" .
+
+okg:LE_female_breast a okg:LineageEvidence,
+        owl:NamedIndividual ;
+    rdfs:label "female sex" ;
+    okg:criterionValue "F" ;
+    okg:featureKey "clin.sex" ;
+    okg:forLineage okg:BreastLineage ;
+    okg:operator "eq" ;
+    okg:weight 0.5 ;
+    skos:prefLabel "female sex" .
+
+okg:LE_history_breast a okg:LineageEvidence,
+        owl:NamedIndividual ;
+    rdfs:label "history of breast cancer" ;
+    okg:criterionValue "true" ;
+    okg:featureKey "history.breast_cancer" ;
+    okg:forLineage okg:BreastLineage ;
+    okg:operator "eq" ;
+    okg:weight 3.0 ;
+    skos:prefLabel "history of breast cancer" .
+
+okg:LE_history_prostate a okg:LineageEvidence,
+        owl:NamedIndividual ;
+    rdfs:label "history of prostate cancer" ;
+    okg:criterionValue "true" ;
+    okg:featureKey "history.prostate_cancer" ;
+    okg:forLineage okg:ProstateLineage ;
+    okg:operator "eq" ;
+    okg:weight 3.0 ;
+    skos:prefLabel "history of prostate cancer" .
+
+okg:LE_smoking_lung a okg:LineageEvidence,
+        owl:NamedIndividual ;
+    rdfs:label "smoking >= 20 pack-years" ;
+    okg:criterionValue "20" ;
+    okg:featureKey "clin.pack_years" ;
+    okg:forLineage okg:LungLineage ;
+    okg:operator "ge" ;
+    okg:weight 0.5 ;
+    skos:prefLabel "smoking >= 20 pack-years" .
+
+okg:LE_tmprss2erg_prostate a okg:LineageEvidence,
+        owl:NamedIndividual ;
+    rdfs:label "TMPRSS2::ERG fusion (prostate-specific)" ;
+    okg:criterionValue "true" ;
+    okg:featureKey "alt.TMPRSS2_ERG" ;
+    okg:forLineage okg:ProstateLineage ;
+    okg:operator "eq" ;
+    okg:weight 3.0 ;
+    skos:prefLabel "TMPRSS2::ERG fusion (prostate-specific)" .
+
+okg:LINEAGE_MIN_MARGIN a okg:Parameter,
+        owl:NamedIndividual ;
+    rdfs:label "LINEAGE_MIN_MARGIN" ;
+    okg:clinicalNote "required margin over runner-up lineage" ;
+    okg:hasGuideline okg:SYNTHETIC_DESIGN ;
+    okg:paramValue 2.0 ;
+    skos:prefLabel "LINEAGE_MIN_MARGIN" .
+
+okg:LINEAGE_MIN_SCORE a okg:Parameter,
+        owl:NamedIndividual ;
+    rdfs:label "LINEAGE_MIN_SCORE" ;
+    okg:clinicalNote "minimum lineage evidence to assign tissue of origin" ;
+    okg:hasGuideline okg:SYNTHETIC_DESIGN ;
+    okg:paramValue 3.0 ;
+    skos:prefLabel "LINEAGE_MIN_SCORE" .
+
+okg:LOW_PURITY_FLAG a okg:Parameter,
+        owl:NamedIndividual ;
+    rdfs:label "LOW_PURITY_FLAG" ;
+    okg:clinicalNote "flag specimens with low tumor cellularity" ;
+    okg:hasGuideline okg:SYNTHETIC_DESIGN ;
+    okg:paramValue 0.2 ;
+    skos:prefLabel "LOW_PURITY_FLAG" .
+
+okg:MALIGNANCY_MIN_SCORE a okg:Parameter,
+        owl:NamedIndividual ;
+    rdfs:label "MALIGNANCY_MIN_SCORE" ;
+    okg:clinicalNote "score >= this: malignant" ;
+    okg:hasGuideline okg:SYNTHETIC_DESIGN ;
+    okg:paramValue 3.0 ;
+    skos:prefLabel "MALIGNANCY_MIN_SCORE" .
+
+okg:ME_amacr a okg:MalignancyEvidence,
+        owl:NamedIndividual ;
+    rdfs:label "AMACR (P504S) positive" ;
+    okg:criterionValue "Positive" ;
+    okg:featureKey "status.AMACR" ;
+    okg:operator "in" ;
+    okg:weight 1.0 ;
+    skos:prefLabel "AMACR (P504S) positive" .
+
+okg:ME_cna a okg:MalignancyEvidence,
+        owl:NamedIndividual ;
+    rdfs:label "focal amplification / homozygous deletion" ;
+    okg:criterionValue "1" ;
+    okg:featureKey "n_focal_cna" ;
+    okg:operator "ge" ;
+    okg:weight 2.0 ;
+    skos:prefLabel "focal amplification / homozygous deletion" .
+
+okg:ME_driver1 a okg:MalignancyEvidence,
+        owl:NamedIndividual ;
+    rdfs:label "somatic pathogenic/hotspot alteration (VAF >= floor)" ;
+    okg:criterionValue "1" ;
+    okg:featureKey "n_somatic_drivers" ;
+    okg:operator "ge" ;
+    okg:weight 2.0 ;
+    skos:prefLabel "somatic pathogenic/hotspot alteration (VAF >= floor)" .
+
+okg:ME_driver2 a okg:MalignancyEvidence,
+        owl:NamedIndividual ;
+    rdfs:label "two or more somatic alterations" ;
+    okg:criterionValue "2" ;
+    okg:featureKey "n_somatic_drivers" ;
+    okg:operator "ge" ;
+    okg:weight 1.0 ;
+    skos:prefLabel "two or more somatic alterations" .
+
+okg:ME_fga a okg:MalignancyEvidence,
+        owl:NamedIndividual ;
+    rdfs:label "fraction genome altered >= 10% (aneuploidy)" ;
+    okg:criterionValue "0.1" ;
+    okg:featureKey "fga" ;
+    okg:operator "ge" ;
+    okg:weight 2.0 ;
+    skos:prefLabel "fraction genome altered >= 10% (aneuploidy)" .
+
+okg:ME_fga_low a okg:MalignancyEvidence,
+        owl:NamedIndividual ;
+    rdfs:label "fraction genome altered >= 5%" ;
+    okg:criterionValue "0.05" ;
+    okg:featureKey "fga" ;
+    okg:operator "ge" ;
+    okg:weight 1.0 ;
+    skos:prefLabel "fraction genome altered >= 5%" .
+
+okg:ME_fusion a okg:MalignancyEvidence,
+        owl:NamedIndividual ;
+    rdfs:label "driver gene fusion" ;
+    okg:criterionValue "1" ;
+    okg:featureKey "n_driver_fusions" ;
+    okg:operator "ge" ;
+    okg:weight 3.0 ;
+    skos:prefLabel "driver gene fusion" .
+
+okg:ME_ki67_10 a okg:MalignancyEvidence,
+        owl:NamedIndividual ;
+    rdfs:label "Ki-67 >= 10%" ;
+    okg:criterionValue "10" ;
+    okg:featureKey "Ki67_pct" ;
+    okg:operator "ge" ;
+    okg:weight 1.0 ;
+    skos:prefLabel "Ki-67 >= 10%" .
+
+okg:ME_ki67_20 a okg:MalignancyEvidence,
+        owl:NamedIndividual ;
+    rdfs:label "Ki-67 >= 20%" ;
+    okg:criterionValue "20" ;
+    okg:featureKey "Ki67_pct" ;
+    okg:operator "ge" ;
+    okg:weight 1.0 ;
+    skos:prefLabel "Ki-67 >= 20%" .
+
+okg:ME_ne a okg:MalignancyEvidence,
+        owl:NamedIndividual ;
+    rdfs:label "neuroendocrine program" ;
+    okg:criterionValue "2" ;
+    okg:featureKey "NE_count" ;
+    okg:operator "ge" ;
+    okg:weight 1.0 ;
+    skos:prefLabel "neuroendocrine program" .
+
+okg:ME_prolif a okg:MalignancyEvidence,
+        owl:NamedIndividual ;
+    rdfs:label "high proliferation RNA score" ;
+    okg:criterionValue "true" ;
+    okg:featureKey "prolif_high" ;
+    okg:operator "eq" ;
+    okg:weight 1.0 ;
+    skos:prefLabel "high proliferation RNA score" .
+
+okg:ME_tmb a okg:MalignancyEvidence,
+        owl:NamedIndividual ;
+    rdfs:label "TMB >= 5 mut/Mb" ;
+    okg:criterionValue "5" ;
+    okg:featureKey "tmb" ;
+    okg:operator "ge" ;
+    okg:weight 1.0 ;
+    skos:prefLabel "TMB >= 5 mut/Mb" .
+
+okg:ME_tmb_low a okg:MalignancyEvidence,
+        owl:NamedIndividual ;
+    rdfs:label "TMB >= 1.5 mut/Mb (above normal-tissue background)" ;
+    okg:criterionValue "1.5" ;
+    okg:featureKey "tmb" ;
+    okg:operator "ge" ;
+    okg:weight 1.0 ;
+    skos:prefLabel "TMB >= 1.5 mut/Mb (above normal-tissue background)" .
+
+okg:MIN_FUSION_READS a okg:Parameter,
+        owl:NamedIndividual ;
+    rdfs:label "MIN_FUSION_READS" ;
+    okg:clinicalNote "minimum supporting reads" ;
+    okg:hasGuideline okg:SYNTHETIC_DESIGN ;
+    okg:paramValue 5.0 ;
+    skos:prefLabel "MIN_FUSION_READS" .
+
+okg:MIN_PURITY_FOR_CN a okg:Parameter,
+        owl:NamedIndividual ;
+    rdfs:label "MIN_PURITY_FOR_CN" ;
+    okg:clinicalNote "below this purity, CN calls are not made" ;
+    okg:hasGuideline okg:SYNTHETIC_DESIGN ;
+    okg:paramValue 0.2 ;
+    skos:prefLabel "MIN_PURITY_FOR_CN" .
+
+okg:MIN_VAF a okg:Parameter,
+        owl:NamedIndividual ;
+    rdfs:label "MIN_VAF" ;
+    okg:clinicalNote "VAF reporting floor (filters CHIP-like noise)" ;
+    okg:hasGuideline okg:SYNTHETIC_DESIGN ;
+    okg:paramValue 0.05 ;
+    skos:prefLabel "MIN_VAF" .
+
+okg:MIN_VARIANT_DEPTH a okg:Parameter,
+        owl:NamedIndividual ;
+    rdfs:label "MIN_VARIANT_DEPTH" ;
+    okg:clinicalNote "minimum read depth" ;
+    okg:hasGuideline okg:AMP_ASCO_CAP_2017 ;
+    okg:paramValue 100.0 ;
+    skos:prefLabel "MIN_VARIANT_DEPTH" .
+
+okg:MOD_ATM a okg:MolecularModifier,
+        owl:NamedIndividual ;
+    rdfs:label "ATM pathogenic variant" ;
+    okg:hasCriterion okg:Crit_072 ;
+    okg:modifierAppliesTo okg:ProstateCancer ;
+    okg:therapyRelevance "PARP inhibitor (lower benefit than BRCA)" ;
+    skos:prefLabel "ATM pathogenic variant" .
+
+okg:MOD_AURKA a okg:MolecularModifier,
+        owl:NamedIndividual ;
+    rdfs:label "AURKA amplification" ;
+    okg:hasCriterion okg:Crit_071 ;
+    okg:modifierAppliesTo okg:ProstateCancer ;
+    skos:prefLabel "AURKA amplification" .
+
+okg:MOD_BRCA1 a okg:MolecularModifier,
+        owl:NamedIndividual ;
+    rdfs:label "BRCA1 pathogenic variant" ;
+    okg:hasCriterion okg:Crit_054 ;
+    okg:modifierAppliesTo okg:Cancer ;
+    okg:therapyRelevance "PARP inhibitor; germline testing" ;
+    skos:prefLabel "BRCA1 pathogenic variant" .
+
+okg:MOD_BRCA2 a okg:MolecularModifier,
+        owl:NamedIndividual ;
+    rdfs:label "BRCA2 pathogenic variant" ;
+    okg:hasCriterion okg:Crit_055 ;
+    okg:modifierAppliesTo okg:Cancer ;
+    okg:therapyRelevance "PARP inhibitor; germline testing" ;
+    skos:prefLabel "BRCA2 pathogenic variant" .
+
+okg:MOD_CDK12 a okg:MolecularModifier,
+        owl:NamedIndividual ;
+    rdfs:label "CDK12 biallelic loss" ;
+    okg:hasCriterion okg:Crit_073 ;
+    okg:modifierAppliesTo okg:ProstateCancer ;
+    skos:prefLabel "CDK12 biallelic loss" .
+
+okg:MOD_EGFR_T790M a okg:MolecularModifier,
+        owl:NamedIndividual ;
+    rdfs:label "EGFR T790M" ;
+    okg:hasCriterion okg:Crit_062 ;
+    okg:modifierAppliesTo okg:LungCancer ;
+    okg:therapyRelevance "osimertinib" ;
+    skos:prefLabel "EGFR T790M" .
+
+okg:MOD_ER_LOW a okg:MolecularModifier,
+        owl:NamedIndividual ;
+    rdfs:label "ER-low positive (1-10%)" ;
+    okg:hasCriterion okg:Crit_053 ;
+    okg:modifierAppliesTo okg:BreastCancer ;
+    skos:prefLabel "ER-low positive (1-10%)" .
+
+okg:MOD_ESR1 a okg:MolecularModifier,
+        owl:NamedIndividual ;
+    rdfs:label "ESR1 LBD mutation (endocrine resistance)" ;
+    okg:hasCriterion okg:Crit_057 ;
+    okg:modifierAppliesTo okg:BreastCancer ;
+    okg:therapyRelevance "elacestrant" ;
+    skos:prefLabel "ESR1 LBD mutation (endocrine resistance)" .
+
+okg:MOD_HER2_LOW a okg:MolecularModifier,
+        owl:NamedIndividual ;
+    rdfs:label "HER2-low (IHC 1+ or 2+/ISH-)" ;
+    okg:hasCriterion okg:Crit_050 ;
+    okg:modifierAppliesTo okg:BreastCancer ;
+    okg:therapyRelevance "T-DXd eligible (metastatic)" ;
+    skos:prefLabel "HER2-low (IHC 1+ or 2+/ISH-)" .
+
+okg:MOD_HER2_NULL a okg:MolecularModifier,
+        owl:NamedIndividual ;
+    rdfs:label "HER2-null (IHC 0, no staining)" ;
+    okg:hasCriterion okg:Crit_052 ;
+    okg:modifierAppliesTo okg:BreastCancer ;
+    skos:prefLabel "HER2-null (IHC 0, no staining)" .
+
+okg:MOD_HER2_ULTRALOW a okg:MolecularModifier,
+        owl:NamedIndividual ;
+    rdfs:label "HER2-ultralow (IHC 0, faint staining <=10%)" ;
+    okg:hasCriterion okg:Crit_051 ;
+    okg:modifierAppliesTo okg:BreastCancer ;
+    okg:therapyRelevance "T-DXd eligible (HR+, post-endocrine)" ;
+    skos:prefLabel "HER2-ultralow (IHC 0, faint staining <=10%)" .
+
+okg:MOD_KEAP1 a okg:MolecularModifier,
+        owl:NamedIndividual ;
+    rdfs:label "KEAP1 loss" ;
+    okg:hasCriterion okg:Crit_065 ;
+    okg:modifierAppliesTo okg:LungCancer ;
+    skos:prefLabel "KEAP1 loss" .
+
+okg:MOD_KRAS_OTHER a okg:MolecularModifier,
+        owl:NamedIndividual ;
+    rdfs:label "KRAS non-G12C mutation" ;
+    okg:hasCriterion okg:Crit_063 ;
+    okg:modifierAppliesTo okg:LungCancer ;
+    skos:prefLabel "KRAS non-G12C mutation" .
+
+okg:MOD_MYCN a okg:MolecularModifier,
+        owl:NamedIndividual ;
+    rdfs:label "MYCN amplification" ;
+    okg:hasCriterion okg:Crit_070 ;
+    okg:modifierAppliesTo okg:ProstateCancer ;
+    skos:prefLabel "MYCN amplification" .
+
+okg:MOD_PDL1_HIGH a okg:MolecularModifier,
+        owl:NamedIndividual ;
+    rdfs:label "PD-L1 TPS >= 50%" ;
+    okg:hasCriterion okg:Crit_059 ;
+    okg:modifierAppliesTo okg:LungCancer ;
+    okg:therapyRelevance "IO monotherapy eligible (no driver)" ;
+    skos:prefLabel "PD-L1 TPS >= 50%" .
+
+okg:MOD_PDL1_LOW a okg:MolecularModifier,
+        owl:NamedIndividual ;
+    rdfs:label "PD-L1 TPS 1-49%" ;
+    okg:hasCriterion okg:Crit_060 ;
+    okg:modifierAppliesTo okg:LungCancer ;
+    skos:prefLabel "PD-L1 TPS 1-49%" .
+
+okg:MOD_PDL1_NEG a okg:MolecularModifier,
+        owl:NamedIndividual ;
+    rdfs:label "PD-L1 TPS < 1%" ;
+    okg:hasCriterion okg:Crit_061 ;
+    okg:modifierAppliesTo okg:LungCancer ;
+    skos:prefLabel "PD-L1 TPS < 1%" .
+
+okg:MOD_PIK3CA a okg:MolecularModifier,
+        owl:NamedIndividual ;
+    rdfs:label "PIK3CA hotspot mutation" ;
+    okg:hasCriterion okg:Crit_056 ;
+    okg:modifierAppliesTo okg:BreastCancer ;
+    okg:therapyRelevance "alpelisib / capivasertib / inavolisib" ;
+    skos:prefLabel "PIK3CA hotspot mutation" .
+
+okg:MOD_PTEN a okg:MolecularModifier,
+        owl:NamedIndividual ;
+    rdfs:label "PTEN loss" ;
+    okg:hasCriterion okg:Crit_068 ;
+    okg:modifierAppliesTo okg:ProstateCancer ;
+    okg:therapyRelevance "capivasertib (PTEN-deficient mHSPC)" ;
+    skos:prefLabel "PTEN loss" .
+
+okg:MOD_RB1 a okg:MolecularModifier,
+        owl:NamedIndividual ;
+    rdfs:label "RB1 loss" ;
+    okg:hasCriterion okg:Crit_066 ;
+    okg:modifierAppliesTo okg:Cancer ;
+    skos:prefLabel "RB1 loss" .
+
+okg:MOD_SPOP a okg:MolecularModifier,
+        owl:NamedIndividual ;
+    rdfs:label "SPOP mutation" ;
+    okg:hasCriterion okg:Crit_069 ;
+    okg:modifierAppliesTo okg:ProstateCancer ;
+    skos:prefLabel "SPOP mutation" .
+
+okg:MOD_STK11 a okg:MolecularModifier,
+        owl:NamedIndividual ;
+    rdfs:label "STK11 loss" ;
+    okg:hasCriterion okg:Crit_064 ;
+    okg:modifierAppliesTo okg:LungCancer ;
+    okg:therapyRelevance "may blunt IO response" ;
+    skos:prefLabel "STK11 loss" .
+
+okg:MOD_TMPRSS2_ERG a okg:MolecularModifier,
+        owl:NamedIndividual ;
+    rdfs:label "TMPRSS2::ERG fusion" ;
+    okg:hasCriterion okg:Crit_067 ;
+    okg:modifierAppliesTo okg:ProstateCancer ;
+    skos:prefLabel "TMPRSS2::ERG fusion" .
+
+okg:MOD_TP53 a okg:MolecularModifier,
+        owl:NamedIndividual ;
+    rdfs:label "TP53 pathogenic variant" ;
+    okg:hasCriterion okg:Crit_058 ;
+    okg:modifierAppliesTo okg:Cancer ;
+    skos:prefLabel "TP53 pathogenic variant" .
+
+okg:NoMalignancyDetected a owl:Class ;
+    rdfs:label "No malignancy detected" ;
+    okg:requiresFeature "fga" ;
+    rdfs:comment "Lineage identified but molecular evidence does not support malignancy (e.g. BPH, benign nodule)." ;
+    rdfs:subClassOf okg:Disease .
+
+okg:PDL1_HIGH_TPS a okg:Parameter,
+        owl:NamedIndividual ;
+    rdfs:label "PDL1_HIGH_TPS" ;
+    okg:clinicalNote "TPS >=50% high" ;
+    okg:hasGuideline okg:CAP_IASLC_AMP_2018 ;
+    okg:paramValue 50.0 ;
+    skos:prefLabel "PDL1_HIGH_TPS" .
+
+okg:PDL1_POS_TPS a okg:Parameter,
+        owl:NamedIndividual ;
+    rdfs:label "PDL1_POS_TPS" ;
+    okg:clinicalNote "TPS >=1% positive" ;
+    okg:hasGuideline okg:CAP_IASLC_AMP_2018 ;
+    okg:paramValue 1.0 ;
+    skos:prefLabel "PDL1_POS_TPS" .
+
+okg:PROLIF_HIGH_NLOG2 a okg:Parameter,
+        owl:NamedIndividual ;
+    rdfs:label "PROLIF_HIGH_NLOG2" ;
+    okg:clinicalNote "mean proliferation gene nlog2 for 'high'" ;
+    okg:hasGuideline okg:SYNTHETIC_DESIGN ;
+    okg:paramValue 7.5 ;
+    skos:prefLabel "PROLIF_HIGH_NLOG2" .
+
+okg:PR_LUMA_MIN_PCT a okg:Parameter,
+        owl:NamedIndividual ;
+    rdfs:label "PR_LUMA_MIN_PCT" ;
+    okg:clinicalNote "PR >=20% for luminal A-like" ;
+    okg:hasGuideline okg:ST_GALLEN_2013 ;
+    okg:paramValue 20.0 ;
+    skos:prefLabel "PR_LUMA_MIN_PCT" .
+
+okg:PR_POS_MIN_PCT a okg:Parameter,
+        owl:NamedIndividual ;
+    rdfs:label "PR_POS_MIN_PCT" ;
+    okg:clinicalNote "PR >=1% positive" ;
+    okg:hasGuideline okg:ASCO_CAP_ER_PR_2020 ;
+    okg:paramValue 1.0 ;
+    skos:prefLabel "PR_POS_MIN_PCT" .
+
+okg:RNAExpressionAssay a owl:Class ;
+    rdfs:label "RNAExpressionAssay" ;
+    rdfs:subClassOf okg:Assay .
+
+okg:RNAFusionAssay a owl:Class ;
+    rdfs:label "RNAFusionAssay" ;
+    rdfs:subClassOf okg:Assay .
+
+okg:RNA_NORM_OFFSET a okg:Parameter,
+        owl:NamedIndividual ;
+    rdfs:label "RNA_NORM_OFFSET" ;
+    okg:clinicalNote "housekeeping-centred log2 scale offset" ;
+    okg:hasGuideline okg:SYNTHETIC_DESIGN ;
+    okg:paramValue 10.0 ;
+    skos:prefLabel "RNA_NORM_OFFSET" .
+
+okg:RNA_STRONG_DELTA a okg:Parameter,
+        owl:NamedIndividual ;
+    rdfs:label "RNA_STRONG_DELTA" ;
+    okg:clinicalNote "nlog2 above gene threshold for an RNA call to count as Positive (else Weak)" ;
+    okg:hasGuideline okg:SYNTHETIC_DESIGN ;
+    okg:paramValue 2.0 ;
+    skos:prefLabel "RNA_STRONG_DELTA" .
+
+okg:R_ALK a okg:DiagnosticRule,
+        owl:NamedIndividual ;
+    rdfs:label "R_ALK -> ALKRearrangedNSCLC" ;
+    okg:hasCriterion okg:Crit_014 ;
+    okg:hasGuideline okg:CAP_IASLC_AMP_2018 ;
+    okg:inRuleGroup okg:RG_nsclc_driver ;
+    okg:priority 1 ;
+    okg:ruleAssigns okg:ALKRearrangedNSCLC ;
+    skos:prefLabel "R_ALK -> ALKRearrangedNSCLC" .
+
+okg:R_BRAF a okg:DiagnosticRule,
+        owl:NamedIndividual ;
+    rdfs:label "R_BRAF -> BRAFV600EMutantNSCLC" ;
+    okg:hasCriterion okg:Crit_019 ;
+    okg:hasGuideline okg:CAP_IASLC_AMP_2018 ;
+    okg:inRuleGroup okg:RG_nsclc_driver ;
+    okg:priority 6 ;
+    okg:ruleAssigns okg:BRAFV600EMutantNSCLC ;
+    skos:prefLabel "R_BRAF -> BRAFV600EMutantNSCLC" .
+
+okg:R_EGFR a okg:DiagnosticRule,
+        owl:NamedIndividual ;
+    rdfs:label "R_EGFR -> EGFRMutantNSCLC" ;
+    okg:hasCriterion okg:Crit_020 ;
+    okg:hasGuideline okg:CAP_IASLC_AMP_2018 ;
+    okg:inRuleGroup okg:RG_nsclc_driver ;
+    okg:priority 7 ;
+    okg:ruleAssigns okg:EGFRMutantNSCLC ;
+    skos:prefLabel "R_EGFR -> EGFRMutantNSCLC" .
+
+okg:R_ERLOW a okg:DiagnosticRule,
+        owl:NamedIndividual ;
+    rdfs:label "R_ERLOW -> ERLowHER2NegativeBreastCancer" ;
+    okg:hasCriterion okg:Crit_032,
+        okg:Crit_033 ;
+    okg:hasGuideline okg:ASCO_CAP_ER_PR_2020 ;
+    okg:inRuleGroup okg:RG_breast_receptor ;
+    okg:priority 4 ;
+    okg:ruleAssigns okg:ERLowHER2NegativeBreastCancer ;
+    skos:prefLabel "R_ERLOW -> ERLowHER2NegativeBreastCancer" .
+
+okg:R_HER2E a okg:DiagnosticRule,
+        owl:NamedIndividual ;
+    rdfs:label "R_HER2E -> HER2Enriched" ;
+    okg:hasCriterion okg:Crit_022,
+        okg:Crit_023,
+        okg:Crit_024 ;
+    okg:hasGuideline okg:ASCO_CAP_HER2_2018 ;
+    okg:inRuleGroup okg:RG_breast_receptor ;
+    okg:priority 1 ;
+    okg:ruleAssigns okg:HER2Enriched ;
+    skos:prefLabel "R_HER2E -> HER2Enriched" .
+
+okg:R_HRPOS_NOS a okg:DiagnosticRule,
+        owl:NamedIndividual ;
+    rdfs:label "R_HRPOS_NOS -> HRPositiveHER2NegativeBreastCancer" ;
+    okg:hasCriterion okg:Crit_043,
+        okg:Crit_044 ;
+    okg:hasGuideline okg:ASCO_CAP_ER_PR_2020 ;
+    okg:inRuleGroup okg:RG_breast_receptor ;
+    okg:priority 7 ;
+    okg:ruleAssigns okg:HRPositiveHER2NegativeBreastCancer ;
+    skos:prefLabel "R_HRPOS_NOS -> HRPositiveHER2NegativeBreastCancer" .
+
+okg:R_HRR a okg:DiagnosticRule,
+        owl:NamedIndividual ;
+    rdfs:label "R_HRR -> HRRDeficientProstateCancer" ;
+    okg:hasCriterion okg:Crit_049 ;
+    okg:hasGuideline okg:WHO_URINARY_MALE_GENITAL_2022 ;
+    okg:inRuleGroup okg:RG_prostate_molecular ;
+    okg:priority 1 ;
+    okg:ruleAssigns okg:HRRDeficientProstateCancer ;
+    skos:prefLabel "R_HRR -> HRRDeficientProstateCancer" .
+
+okg:R_KRASG12C a okg:DiagnosticRule,
+        owl:NamedIndividual ;
+    rdfs:label "R_KRASG12C -> KRASG12CMutantNSCLC" ;
+    okg:hasCriterion okg:Crit_021 ;
+    okg:hasGuideline okg:CAP_IASLC_AMP_2018 ;
+    okg:inRuleGroup okg:RG_nsclc_driver ;
+    okg:priority 8 ;
+    okg:ruleAssigns okg:KRASG12CMutantNSCLC ;
+    skos:prefLabel "R_KRASG12C -> KRASG12CMutantNSCLC" .
+
+okg:R_LUAD a okg:DiagnosticRule,
+        owl:NamedIndividual ;
+    rdfs:label "R_LUAD -> LungAdenocarcinoma" ;
+    okg:hasCriterion okg:Crit_010,
+        okg:Crit_011,
+        okg:Crit_012 ;
+    okg:hasGuideline okg:WHO_THORACIC_2021 ;
+    okg:inRuleGroup okg:RG_lung_histology ;
+    okg:priority 3 ;
+    okg:ruleAssigns okg:LungAdenocarcinoma ;
+    skos:prefLabel "R_LUAD -> LungAdenocarcinoma" .
+
+okg:R_LUMA a okg:DiagnosticRule,
+        owl:NamedIndividual ;
+    rdfs:label "R_LUMA -> LuminalALike" ;
+    okg:hasCriterion okg:Crit_039,
+        okg:Crit_040,
+        okg:Crit_041,
+        okg:Crit_042 ;
+    okg:hasGuideline okg:ST_GALLEN_2013 ;
+    okg:inRuleGroup okg:RG_breast_receptor ;
+    okg:priority 6 ;
+    okg:ruleAssigns okg:LuminalALike ;
+    skos:prefLabel "R_LUMA -> LuminalALike" .
+
+okg:R_LUMB_HER2N a okg:DiagnosticRule,
+        owl:NamedIndividual ;
+    rdfs:label "R_LUMB_HER2N -> LuminalBLikeHER2Negative" ;
+    okg:hasCriterion okg:Crit_034,
+        okg:Crit_035,
+        okg:Crit_038 ;
+    okg:hasGuideline okg:ST_GALLEN_2013 ;
+    okg:inRuleGroup okg:RG_breast_receptor ;
+    okg:priority 5 ;
+    okg:ruleAssigns okg:LuminalBLikeHER2Negative ;
+    skos:prefLabel "R_LUMB_HER2N -> LuminalBLikeHER2Negative" .
+
+okg:R_LUMB_HER2P a okg:DiagnosticRule,
+        owl:NamedIndividual ;
+    rdfs:label "R_LUMB_HER2P -> LuminalBLikeHER2Positive" ;
+    okg:hasCriterion okg:Crit_025,
+        okg:Crit_028 ;
+    okg:hasGuideline okg:ASCO_CAP_HER2_2018 ;
+    okg:inRuleGroup okg:RG_breast_receptor ;
+    okg:priority 2 ;
+    okg:ruleAssigns okg:LuminalBLikeHER2Positive ;
+    skos:prefLabel "R_LUMB_HER2P -> LuminalBLikeHER2Positive" .
+
+okg:R_LUSC a okg:DiagnosticRule,
+        owl:NamedIndividual ;
+    rdfs:label "R_LUSC -> LungSquamousCellCarcinoma" ;
+    okg:hasCriterion okg:Crit_006,
+        okg:Crit_007 ;
+    okg:hasGuideline okg:WHO_THORACIC_2021 ;
+    okg:inRuleGroup okg:RG_lung_histology ;
+    okg:priority 2 ;
+    okg:ruleAssigns okg:LungSquamousCellCarcinoma ;
+    skos:prefLabel "R_LUSC -> LungSquamousCellCarcinoma" .
+
+okg:R_MET a okg:DiagnosticRule,
+        owl:NamedIndividual ;
+    rdfs:label "R_MET -> METEx14SkippingNSCLC" ;
+    okg:hasCriterion okg:Crit_018 ;
+    okg:hasGuideline okg:CAP_IASLC_AMP_2018 ;
+    okg:inRuleGroup okg:RG_nsclc_driver ;
+    okg:priority 5 ;
+    okg:ruleAssigns okg:METEx14SkippingNSCLC ;
+    skos:prefLabel "R_MET -> METEx14SkippingNSCLC" .
+
+okg:R_NEPC a okg:DiagnosticRule,
+        owl:NamedIndividual ;
+    rdfs:label "R_NEPC -> NeuroendocrineProstateCancer" ;
+    okg:hasCriterion okg:Crit_046,
+        okg:Crit_047,
+        okg:Crit_048 ;
+    okg:hasGuideline okg:WHO_URINARY_MALE_GENITAL_2022 ;
+    okg:inRuleGroup okg:RG_prostate_histology ;
+    okg:priority 1 ;
+    okg:ruleAssigns okg:NeuroendocrineProstateCancer ;
+    skos:prefLabel "R_NEPC -> NeuroendocrineProstateCancer" .
+
+okg:R_NSCLC_NOS a okg:DiagnosticRule,
+        owl:NamedIndividual ;
+    rdfs:label "R_NSCLC_NOS -> NonSmallCellLungCancer" ;
+    okg:hasCriterion okg:Crit_013 ;
+    okg:hasGuideline okg:WHO_THORACIC_2021 ;
+    okg:inRuleGroup okg:RG_lung_histology ;
+    okg:priority 9 ;
+    okg:ruleAssigns okg:NonSmallCellLungCancer ;
+    skos:prefLabel "R_NSCLC_NOS -> NonSmallCellLungCancer" .
+
+okg:R_NTRK a okg:DiagnosticRule,
+        owl:NamedIndividual ;
+    rdfs:label "R_NTRK -> NTRKFusionNSCLC" ;
+    okg:hasCriterion okg:Crit_016 ;
+    okg:hasGuideline okg:CAP_IASLC_AMP_2018 ;
+    okg:inRuleGroup okg:RG_nsclc_driver ;
+    okg:priority 3 ;
+    okg:ruleAssigns okg:NTRKFusionNSCLC ;
+    skos:prefLabel "R_NTRK -> NTRKFusionNSCLC" .
+
+okg:R_PRAD a okg:DiagnosticRule,
+        owl:NamedIndividual ;
+    rdfs:label "R_PRAD -> ProstateAdenocarcinoma" ;
+    okg:hasGuideline okg:WHO_URINARY_MALE_GENITAL_2022 ;
+    okg:inRuleGroup okg:RG_prostate_histology ;
+    okg:priority 2 ;
+    okg:ruleAssigns okg:ProstateAdenocarcinoma ;
+    skos:prefLabel "R_PRAD -> ProstateAdenocarcinoma" .
+
+okg:R_RET a okg:DiagnosticRule,
+        owl:NamedIndividual ;
+    rdfs:label "R_RET -> RETRearrangedNSCLC" ;
+    okg:hasCriterion okg:Crit_017 ;
+    okg:hasGuideline okg:CAP_IASLC_AMP_2018 ;
+    okg:inRuleGroup okg:RG_nsclc_driver ;
+    okg:priority 4 ;
+    okg:ruleAssigns okg:RETRearrangedNSCLC ;
+    skos:prefLabel "R_RET -> RETRearrangedNSCLC" .
+
+okg:R_ROS1 a okg:DiagnosticRule,
+        owl:NamedIndividual ;
+    rdfs:label "R_ROS1 -> ROS1RearrangedNSCLC" ;
+    okg:hasCriterion okg:Crit_015 ;
+    okg:hasGuideline okg:CAP_IASLC_AMP_2018 ;
+    okg:inRuleGroup okg:RG_nsclc_driver ;
+    okg:priority 2 ;
+    okg:ruleAssigns okg:ROS1RearrangedNSCLC ;
+    skos:prefLabel "R_ROS1 -> ROS1RearrangedNSCLC" .
+
+okg:R_SCLC a okg:DiagnosticRule,
+        owl:NamedIndividual ;
+    rdfs:label "R_SCLC -> SmallCellLungCancer" ;
+    okg:hasCriterion okg:Crit_001,
+        okg:Crit_005 ;
+    okg:hasGuideline okg:WHO_THORACIC_2021 ;
+    okg:inRuleGroup okg:RG_lung_histology ;
+    okg:priority 1 ;
+    okg:ruleAssigns okg:SmallCellLungCancer ;
+    skos:prefLabel "R_SCLC -> SmallCellLungCancer" .
+
+okg:R_TNBC a okg:DiagnosticRule,
+        owl:NamedIndividual ;
+    rdfs:label "R_TNBC -> TripleNegativeBreastCancer" ;
+    okg:hasCriterion okg:Crit_029,
+        okg:Crit_030,
+        okg:Crit_031 ;
+    okg:hasGuideline okg:ASCO_CAP_ER_PR_2020 ;
+    okg:inRuleGroup okg:RG_breast_receptor ;
+    okg:priority 3 ;
+    okg:ruleAssigns okg:TripleNegativeBreastCancer ;
+    skos:prefLabel "R_TNBC -> TripleNegativeBreastCancer" .
+
+okg:R_TNBC_LAR a okg:DiagnosticRule,
+        owl:NamedIndividual ;
+    rdfs:label "R_TNBC_LAR -> TNBCLuminalAndrogenReceptor" ;
+    okg:hasCriterion okg:Crit_045 ;
+    okg:hasGuideline okg:LEHMANN_TNBC ;
+    okg:inRuleGroup okg:RG_tnbc_subtype ;
+    okg:priority 1 ;
+    okg:ruleAssigns okg:TNBCLuminalAndrogenReceptor ;
+    skos:prefLabel "R_TNBC_LAR -> TNBCLuminalAndrogenReceptor" .
+
+okg:SSP_breast a okg:SpecimenSitePrior,
+        owl:NamedIndividual ;
+    rdfs:label "specimen site 'breast*'" ;
+    okg:forLineage okg:BreastLineage ;
+    okg:siteKeyword "breast" ;
+    okg:weight 1.5 ;
+    skos:prefLabel "specimen site 'breast*'" .
+
+okg:SSP_bronch a okg:SpecimenSitePrior,
+        owl:NamedIndividual ;
+    rdfs:label "specimen site 'bronch*'" ;
+    okg:forLineage okg:LungLineage ;
+    okg:siteKeyword "bronch" ;
+    okg:weight 1.5 ;
+    skos:prefLabel "specimen site 'bronch*'" .
+
+okg:SSP_lung a okg:SpecimenSitePrior,
+        owl:NamedIndividual ;
+    rdfs:label "specimen site 'lung*'" ;
+    okg:forLineage okg:LungLineage ;
+    okg:siteKeyword "lung" ;
+    okg:weight 1.5 ;
+    skos:prefLabel "specimen site 'lung*'" .
+
+okg:SSP_prostat a okg:SpecimenSitePrior,
+        owl:NamedIndividual ;
+    rdfs:label "specimen site 'prostat*'" ;
+    okg:forLineage okg:ProstateLineage ;
+    okg:siteKeyword "prostat" ;
+    okg:weight 1.5 ;
+    skos:prefLabel "specimen site 'prostat*'" .
+
+okg:SerumImmunoassay a owl:Class ;
+    rdfs:label "SerumImmunoassay" ;
+    rdfs:subClassOf okg:Assay .
+
+okg:Serum_CA15_3 a okg:SerumBiomarker,
+        owl:NamedIndividual ;
+    rdfs:label "Cancer antigen 15-3" ;
+    okg:canonicalUnit okg:U_per_mL ;
+    okg:clinicalNote "ULN is assay-dependent; value used here is a typical reference limit." ;
+    okg:featureKey "serum.CA15_3" ;
+    okg:hasGuideline okg:SYNTHETIC_DESIGN ;
+    okg:hasLineageEvidence okg:LE_serum_CA15_3_BreastLineage ;
+    okg:upperLimitNormal 30.0 ;
+    skos:altLabel "CA 15-3",
+        "CA15-3",
+        "CA15.3" ;
+    skos:prefLabel "Cancer antigen 15-3" .
+
+okg:Serum_CEA a okg:SerumBiomarker,
+        owl:NamedIndividual ;
+    rdfs:label "Carcinoembryonic antigen" ;
+    okg:canonicalUnit okg:ng_per_mL ;
+    okg:clinicalNote "ULN is assay-dependent; value used here is a typical reference limit." ;
+    okg:featureKey "serum.CEA" ;
+    okg:hasGuideline okg:SYNTHETIC_DESIGN ;
+    okg:upperLimitNormal 5.0 ;
+    skos:altLabel "CEA",
+        "Carcinoembryonic Ag" ;
+    skos:prefLabel "Carcinoembryonic antigen" .
+
+okg:Serum_CYFRA21_1 a okg:SerumBiomarker,
+        owl:NamedIndividual ;
+    rdfs:label "Cytokeratin-19 fragment (CYFRA 21-1)" ;
+    okg:canonicalUnit okg:ng_per_mL ;
+    okg:clinicalNote "ULN is assay-dependent; value used here is a typical reference limit." ;
+    okg:featureKey "serum.CYFRA21_1" ;
+    okg:hasGuideline okg:SYNTHETIC_DESIGN ;
+    okg:hasLineageEvidence okg:LE_serum_CYFRA21_1_LungLineage ;
+    okg:upperLimitNormal 3.3 ;
+    skos:altLabel "CYFRA 21-1",
+        "CYFRA21-1",
+        "Cyfra" ;
+    skos:prefLabel "Cytokeratin-19 fragment (CYFRA 21-1)" .
+
+okg:Serum_NSE a okg:SerumBiomarker,
+        owl:NamedIndividual ;
+    rdfs:label "Neuron-specific enolase" ;
+    okg:canonicalUnit okg:ng_per_mL ;
+    okg:clinicalNote "ULN is assay-dependent; value used here is a typical reference limit." ;
+    okg:featureKey "serum.NSE" ;
+    okg:hasGuideline okg:SYNTHETIC_DESIGN ;
+    okg:upperLimitNormal 16.3 ;
+    skos:altLabel "NSE",
+        "Neuron specific enolase" ;
+    skos:prefLabel "Neuron-specific enolase" .
+
+okg:Serum_PSA a okg:SerumBiomarker,
+        owl:NamedIndividual ;
+    rdfs:label "Prostate-specific antigen (serum)" ;
+    okg:canonicalUnit okg:ng_per_mL ;
+    okg:clinicalNote "ULN is assay-dependent; value used here is a typical reference limit." ;
+    okg:featureKey "serum.PSA" ;
+    okg:hasGuideline okg:SYNTHETIC_DESIGN ;
+    okg:hasLineageEvidence okg:LE_serum_PSA_ProstateLineage ;
+    okg:upperLimitNormal 4.0 ;
+    skos:altLabel "PSA",
+        "PSA, total",
+        "Total PSA",
+        "tPSA" ;
+    skos:prefLabel "Prostate-specific antigen (serum)" .
+
+okg:Serum_ProGRP a okg:SerumBiomarker,
+        owl:NamedIndividual ;
+    rdfs:label "Pro-gastrin-releasing peptide" ;
+    okg:canonicalUnit okg:pg_per_mL ;
+    okg:clinicalNote "ULN is assay-dependent; value used here is a typical reference limit." ;
+    okg:featureKey "serum.ProGRP" ;
+    okg:hasGuideline okg:SYNTHETIC_DESIGN ;
+    okg:hasLineageEvidence okg:LE_serum_ProGRP_LungLineage ;
+    okg:upperLimitNormal 65.0 ;
+    skos:altLabel "Pro-GRP",
+        "ProGRP" ;
+    skos:prefLabel "Pro-gastrin-releasing peptide" .
+
+okg:aboutBiomarker a owl:ObjectProperty ;
+    rdfs:label "aboutBiomarker" ;
+    rdfs:domain okg:NormalizedFinding ;
+    rdfs:range okg:Biomarker .
+
+okg:analyteKey a owl:DatatypeProperty ;
+    rdfs:label "analyteKey" ;
+    rdfs:domain okg:UnitConversion ;
+    rdfs:range xsd:string .
+
+okg:anyOf a owl:ObjectProperty ;
+    rdfs:label "anyOf" ;
+    rdfs:domain okg:Criterion ;
+    rdfs:range okg:Criterion .
+
+okg:approxPrevalence a owl:DatatypeProperty ;
+    rdfs:label "approxPrevalence" ;
+    rdfs:domain okg:Disease ;
+    rdfs:range xsd:string .
+
+okg:assertsClass a owl:ObjectProperty ;
+    rdfs:label "assertsClass" ;
+    rdfs:domain okg:DiagnosisAssertion .
+
+okg:assignedLineage a owl:ObjectProperty ;
+    rdfs:label "assignedLineage" ;
+    rdfs:domain okg:Patient ;
+    rdfs:range okg:Lineage .
+
+okg:canonicalUnit a owl:ObjectProperty ;
+    rdfs:label "canonicalUnit" ;
+    rdfs:range okg:Unit .
+
+okg:clinicalNote a owl:DatatypeProperty ;
+    rdfs:label "clinicalNote" ;
+    rdfs:range xsd:string .
+
+okg:cnaType a owl:DatatypeProperty ;
+    rdfs:label "cnaType" ;
+    rdfs:domain okg:CopyNumberAlteration ;
+    rdfs:range xsd:string .
+
+okg:confidence a owl:DatatypeProperty ;
+    rdfs:label "confidence" ;
+    rdfs:domain okg:DiagnosisAssertion ;
+    rdfs:range xsd:string .
+
+okg:conversionFactor a owl:DatatypeProperty ;
+    rdfs:label "conversionFactor" ;
+    rdfs:domain okg:UnitConversion ;
+    rdfs:range xsd:decimal .
+
+okg:criterionValue a owl:DatatypeProperty ;
+    rdfs:label "criterionValue" ;
+    rdfs:domain okg:Criterion ;
+    rdfs:range xsd:string .
+
+okg:derivedByRule a owl:ObjectProperty ;
+    rdfs:label "derivedByRule" ;
+    rdfs:domain okg:DiagnosisAssertion ;
+    rdfs:range okg:DiagnosticRule .
+
+okg:derivedFrom a owl:ObjectProperty ;
+    rdfs:label "derivedFrom" ;
+    rdfs:domain okg:NormalizedFinding ;
+    rdfs:range okg:RawObservation .
+
+okg:effectiveLengthBp a owl:DatatypeProperty ;
+    rdfs:label "effectiveLengthBp" ;
+    rdfs:domain okg:Gene ;
+    rdfs:range xsd:integer .
+
+okg:encodedBy a owl:ObjectProperty ;
+    rdfs:label "encodedBy" ;
+    rdfs:domain okg:Biomarker ;
+    rdfs:range okg:Gene .
+
+okg:featureKey a owl:DatatypeProperty ;
+    rdfs:label "featureKey" ;
+    rdfs:range xsd:string .
+
+okg:forLineage a owl:ObjectProperty ;
+    rdfs:label "forLineage" ;
+    rdfs:range okg:Lineage .
+
+okg:fraction a okg:Unit,
+        owl:NamedIndividual ;
+    rdfs:label "1" ;
+    okg:ucumCode "1" ;
+    skos:prefLabel "1" .
+
+okg:fromUnit a owl:ObjectProperty ;
+    rdfs:label "fromUnit" ;
+    rdfs:domain okg:UnitConversion ;
+    rdfs:range okg:Unit .
+
+okg:fusion3Prime a owl:DatatypeProperty ;
+    rdfs:label "fusion3Prime" ;
+    rdfs:domain okg:GeneFusionAlteration ;
+    rdfs:range xsd:string .
+
+okg:fusion5Prime a owl:DatatypeProperty ;
+    rdfs:label "fusion5Prime" ;
+    rdfs:domain okg:GeneFusionAlteration ;
+    rdfs:range xsd:string .
+
+okg:groupAppliesTo a owl:ObjectProperty ;
+    rdfs:label "groupAppliesTo" ;
+    rdfs:domain okg:RuleGroup ;
+    rdfs:range okg:Disease .
+
+okg:groupOrder a owl:DatatypeProperty ;
+    rdfs:label "groupOrder" ;
+    rdfs:domain okg:RuleGroup ;
+    rdfs:range xsd:integer .
+
+okg:hasCriterion a owl:ObjectProperty ;
+    rdfs:label "hasCriterion" ;
+    rdfs:range okg:Criterion .
+
+okg:hasDiagnosis a owl:ObjectProperty ;
+    rdfs:label "hasDiagnosis" ;
+    rdfs:domain okg:Patient ;
+    rdfs:range okg:DiagnosisAssertion .
+
+okg:hasFinding a owl:ObjectProperty ;
+    rdfs:label "hasFinding" ;
+    rdfs:domain okg:Specimen ;
+    rdfs:range okg:NormalizedFinding .
+
+okg:hasGuideline a owl:ObjectProperty ;
+    rdfs:label "hasGuideline" ;
+    rdfs:range okg:Guideline .
+
+okg:hasLineageEvidence a owl:ObjectProperty ;
+    rdfs:label "hasLineageEvidence" ;
+    rdfs:domain okg:Biomarker ;
+    rdfs:range okg:LineageEvidence .
+
+okg:hasModifier a owl:ObjectProperty ;
+    rdfs:label "hasModifier" ;
+    rdfs:domain okg:Tumor ;
+    rdfs:range okg:MolecularModifier .
+
+okg:hasSpecimen a owl:ObjectProperty ;
+    rdfs:label "hasSpecimen" ;
+    rdfs:domain okg:Patient ;
+    rdfs:range okg:Specimen .
+
+okg:hasTumor a owl:ObjectProperty ;
+    rdfs:label "hasTumor" ;
+    rdfs:domain okg:Patient ;
+    rdfs:range okg:Tumor .
+
+okg:hgncSymbol a owl:DatatypeProperty ;
+    rdfs:label "hgncSymbol" ;
+    rdfs:range xsd:string .
+
+okg:ihcName a owl:DatatypeProperty ;
+    rdfs:label "ihcName" ;
+    rdfs:range xsd:string .
+
+okg:inRuleGroup a owl:ObjectProperty ;
+    rdfs:label "inRuleGroup" ;
+    rdfs:domain okg:DiagnosticRule ;
+    rdfs:range okg:RuleGroup .
+
+okg:isDriver a owl:DatatypeProperty ;
+    rdfs:label "isDriver" ;
+    rdfs:domain okg:GenomicAlteration ;
+    rdfs:range xsd:boolean .
+
+okg:isRareSubtype a owl:DatatypeProperty ;
+    rdfs:label "isRareSubtype" ;
+    rdfs:domain okg:Disease ;
+    rdfs:range xsd:boolean .
+
+okg:lineageRootDisease a owl:ObjectProperty ;
+    rdfs:label "lineageRootDisease" ;
+    rdfs:domain okg:Lineage ;
+    rdfs:range okg:Disease .
+
+okg:matchCdnaRegex a owl:DatatypeProperty ;
+    rdfs:label "matchCdnaRegex" ;
+    rdfs:domain okg:SequenceVariantAlteration ;
+    rdfs:range xsd:string .
+
+okg:matchGene a owl:DatatypeProperty ;
+    rdfs:label "matchGene" ;
+    rdfs:domain okg:GenomicAlteration ;
+    rdfs:range xsd:string .
+
+okg:matchProteinRegex a owl:DatatypeProperty ;
+    rdfs:label "matchProteinRegex" ;
+    rdfs:domain okg:SequenceVariantAlteration ;
+    rdfs:range xsd:string .
+
+okg:matchVariantType a owl:DatatypeProperty ;
+    rdfs:label "matchVariantType" ;
+    rdfs:domain okg:SequenceVariantAlteration ;
+    rdfs:range xsd:string .
+
+okg:measuredBy a owl:ObjectProperty ;
+    rdfs:label "measuredBy" ;
+    rdfs:domain okg:NormalizedFinding ;
+    rdfs:range okg:Assay .
+
+okg:missingIs a owl:DatatypeProperty ;
+    rdfs:label "missingIs" ;
+    rdfs:domain okg:Criterion ;
+    rdfs:range xsd:string .
+
+okg:modifierAppliesTo a owl:ObjectProperty ;
+    rdfs:label "modifierAppliesTo" ;
+    rdfs:domain okg:MolecularModifier ;
+    rdfs:range okg:Disease .
+
+okg:mut_per_Mb a okg:Unit,
+        owl:NamedIndividual ;
+    rdfs:label "/Mb" ;
+    okg:ucumCode "/Mb" ;
+    skos:prefLabel "/Mb" .
+
+okg:normalizedValue a owl:DatatypeProperty ;
+    rdfs:label "normalizedValue" ;
+    rdfs:domain okg:NormalizedFinding ;
+    rdfs:range xsd:string .
+
+okg:operator a owl:DatatypeProperty ;
+    rdfs:label "operator" ;
+    rdfs:domain okg:Criterion ;
+    rdfs:range xsd:string .
+
+okg:outputSlot a owl:DatatypeProperty ;
+    rdfs:label "outputSlot" ;
+    rdfs:domain okg:RuleGroup ;
+    rdfs:range xsd:string .
+
+okg:paramValue a owl:DatatypeProperty ;
+    rdfs:label "paramValue" ;
+    rdfs:domain okg:Parameter ;
+    rdfs:range xsd:decimal .
+
+okg:percent a okg:Unit,
+        owl:NamedIndividual ;
+    rdfs:label "%" ;
+    okg:ucumCode "%" ;
+    skos:prefLabel "%" .
+
+okg:priority a owl:DatatypeProperty ;
+    rdfs:label "priority" ;
+    rdfs:range xsd:integer .
+
+okg:rarityTier a owl:DatatypeProperty ;
+    rdfs:label "rarityTier" ;
+    rdfs:domain okg:Disease ;
+    rdfs:range xsd:string .
+
+okg:rawValue a owl:DatatypeProperty ;
+    rdfs:label "rawValue" ;
+    rdfs:domain okg:RawObservation ;
+    rdfs:range xsd:string .
+
+okg:requiredSex a owl:DatatypeProperty ;
+    rdfs:label "requiredSex" ;
+    rdfs:domain okg:Lineage ;
+    rdfs:range xsd:string .
+
+okg:requiresFeature a owl:DatatypeProperty ;
+    rdfs:label "requiresFeature" ;
+    rdfs:domain okg:Disease ;
+    rdfs:range xsd:string .
+
+okg:requiresPathogenic a owl:DatatypeProperty ;
+    rdfs:label "requiresPathogenic" ;
+    rdfs:domain okg:GenomicAlteration ;
+    rdfs:range xsd:boolean .
+
+okg:rnaHighThreshold a owl:DatatypeProperty ;
+    rdfs:label "rnaHighThreshold" ;
+    rdfs:domain okg:Gene ;
+    rdfs:range xsd:decimal .
+
+okg:ruleAssigns a owl:ObjectProperty ;
+    rdfs:label "ruleAssigns" ;
+    rdfs:domain okg:DiagnosticRule ;
+    rdfs:range okg:Disease .
+
+okg:siteKeyword a owl:DatatypeProperty ;
+    rdfs:label "siteKeyword" ;
+    rdfs:domain okg:SpecimenSitePrior ;
+    rdfs:range xsd:string .
+
+okg:sourceSite a owl:DatatypeProperty ;
+    rdfs:label "sourceSite" ;
+    rdfs:range xsd:string .
+
+okg:supportedByFinding a owl:ObjectProperty ;
+    rdfs:label "supportedByFinding" ;
+    rdfs:domain okg:DiagnosisAssertion ;
+    rdfs:range okg:NormalizedFinding .
+
+okg:therapyRelevance a owl:DatatypeProperty ;
+    rdfs:label "therapyRelevance" ;
+    rdfs:range xsd:string .
+
+okg:toUnit a owl:ObjectProperty ;
+    rdfs:label "toUnit" ;
+    rdfs:domain okg:UnitConversion ;
+    rdfs:range okg:Unit .
+
+okg:ucumCode a owl:DatatypeProperty ;
+    rdfs:label "ucumCode" ;
+    rdfs:domain okg:Unit ;
+    rdfs:range xsd:string .
+
+okg:upperLimitNormal a owl:DatatypeProperty ;
+    rdfs:label "upperLimitNormal" ;
+    rdfs:domain okg:SerumBiomarker ;
+    rdfs:range xsd:decimal .
+
+okg:weight a owl:DatatypeProperty ;
+    rdfs:label "weight" ;
+    rdfs:range xsd:decimal .
+
+okg:ALKRearrangedNSCLC a owl:Class ;
+    rdfs:label "ALK-rearranged NSCLC" ;
+    okg:approxPrevalence "~3-5% of LUAD" ;
+    okg:hasGuideline okg:CAP_IASLC_AMP_2018 ;
+    okg:isRareSubtype true ;
+    okg:rarityTier "rare" ;
+    okg:therapyRelevance "ALK TKI (alectinib, lorlatinib)" ;
+    rdfs:subClassOf okg:NonSmallCellLungCancer .
+
+okg:AMP_ASCO_CAP_2017 a okg:Guideline,
+        owl:NamedIndividual ;
+    rdfs:label "AMP/ASCO/CAP somatic variant interpretation 2017" ;
+    okg:clinicalNote "https://doi.org/10.1016/j.jmoldx.2016.10.002" ;
+    skos:prefLabel "AMP/ASCO/CAP somatic variant interpretation 2017" .
+
+okg:BRAFV600EMutantNSCLC a owl:Class ;
+    rdfs:label "BRAF V600E-mutant NSCLC" ;
+    okg:approxPrevalence "~1-2% of LUAD" ;
+    okg:hasGuideline okg:CAP_IASLC_AMP_2018 ;
+    okg:isRareSubtype true ;
+    okg:rarityTier "rare" ;
+    okg:therapyRelevance "dabrafenib + trametinib" ;
+    rdfs:subClassOf okg:NonSmallCellLungCancer .
+
+okg:Crit_001 a okg:Criterion,
+        owl:NamedIndividual ;
+    rdfs:label ">=2 neuroendocrine markers positive" ;
+    okg:criterionValue "2" ;
+    okg:featureKey "NE_count" ;
+    okg:missingIs "fail" ;
+    okg:operator "ge" .
+
+okg:Crit_002 a okg:Criterion,
+        owl:NamedIndividual ;
+    rdfs:label "RB1 loss" ;
+    okg:criterionValue "true" ;
+    okg:featureKey "alt.RB1_ANY" ;
+    okg:missingIs "fail" ;
+    okg:operator "eq" .
+
+okg:Crit_003 a okg:Criterion,
+        owl:NamedIndividual ;
+    rdfs:label "Ki-67 >= 50%" ;
+    okg:criterionValue "50" ;
+    okg:featureKey "Ki67_pct" ;
+    okg:missingIs "fail" ;
+    okg:operator "ge" .
+
+okg:Crit_004 a okg:Criterion,
+        owl:NamedIndividual ;
+    rdfs:label "proliferation RNA high" ;
+    okg:criterionValue "true" ;
+    okg:featureKey "prolif_high" ;
+    okg:missingIs "fail" ;
+    okg:operator "eq" .
+
+okg:Crit_005 a okg:Criterion,
+        owl:NamedIndividual ;
+    rdfs:label "any of: RB1 loss | Ki-67 >= 50% | proliferation RNA high" ;
+    okg:anyOf okg:Crit_002,
+        okg:Crit_003,
+        okg:Crit_004 ;
+    okg:operator "anyOf" .
+
+okg:Crit_006 a okg:Criterion,
+        owl:NamedIndividual ;
+    rdfs:label "p40 (TP63) positive" ;
+    okg:criterionValue "Positive" ;
+    okg:featureKey "status.TP63" ;
+    okg:missingIs "fail" ;
+    okg:operator "in" .
+
+okg:Crit_007 a okg:Criterion,
+        owl:NamedIndividual ;
+    rdfs:label "TTF-1 not positive" ;
+    okg:criterionValue "Positive|Weak" ;
+    okg:featureKey "status.NKX2-1" ;
+    okg:missingIs "pass" ;
+    okg:operator "nin" .
+
+okg:Crit_008 a okg:Criterion,
+        owl:NamedIndividual ;
+    rdfs:label "TTF-1 positive" ;
+    okg:criterionValue "Positive|Weak" ;
+    okg:featureKey "status.NKX2-1" ;
+    okg:missingIs "fail" ;
+    okg:operator "in" .
+
+okg:Crit_009 a okg:Criterion,
+        owl:NamedIndividual ;
+    rdfs:label "Napsin A positive" ;
+    okg:criterionValue "Positive|Weak" ;
+    okg:featureKey "status.NAPSA" ;
+    okg:missingIs "fail" ;
+    okg:operator "in" .
+
+okg:Crit_010 a okg:Criterion,
+        owl:NamedIndividual ;
+    rdfs:label "any of: TTF-1 positive | Napsin A positive" ;
+    okg:anyOf okg:Crit_008,
+        okg:Crit_009 ;
+    okg:operator "anyOf" .
+
+okg:Crit_011 a okg:Criterion,
+        owl:NamedIndividual ;
+    rdfs:label "p40 not diffusely positive" ;
+    okg:criterionValue "Positive" ;
+    okg:featureKey "status.TP63" ;
+    okg:missingIs "pass" ;
+    okg:operator "nin" .
+
+okg:Crit_012 a okg:Criterion,
+        owl:NamedIndividual ;
+    rdfs:label "no neuroendocrine program" ;
+    okg:criterionValue "2" ;
+    okg:featureKey "NE_count" ;
+    okg:missingIs "pass" ;
+    okg:operator "lt" .
+
+okg:Crit_013 a okg:Criterion,
+        owl:NamedIndividual ;
+    rdfs:label "no neuroendocrine program" ;
+    okg:criterionValue "2" ;
+    okg:featureKey "NE_count" ;
+    okg:missingIs "pass" ;
+    okg:operator "lt" .
+
+okg:Crit_014 a okg:Criterion,
+        owl:NamedIndividual ;
+    rdfs:label "ALK rearranged" ;
+    okg:criterionValue "true" ;
+    okg:featureKey "ALK_rearranged" ;
+    okg:missingIs "fail" ;
+    okg:operator "eq" .
+
+okg:Crit_015 a okg:Criterion,
+        owl:NamedIndividual ;
+    rdfs:label "alt.ROS1_FUSION eq true" ;
+    okg:criterionValue "true" ;
+    okg:featureKey "alt.ROS1_FUSION" ;
+    okg:missingIs "fail" ;
+    okg:operator "eq" .
+
+okg:Crit_016 a okg:Criterion,
+        owl:NamedIndividual ;
+    rdfs:label "NTRK1/2/3 fusion" ;
+    okg:criterionValue "true" ;
+    okg:featureKey "alt.NTRK_ANY" ;
+    okg:missingIs "fail" ;
+    okg:operator "eq" .
+
+okg:Crit_017 a okg:Criterion,
+        owl:NamedIndividual ;
+    rdfs:label "alt.RET_FUSION eq true" ;
+    okg:criterionValue "true" ;
+    okg:featureKey "alt.RET_FUSION" ;
+    okg:missingIs "fail" ;
+    okg:operator "eq" .
+
+okg:Crit_018 a okg:Criterion,
+        owl:NamedIndividual ;
+    rdfs:label "alt.MET_EX14 eq true" ;
+    okg:criterionValue "true" ;
+    okg:featureKey "alt.MET_EX14" ;
+    okg:missingIs "fail" ;
+    okg:operator "eq" .
+
+okg:Crit_019 a okg:Criterion,
+        owl:NamedIndividual ;
+    rdfs:label "alt.BRAF_V600E eq true" ;
+    okg:criterionValue "true" ;
+    okg:featureKey "alt.BRAF_V600E" ;
+    okg:missingIs "fail" ;
+    okg:operator "eq" .
+
+okg:Crit_020 a okg:Criterion,
+        owl:NamedIndividual ;
+    rdfs:label "alt.EGFR_SENSITIZING eq true" ;
+    okg:criterionValue "true" ;
+    okg:featureKey "alt.EGFR_SENSITIZING" ;
+    okg:missingIs "fail" ;
+    okg:operator "eq" .
+
+okg:Crit_021 a okg:Criterion,
+        owl:NamedIndividual ;
+    rdfs:label "alt.KRAS_G12C eq true" ;
+    okg:criterionValue "true" ;
+    okg:featureKey "alt.KRAS_G12C" ;
+    okg:missingIs "fail" ;
+    okg:operator "eq" .
+
+okg:Crit_022 a okg:Criterion,
+        owl:NamedIndividual ;
+    rdfs:label "HER2_status in Positive" ;
+    okg:criterionValue "Positive" ;
+    okg:featureKey "HER2_status" ;
+    okg:missingIs "fail" ;
+    okg:operator "in" .
+
+okg:Crit_023 a okg:Criterion,
+        owl:NamedIndividual ;
+    rdfs:label "ER_status in Negative" ;
+    okg:criterionValue "Negative" ;
+    okg:featureKey "ER_status" ;
+    okg:missingIs "fail" ;
+    okg:operator "in" .
+
+okg:Crit_024 a okg:Criterion,
+        owl:NamedIndividual ;
+    rdfs:label "PR_status in Negative" ;
+    okg:criterionValue "Negative" ;
+    okg:featureKey "PR_status" ;
+    okg:missingIs "fail" ;
+    okg:operator "in" .
+
+okg:Crit_025 a okg:Criterion,
+        owl:NamedIndividual ;
+    rdfs:label "HER2_status in Positive" ;
+    okg:criterionValue "Positive" ;
+    okg:featureKey "HER2_status" ;
+    okg:missingIs "fail" ;
+    okg:operator "in" .
+
+okg:Crit_026 a okg:Criterion,
+        owl:NamedIndividual ;
+    rdfs:label "ER_status in Positive|Low" ;
+    okg:criterionValue "Positive|Low" ;
+    okg:featureKey "ER_status" ;
+    okg:missingIs "fail" ;
+    okg:operator "in" .
+
+okg:Crit_027 a okg:Criterion,
+        owl:NamedIndividual ;
+    rdfs:label "PR_status in Positive" ;
+    okg:criterionValue "Positive" ;
+    okg:featureKey "PR_status" ;
+    okg:missingIs "fail" ;
+    okg:operator "in" .
+
+okg:Crit_028 a okg:Criterion,
+        owl:NamedIndividual ;
+    rdfs:label "any of: ER_status in Positive|Low | PR_status in Positive" ;
+    okg:anyOf okg:Crit_026,
+        okg:Crit_027 ;
+    okg:operator "anyOf" .
+
+okg:Crit_029 a okg:Criterion,
+        owl:NamedIndividual ;
+    rdfs:label "ER < 1%" ;
+    okg:criterionValue "Negative" ;
+    okg:featureKey "ER_status" ;
+    okg:missingIs "fail" ;
+    okg:operator "in" .
+
+okg:Crit_030 a okg:Criterion,
+        owl:NamedIndividual ;
+    rdfs:label "PR < 1%" ;
+    okg:criterionValue "Negative" ;
+    okg:featureKey "PR_status" ;
+    okg:missingIs "fail" ;
+    okg:operator "in" .
+
+okg:Crit_031 a okg:Criterion,
+        owl:NamedIndividual ;
+    rdfs:label "HER2-negative (IHC 0/1+ or 2+/ISH-)" ;
+    okg:criterionValue "Null|Ultralow|Low|Negative" ;
+    okg:featureKey "HER2_status" ;
+    okg:missingIs "fail" ;
+    okg:operator "in" .
+
+okg:Crit_032 a okg:Criterion,
+        owl:NamedIndividual ;
+    rdfs:label "ER 1-10%" ;
+    okg:criterionValue "Low" ;
+    okg:featureKey "ER_status" ;
+    okg:missingIs "fail" ;
+    okg:operator "in" .
+
+okg:Crit_033 a okg:Criterion,
+        owl:NamedIndividual ;
+    rdfs:label "HER2_status in Null|Ultralow|Low|Negative" ;
+    okg:criterionValue "Null|Ultralow|Low|Negative" ;
+    okg:featureKey "HER2_status" ;
+    okg:missingIs "fail" ;
+    okg:operator "in" .
+
+okg:Crit_034 a okg:Criterion,
+        owl:NamedIndividual ;
+    rdfs:label "ER > 10%" ;
+    okg:criterionValue "Positive" ;
+    okg:featureKey "ER_status" ;
+    okg:missingIs "fail" ;
+    okg:operator "in" .
+
+okg:Crit_035 a okg:Criterion,
+        owl:NamedIndividual ;
+    rdfs:label "HER2_status in Null|Ultralow|Low|Negative" ;
+    okg:criterionValue "Null|Ultralow|Low|Negative" ;
+    okg:featureKey "HER2_status" ;
+    okg:missingIs "fail" ;
+    okg:operator "in" .
+
+okg:Crit_036 a okg:Criterion,
+        owl:NamedIndividual ;
+    rdfs:label "Ki-67 >= 20%" ;
+    okg:criterionValue "20" ;
+    okg:featureKey "Ki67_pct" ;
+    okg:missingIs "fail" ;
+    okg:operator "ge" .
+
+okg:Crit_037 a okg:Criterion,
+        owl:NamedIndividual ;
+    rdfs:label "PR < 20%" ;
+    okg:criterionValue "20" ;
+    okg:featureKey "PR_pct" ;
+    okg:missingIs "fail" ;
+    okg:operator "lt" .
+
+okg:Crit_038 a okg:Criterion,
+        owl:NamedIndividual ;
+    rdfs:label "any of: Ki-67 >= 20% | PR < 20%" ;
+    okg:anyOf okg:Crit_036,
+        okg:Crit_037 ;
+    okg:operator "anyOf" .
+
+okg:Crit_039 a okg:Criterion,
+        owl:NamedIndividual ;
+    rdfs:label "ER_status in Positive" ;
+    okg:criterionValue "Positive" ;
+    okg:featureKey "ER_status" ;
+    okg:missingIs "fail" ;
+    okg:operator "in" .
+
+okg:Crit_040 a okg:Criterion,
+        owl:NamedIndividual ;
+    rdfs:label "HER2_status in Null|Ultralow|Low|Negative" ;
+    okg:criterionValue "Null|Ultralow|Low|Negative" ;
+    okg:featureKey "HER2_status" ;
+    okg:missingIs "fail" ;
+    okg:operator "in" .
+
+okg:Crit_041 a okg:Criterion,
+        owl:NamedIndividual ;
+    rdfs:label "Ki-67 < 20%" ;
+    okg:criterionValue "20" ;
+    okg:featureKey "Ki67_pct" ;
+    okg:missingIs "fail" ;
+    okg:operator "lt" .
+
+okg:Crit_042 a okg:Criterion,
+        owl:NamedIndividual ;
+    rdfs:label "PR >= 20%" ;
+    okg:criterionValue "20" ;
+    okg:featureKey "PR_pct" ;
+    okg:missingIs "fail" ;
+    okg:operator "ge" .
+
+okg:Crit_043 a okg:Criterion,
+        owl:NamedIndividual ;
+    rdfs:label "ER_status in Positive" ;
+    okg:criterionValue "Positive" ;
+    okg:featureKey "ER_status" ;
+    okg:missingIs "fail" ;
+    okg:operator "in" .
+
+okg:Crit_044 a okg:Criterion,
+        owl:NamedIndividual ;
+    rdfs:label "HER2_status in Null|Ultralow|Low|Negative" ;
+    okg:criterionValue "Null|Ultralow|Low|Negative" ;
+    okg:featureKey "HER2_status" ;
+    okg:missingIs "fail" ;
+    okg:operator "in" .
+
+okg:Crit_045 a okg:Criterion,
+        owl:NamedIndividual ;
+    rdfs:label "AR IHC >= 10%" ;
+    okg:criterionValue "10" ;
+    okg:featureKey "AR_pct" ;
+    okg:missingIs "fail" ;
+    okg:operator "ge" .
+
+okg:Crit_046 a okg:Criterion,
+        owl:NamedIndividual ;
+    rdfs:label ">=2 neuroendocrine markers positive" ;
+    okg:criterionValue "2" ;
+    okg:featureKey "NE_count" ;
+    okg:missingIs "fail" ;
+    okg:operator "ge" .
+
+okg:Crit_047 a okg:Criterion,
+        owl:NamedIndividual ;
+    rdfs:label "AR not positive" ;
+    okg:criterionValue "Positive" ;
+    okg:featureKey "status.AR" ;
+    okg:missingIs "pass" ;
+    okg:operator "nin" .
+
+okg:Crit_048 a okg:Criterion,
+        owl:NamedIndividual ;
+    rdfs:label "PSA (tissue) not positive" ;
+    okg:criterionValue "Positive" ;
+    okg:featureKey "status.KLK3" ;
+    okg:missingIs "pass" ;
+    okg:operator "nin" .
+
+okg:Crit_049 a okg:Criterion,
+        owl:NamedIndividual ;
+    rdfs:label "BRCA1/2, ATM, CDK12 or PALB2 pathogenic" ;
+    okg:criterionValue "true" ;
+    okg:featureKey "alt.HRR_ANY" ;
+    okg:missingIs "fail" ;
+    okg:operator "eq" .
+
+okg:Crit_050 a okg:Criterion,
+        owl:NamedIndividual ;
+    rdfs:label "HER2_status in Low" ;
+    okg:criterionValue "Low" ;
+    okg:featureKey "HER2_status" ;
+    okg:missingIs "fail" ;
+    okg:operator "in" .
+
+okg:Crit_051 a okg:Criterion,
+        owl:NamedIndividual ;
+    rdfs:label "HER2_status in Ultralow" ;
+    okg:criterionValue "Ultralow" ;
+    okg:featureKey "HER2_status" ;
+    okg:missingIs "fail" ;
+    okg:operator "in" .
+
+okg:Crit_052 a okg:Criterion,
+        owl:NamedIndividual ;
+    rdfs:label "HER2_status in Null" ;
+    okg:criterionValue "Null" ;
+    okg:featureKey "HER2_status" ;
+    okg:missingIs "fail" ;
+    okg:operator "in" .
+
+okg:Crit_053 a okg:Criterion,
+        owl:NamedIndividual ;
+    rdfs:label "ER_status in Low" ;
+    okg:criterionValue "Low" ;
+    okg:featureKey "ER_status" ;
+    okg:missingIs "fail" ;
+    okg:operator "in" .
+
+okg:Crit_054 a okg:Criterion,
+        owl:NamedIndividual ;
+    rdfs:label "alt.BRCA1_PATHOGENIC eq true" ;
+    okg:criterionValue "true" ;
+    okg:featureKey "alt.BRCA1_PATHOGENIC" ;
+    okg:missingIs "fail" ;
+    okg:operator "eq" .
+
+okg:Crit_055 a okg:Criterion,
+        owl:NamedIndividual ;
+    rdfs:label "alt.BRCA2_PATHOGENIC eq true" ;
+    okg:criterionValue "true" ;
+    okg:featureKey "alt.BRCA2_PATHOGENIC" ;
+    okg:missingIs "fail" ;
+    okg:operator "eq" .
+
+okg:Crit_056 a okg:Criterion,
+        owl:NamedIndividual ;
+    rdfs:label "alt.PIK3CA_HOTSPOT eq true" ;
+    okg:criterionValue "true" ;
+    okg:featureKey "alt.PIK3CA_HOTSPOT" ;
+    okg:missingIs "fail" ;
+    okg:operator "eq" .
+
+okg:Crit_057 a okg:Criterion,
+        owl:NamedIndividual ;
+    rdfs:label "alt.ESR1_LBD eq true" ;
+    okg:criterionValue "true" ;
+    okg:featureKey "alt.ESR1_LBD" ;
+    okg:missingIs "fail" ;
+    okg:operator "eq" .
+
+okg:Crit_058 a okg:Criterion,
+        owl:NamedIndividual ;
+    rdfs:label "alt.TP53_PATHOGENIC eq true" ;
+    okg:criterionValue "true" ;
+    okg:featureKey "alt.TP53_PATHOGENIC" ;
+    okg:missingIs "fail" ;
+    okg:operator "eq" .
+
+okg:Crit_059 a okg:Criterion,
+        owl:NamedIndividual ;
+    rdfs:label "PDL1_status in High" ;
+    okg:criterionValue "High" ;
+    okg:featureKey "PDL1_status" ;
+    okg:missingIs "fail" ;
+    okg:operator "in" .
+
+okg:Crit_060 a okg:Criterion,
+        owl:NamedIndividual ;
+    rdfs:label "PDL1_status in Low" ;
+    okg:criterionValue "Low" ;
+    okg:featureKey "PDL1_status" ;
+    okg:missingIs "fail" ;
+    okg:operator "in" .
+
+okg:Crit_061 a okg:Criterion,
+        owl:NamedIndividual ;
+    rdfs:label "PDL1_status in Negative" ;
+    okg:criterionValue "Negative" ;
+    okg:featureKey "PDL1_status" ;
+    okg:missingIs "fail" ;
+    okg:operator "in" .
+
+okg:Crit_062 a okg:Criterion,
+        owl:NamedIndividual ;
+    rdfs:label "alt.EGFR_T790M eq true" ;
+    okg:criterionValue "true" ;
+    okg:featureKey "alt.EGFR_T790M" ;
+    okg:missingIs "fail" ;
+    okg:operator "eq" .
+
+okg:Crit_063 a okg:Criterion,
+        owl:NamedIndividual ;
+    rdfs:label "alt.KRAS_OTHER eq true" ;
+    okg:criterionValue "true" ;
+    okg:featureKey "alt.KRAS_OTHER" ;
+    okg:missingIs "fail" ;
+    okg:operator "eq" .
+
+okg:Crit_064 a okg:Criterion,
+        owl:NamedIndividual ;
+    rdfs:label "alt.STK11_PATHOGENIC eq true" ;
+    okg:criterionValue "true" ;
+    okg:featureKey "alt.STK11_PATHOGENIC" ;
+    okg:missingIs "fail" ;
+    okg:operator "eq" .
+
+okg:Crit_065 a okg:Criterion,
+        owl:NamedIndividual ;
+    rdfs:label "alt.KEAP1_PATHOGENIC eq true" ;
+    okg:criterionValue "true" ;
+    okg:featureKey "alt.KEAP1_PATHOGENIC" ;
+    okg:missingIs "fail" ;
+    okg:operator "eq" .
+
+okg:Crit_066 a okg:Criterion,
+        owl:NamedIndividual ;
+    rdfs:label "alt.RB1_ANY eq true" ;
+    okg:criterionValue "true" ;
+    okg:featureKey "alt.RB1_ANY" ;
+    okg:missingIs "fail" ;
+    okg:operator "eq" .
+
+okg:Crit_067 a okg:Criterion,
+        owl:NamedIndividual ;
+    rdfs:label "alt.TMPRSS2_ERG eq true" ;
+    okg:criterionValue "true" ;
+    okg:featureKey "alt.TMPRSS2_ERG" ;
+    okg:missingIs "fail" ;
+    okg:operator "eq" .
+
+okg:Crit_068 a okg:Criterion,
+        owl:NamedIndividual ;
+    rdfs:label "alt.PTEN_ANY eq true" ;
+    okg:criterionValue "true" ;
+    okg:featureKey "alt.PTEN_ANY" ;
+    okg:missingIs "fail" ;
+    okg:operator "eq" .
+
+okg:Crit_069 a okg:Criterion,
+        owl:NamedIndividual ;
+    rdfs:label "alt.SPOP_MUT eq true" ;
+    okg:criterionValue "true" ;
+    okg:featureKey "alt.SPOP_MUT" ;
+    okg:missingIs "fail" ;
+    okg:operator "eq" .
+
+okg:Crit_070 a okg:Criterion,
+        owl:NamedIndividual ;
+    rdfs:label "alt.MYCN_AMP eq true" ;
+    okg:criterionValue "true" ;
+    okg:featureKey "alt.MYCN_AMP" ;
+    okg:missingIs "fail" ;
+    okg:operator "eq" .
+
+okg:Crit_071 a okg:Criterion,
+        owl:NamedIndividual ;
+    rdfs:label "alt.AURKA_AMP eq true" ;
+    okg:criterionValue "true" ;
+    okg:featureKey "alt.AURKA_AMP" ;
+    okg:missingIs "fail" ;
+    okg:operator "eq" .
+
+okg:Crit_072 a okg:Criterion,
+        owl:NamedIndividual ;
+    rdfs:label "alt.ATM_PATHOGENIC eq true" ;
+    okg:criterionValue "true" ;
+    okg:featureKey "alt.ATM_PATHOGENIC" ;
+    okg:missingIs "fail" ;
+    okg:operator "eq" .
+
+okg:Crit_073 a okg:Criterion,
+        owl:NamedIndividual ;
+    rdfs:label "alt.CDK12_PATHOGENIC eq true" ;
+    okg:criterionValue "true" ;
+    okg:featureKey "alt.CDK12_PATHOGENIC" ;
+    okg:missingIs "fail" ;
+    okg:operator "eq" .
+
+okg:EGFRMutantNSCLC a owl:Class ;
+    rdfs:label "EGFR-mutant NSCLC" ;
+    okg:approxPrevalence "~15% Western / ~40-50% East Asian LUAD" ;
+    okg:hasGuideline okg:CAP_IASLC_AMP_2018 ;
+    okg:isRareSubtype false ;
+    okg:rarityTier "common" ;
+    okg:therapyRelevance "EGFR TKI (osimertinib)" ;
+    rdfs:subClassOf okg:NonSmallCellLungCancer .
+
+okg:ERLowHER2NegativeBreastCancer a owl:Class ;
+    rdfs:label "ER-low (1-10%), HER2-negative breast cancer" ;
+    okg:approxPrevalence "~2-6%" ;
+    okg:hasGuideline okg:ASCO_CAP_ER_PR_2020 ;
+    okg:isRareSubtype true ;
+    okg:rarityTier "rare" ;
+    okg:therapyRelevance "biologically TNBC-like; often treated as TNBC" ;
+    rdfs:subClassOf okg:BreastCancer .
+
+okg:Gene_ALK a okg:Gene,
+        owl:NamedIndividual ;
+    rdfs:label "ALK" ;
+    okg:clinicalNote "role: fusion-surrogate" ;
+    okg:effectiveLengthBp 6200 ;
+    okg:hgncSymbol "ALK" ;
+    okg:rnaHighThreshold 6.5 ;
+    skos:prefLabel "ALK" .
+
+okg:Gene_AMACR a okg:Gene,
+        owl:NamedIndividual ;
+    rdfs:label "AMACR" ;
+    okg:clinicalNote "role: malignancy" ;
+    okg:effectiveLengthBp 2000 ;
+    okg:hgncSymbol "AMACR" ;
+    okg:rnaHighThreshold 6.5 ;
+    skos:altLabel "P504S" ;
+    skos:prefLabel "AMACR" .
+
+okg:Gene_AR a okg:Gene,
+        owl:NamedIndividual ;
+    rdfs:label "AR" ;
+    okg:clinicalNote "role: receptor" ;
+    okg:effectiveLengthBp 10600 ;
+    okg:hgncSymbol "AR" ;
+    okg:rnaHighThreshold 6.5 ;
+    skos:prefLabel "AR" .
+
+okg:Gene_ASCL1 a okg:Gene,
+        owl:NamedIndividual ;
+    rdfs:label "ASCL1" ;
+    okg:clinicalNote "role: neuroendocrine" ;
+    okg:effectiveLengthBp 2400 ;
+    okg:hgncSymbol "ASCL1" ;
+    okg:rnaHighThreshold 6.5 ;
+    skos:prefLabel "ASCL1" .
+
+okg:Gene_BIRC5 a okg:Gene,
+        owl:NamedIndividual ;
+    rdfs:label "BIRC5" ;
+    okg:clinicalNote "role: proliferation" ;
+    okg:effectiveLengthBp 1600 ;
+    okg:hgncSymbol "BIRC5" ;
+    okg:rnaHighThreshold 7.5 ;
+    skos:prefLabel "BIRC5" .
+
+okg:Gene_CCNB1 a okg:Gene,
+        owl:NamedIndividual ;
+    rdfs:label "CCNB1" ;
+    okg:clinicalNote "role: proliferation" ;
+    okg:effectiveLengthBp 2200 ;
+    okg:hgncSymbol "CCNB1" ;
+    okg:rnaHighThreshold 7.5 ;
+    skos:prefLabel "CCNB1" .
+
+okg:Gene_CD274 a okg:Gene,
+        owl:NamedIndividual ;
+    rdfs:label "CD274" ;
+    okg:clinicalNote "role: immune" ;
+    okg:effectiveLengthBp 3600 ;
+    okg:hgncSymbol "CD274" ;
+    okg:rnaHighThreshold 6.5 ;
+    skos:altLabel "PDL1" ;
+    skos:prefLabel "CD274" .
+
+okg:Gene_CHGA a okg:Gene,
+        owl:NamedIndividual ;
+    rdfs:label "CHGA" ;
+    okg:clinicalNote "role: neuroendocrine" ;
+    okg:effectiveLengthBp 2000 ;
+    okg:hgncSymbol "CHGA" ;
+    okg:rnaHighThreshold 6.5 ;
+    skos:prefLabel "CHGA" .
+
+okg:Gene_ERBB2 a okg:Gene,
+        owl:NamedIndividual ;
+    rdfs:label "ERBB2" ;
+    okg:clinicalNote "role: receptor" ;
+    okg:effectiveLengthBp 4600 ;
+    okg:hgncSymbol "ERBB2" ;
+    okg:rnaHighThreshold 11.0 ;
+    skos:altLabel "HER-2",
+        "HER2",
+        "NEU" ;
+    skos:prefLabel "ERBB2" .
+
+okg:Gene_ERG a okg:Gene,
+        owl:NamedIndividual ;
+    rdfs:label "ERG" ;
+    okg:clinicalNote "role: fusion-surrogate" ;
+    okg:effectiveLengthBp 5000 ;
+    okg:hgncSymbol "ERG" ;
+    okg:rnaHighThreshold 6.5 ;
+    skos:prefLabel "ERG" .
+
+okg:Gene_ESR1 a okg:Gene,
+        owl:NamedIndividual ;
+    rdfs:label "ESR1" ;
+    okg:clinicalNote "role: receptor" ;
+    okg:effectiveLengthBp 6300 ;
+    okg:hgncSymbol "ESR1" ;
+    okg:rnaHighThreshold 6.5 ;
+    skos:altLabel "ER" ;
+    skos:prefLabel "ESR1" .
+
+okg:Gene_FOLH1 a okg:Gene,
+        owl:NamedIndividual ;
+    rdfs:label "FOLH1" ;
+    okg:clinicalNote "role: lineage" ;
+    okg:effectiveLengthBp 2800 ;
+    okg:hgncSymbol "FOLH1" ;
+    okg:rnaHighThreshold 6.5 ;
+    skos:altLabel "PSMA" ;
+    skos:prefLabel "FOLH1" .
+
+okg:Gene_GATA3 a okg:Gene,
+        owl:NamedIndividual ;
+    rdfs:label "GATA3" ;
+    okg:clinicalNote "role: lineage" ;
+    okg:effectiveLengthBp 3300 ;
+    okg:hgncSymbol "GATA3" ;
+    okg:rnaHighThreshold 6.5 ;
+    skos:prefLabel "GATA3" .
+
+okg:Gene_HOXB13 a okg:Gene,
+        owl:NamedIndividual ;
+    rdfs:label "HOXB13" ;
+    okg:clinicalNote "role: lineage" ;
+    okg:effectiveLengthBp 2000 ;
+    okg:hgncSymbol "HOXB13" ;
+    okg:rnaHighThreshold 6.5 ;
+    skos:prefLabel "HOXB13" .
+
+okg:Gene_INSM1 a okg:Gene,
+        owl:NamedIndividual ;
+    rdfs:label "INSM1" ;
+    okg:clinicalNote "role: neuroendocrine" ;
+    okg:effectiveLengthBp 2600 ;
+    okg:hgncSymbol "INSM1" ;
+    okg:rnaHighThreshold 6.5 ;
+    skos:prefLabel "INSM1" .
+
+okg:Gene_KLK3 a okg:Gene,
+        owl:NamedIndividual ;
+    rdfs:label "KLK3" ;
+    okg:clinicalNote "role: lineage" ;
+    okg:effectiveLengthBp 1500 ;
+    okg:hgncSymbol "KLK3" ;
+    okg:rnaHighThreshold 6.5 ;
+    skos:altLabel "PSA" ;
+    skos:prefLabel "KLK3" .
+
+okg:Gene_KRT5 a okg:Gene,
+        owl:NamedIndividual ;
+    rdfs:label "KRT5" ;
+    okg:clinicalNote "role: squamous" ;
+    okg:effectiveLengthBp 2400 ;
+    okg:hgncSymbol "KRT5" ;
+    okg:rnaHighThreshold 6.5 ;
+    skos:altLabel "CK5" ;
+    skos:prefLabel "KRT5" .
+
+okg:Gene_MKI67 a okg:Gene,
+        owl:NamedIndividual ;
+    rdfs:label "MKI67" ;
+    okg:clinicalNote "role: proliferation" ;
+    okg:effectiveLengthBp 12500 ;
+    okg:hgncSymbol "MKI67" ;
+    okg:rnaHighThreshold 7.5 ;
+    skos:altLabel "KI67" ;
+    skos:prefLabel "MKI67" .
+
+okg:Gene_NAPSA a okg:Gene,
+        owl:NamedIndividual ;
+    rdfs:label "NAPSA" ;
+    okg:clinicalNote "role: lineage" ;
+    okg:effectiveLengthBp 1700 ;
+    okg:hgncSymbol "NAPSA" ;
+    okg:rnaHighThreshold 6.5 ;
+    skos:altLabel "NAPSINA" ;
+    skos:prefLabel "NAPSA" .
+
+okg:Gene_NKX2_1 a okg:Gene,
+        owl:NamedIndividual ;
+    rdfs:label "NKX2-1" ;
+    okg:clinicalNote "role: lineage" ;
+    okg:effectiveLengthBp 2300 ;
+    okg:hgncSymbol "NKX2-1" ;
+    okg:rnaHighThreshold 6.5 ;
+    skos:altLabel "TTF1" ;
+    skos:prefLabel "NKX2-1" .
+
+okg:Gene_NKX3_1 a okg:Gene,
+        owl:NamedIndividual ;
+    rdfs:label "NKX3-1" ;
+    okg:clinicalNote "role: lineage" ;
+    okg:effectiveLengthBp 3100 ;
+    okg:hgncSymbol "NKX3-1" ;
+    okg:rnaHighThreshold 6.5 ;
+    skos:altLabel "NKX31" ;
+    skos:prefLabel "NKX3-1" .
+
+okg:Gene_PGR a okg:Gene,
+        owl:NamedIndividual ;
+    rdfs:label "PGR" ;
+    okg:clinicalNote "role: receptor" ;
+    okg:effectiveLengthBp 13000 ;
+    okg:hgncSymbol "PGR" ;
+    okg:rnaHighThreshold 6.5 ;
+    skos:prefLabel "PGR" .
+
+okg:Gene_SCGB2A2 a okg:Gene,
+        owl:NamedIndividual ;
+    rdfs:label "SCGB2A2" ;
+    okg:clinicalNote "role: lineage" ;
+    okg:effectiveLengthBp 500 ;
+    okg:hgncSymbol "SCGB2A2" ;
+    okg:rnaHighThreshold 6.5 ;
+    skos:altLabel "MAMMAGLOBIN" ;
+    skos:prefLabel "SCGB2A2" .
+
+okg:Gene_SFTPC a okg:Gene,
+        owl:NamedIndividual ;
+    rdfs:label "SFTPC" ;
+    okg:clinicalNote "role: lineage" ;
+    okg:effectiveLengthBp 900 ;
+    okg:hgncSymbol "SFTPC" ;
+    okg:rnaHighThreshold 6.5 ;
+    skos:altLabel "SP-C" ;
+    skos:prefLabel "SFTPC" .
+
+okg:Gene_SOX2 a okg:Gene,
+        owl:NamedIndividual ;
+    rdfs:label "SOX2" ;
+    okg:clinicalNote "role: squamous" ;
+    okg:effectiveLengthBp 2500 ;
+    okg:hgncSymbol "SOX2" ;
+    okg:rnaHighThreshold 6.5 ;
+    skos:prefLabel "SOX2" .
+
+okg:Gene_SYP a okg:Gene,
+        owl:NamedIndividual ;
+    rdfs:label "SYP" ;
+    okg:clinicalNote "role: neuroendocrine" ;
+    okg:effectiveLengthBp 2300 ;
+    okg:hgncSymbol "SYP" ;
+    okg:rnaHighThreshold 6.5 ;
+    skos:prefLabel "SYP" .
+
+okg:Gene_TOP2A a okg:Gene,
+        owl:NamedIndividual ;
+    rdfs:label "TOP2A" ;
+    okg:clinicalNote "role: proliferation" ;
+    okg:effectiveLengthBp 5600 ;
+    okg:hgncSymbol "TOP2A" ;
+    okg:rnaHighThreshold 7.5 ;
+    skos:prefLabel "TOP2A" .
+
+okg:Gene_TP63 a okg:Gene,
+        owl:NamedIndividual ;
+    rdfs:label "TP63" ;
+    okg:clinicalNote "role: squamous" ;
+    okg:effectiveLengthBp 4600 ;
+    okg:hgncSymbol "TP63" ;
+    okg:rnaHighThreshold 6.5 ;
+    skos:altLabel "P63" ;
+    skos:prefLabel "TP63" .
+
+okg:Gene_TRPS1 a okg:Gene,
+        owl:NamedIndividual ;
+    rdfs:label "TRPS1" ;
+    okg:clinicalNote "role: lineage" ;
+    okg:effectiveLengthBp 9800 ;
+    okg:hgncSymbol "TRPS1" ;
+    okg:rnaHighThreshold 6.5 ;
+    skos:prefLabel "TRPS1" .
+
+okg:HER2Enriched a owl:Class ;
+    rdfs:label "HER2-enriched (HR-/HER2+)" ;
+    okg:approxPrevalence "~5-10%" ;
+    okg:hasGuideline okg:ST_GALLEN_2013 ;
+    okg:isRareSubtype true ;
+    okg:rarityTier "uncommon" ;
+    rdfs:subClassOf okg:HER2PositiveBreastCancer .
+
+okg:HRRDeficientProstateCancer a owl:Class ;
+    rdfs:label "HRR-deficient prostate adenocarcinoma" ;
+    okg:approxPrevalence "~20-25% of mCRPC (BRCA2 ~10%)" ;
+    okg:hasGuideline okg:WHO_URINARY_MALE_GENITAL_2022 ;
+    okg:isRareSubtype true ;
+    okg:rarityTier "uncommon" ;
+    okg:therapyRelevance "PARP inhibitors (olaparib, talazoparib combos)" ;
+    rdfs:subClassOf okg:ProstateAdenocarcinoma .
+
+okg:KRASG12CMutantNSCLC a owl:Class ;
+    rdfs:label "KRAS G12C-mutant NSCLC" ;
+    okg:approxPrevalence "~12-13% of LUAD" ;
+    okg:hasGuideline okg:CAP_IASLC_AMP_2018 ;
+    okg:isRareSubtype true ;
+    okg:rarityTier "uncommon" ;
+    okg:therapyRelevance "sotorasib / adagrasib" ;
+    rdfs:subClassOf okg:NonSmallCellLungCancer .
+
+okg:LE_AMACR_ProstateLineage a okg:LineageEvidence,
+        owl:NamedIndividual ;
+    rdfs:label "AMACR positive" ;
+    okg:criterionValue "Positive|Weak" ;
+    okg:featureKey "status.AMACR" ;
+    okg:forLineage okg:ProstateLineage ;
+    okg:operator "in" ;
+    okg:weight 0.5 ;
+    skos:prefLabel "AMACR positive" .
+
+okg:LE_AR_ProstateLineage a okg:LineageEvidence,
+        owl:NamedIndividual ;
+    rdfs:label "AR positive" ;
+    okg:criterionValue "Positive|Weak" ;
+    okg:featureKey "status.AR" ;
+    okg:forLineage okg:ProstateLineage ;
+    okg:operator "in" ;
+    okg:weight 1.0 ;
+    skos:prefLabel "AR positive" .
+
+okg:LE_ESR1_BreastLineage a okg:LineageEvidence,
+        owl:NamedIndividual ;
+    rdfs:label "ESR1 positive" ;
+    okg:criterionValue "Positive|Weak" ;
+    okg:featureKey "status.ESR1" ;
+    okg:forLineage okg:BreastLineage ;
+    okg:operator "in" ;
+    okg:weight 1.5 ;
+    skos:prefLabel "ESR1 positive" .
+
+okg:LE_FOLH1_ProstateLineage a okg:LineageEvidence,
+        owl:NamedIndividual ;
+    rdfs:label "FOLH1 positive" ;
+    okg:criterionValue "Positive|Weak" ;
+    okg:featureKey "status.FOLH1" ;
+    okg:forLineage okg:ProstateLineage ;
+    okg:operator "in" ;
+    okg:weight 1.5 ;
+    skos:prefLabel "FOLH1 positive" .
+
+okg:LE_GATA3_BreastLineage a okg:LineageEvidence,
+        owl:NamedIndividual ;
+    rdfs:label "GATA3 positive" ;
+    okg:criterionValue "Positive|Weak" ;
+    okg:featureKey "status.GATA3" ;
+    okg:forLineage okg:BreastLineage ;
+    okg:operator "in" ;
+    okg:weight 2.0 ;
+    skos:prefLabel "GATA3 positive" .
+
+okg:LE_HOXB13_ProstateLineage a okg:LineageEvidence,
+        owl:NamedIndividual ;
+    rdfs:label "HOXB13 positive" ;
+    okg:criterionValue "Positive|Weak" ;
+    okg:featureKey "status.HOXB13" ;
+    okg:forLineage okg:ProstateLineage ;
+    okg:operator "in" ;
+    okg:weight 2.0 ;
+    skos:prefLabel "HOXB13 positive" .
+
+okg:LE_KLK3_ProstateLineage a okg:LineageEvidence,
+        owl:NamedIndividual ;
+    rdfs:label "KLK3 positive" ;
+    okg:criterionValue "Positive|Weak" ;
+    okg:featureKey "status.KLK3" ;
+    okg:forLineage okg:ProstateLineage ;
+    okg:operator "in" ;
+    okg:weight 3.0 ;
+    skos:prefLabel "KLK3 positive" .
+
+okg:LE_KRT5_LungLineage a okg:LineageEvidence,
+        owl:NamedIndividual ;
+    rdfs:label "KRT5 positive" ;
+    okg:criterionValue "Positive|Weak" ;
+    okg:featureKey "status.KRT5" ;
+    okg:forLineage okg:LungLineage ;
+    okg:operator "in" ;
+    okg:weight 0.5 ;
+    skos:prefLabel "KRT5 positive" .
+
+okg:LE_NAPSA_LungLineage a okg:LineageEvidence,
+        owl:NamedIndividual ;
+    rdfs:label "NAPSA positive" ;
+    okg:criterionValue "Positive|Weak" ;
+    okg:featureKey "status.NAPSA" ;
+    okg:forLineage okg:LungLineage ;
+    okg:operator "in" ;
+    okg:weight 2.0 ;
+    skos:prefLabel "NAPSA positive" .
+
+okg:LE_NKX2_1_LungLineage a okg:LineageEvidence,
+        owl:NamedIndividual ;
+    rdfs:label "NKX2-1 positive" ;
+    okg:criterionValue "Positive|Weak" ;
+    okg:featureKey "status.NKX2-1" ;
+    okg:forLineage okg:LungLineage ;
+    okg:operator "in" ;
+    okg:weight 3.0 ;
+    skos:prefLabel "NKX2-1 positive" .
+
+okg:LE_NKX3_1_ProstateLineage a okg:LineageEvidence,
+        owl:NamedIndividual ;
+    rdfs:label "NKX3-1 positive" ;
+    okg:criterionValue "Positive|Weak" ;
+    okg:featureKey "status.NKX3-1" ;
+    okg:forLineage okg:ProstateLineage ;
+    okg:operator "in" ;
+    okg:weight 3.0 ;
+    skos:prefLabel "NKX3-1 positive" .
+
+okg:LE_PGR_BreastLineage a okg:LineageEvidence,
+        owl:NamedIndividual ;
+    rdfs:label "PGR positive" ;
+    okg:criterionValue "Positive|Weak" ;
+    okg:featureKey "status.PGR" ;
+    okg:forLineage okg:BreastLineage ;
+    okg:operator "in" ;
+    okg:weight 1.0 ;
+    skos:prefLabel "PGR positive" .
+
+okg:LE_SCGB2A2_BreastLineage a okg:LineageEvidence,
+        owl:NamedIndividual ;
+    rdfs:label "SCGB2A2 positive" ;
+    okg:criterionValue "Positive|Weak" ;
+    okg:featureKey "status.SCGB2A2" ;
+    okg:forLineage okg:BreastLineage ;
+    okg:operator "in" ;
+    okg:weight 2.0 ;
+    skos:prefLabel "SCGB2A2 positive" .
+
+okg:LE_SFTPC_LungLineage a okg:LineageEvidence,
+        owl:NamedIndividual ;
+    rdfs:label "SFTPC positive" ;
+    okg:criterionValue "Positive|Weak" ;
+    okg:featureKey "status.SFTPC" ;
+    okg:forLineage okg:LungLineage ;
+    okg:operator "in" ;
+    okg:weight 1.0 ;
+    skos:prefLabel "SFTPC positive" .
+
+okg:LE_SOX2_LungLineage a okg:LineageEvidence,
+        owl:NamedIndividual ;
+    rdfs:label "SOX2 positive" ;
+    okg:criterionValue "Positive|Weak" ;
+    okg:featureKey "status.SOX2" ;
+    okg:forLineage okg:LungLineage ;
+    okg:operator "in" ;
+    okg:weight 0.5 ;
+    skos:prefLabel "SOX2 positive" .
+
+okg:LE_TP63_LungLineage a okg:LineageEvidence,
+        owl:NamedIndividual ;
+    rdfs:label "TP63 positive" ;
+    okg:criterionValue "Positive|Weak" ;
+    okg:featureKey "status.TP63" ;
+    okg:forLineage okg:LungLineage ;
+    okg:operator "in" ;
+    okg:weight 1.5 ;
+    skos:prefLabel "TP63 positive" .
+
+okg:LE_TRPS1_BreastLineage a okg:LineageEvidence,
+        owl:NamedIndividual ;
+    rdfs:label "TRPS1 positive" ;
+    okg:criterionValue "Positive|Weak" ;
+    okg:featureKey "status.TRPS1" ;
+    okg:forLineage okg:BreastLineage ;
+    okg:operator "in" ;
+    okg:weight 3.0 ;
+    skos:prefLabel "TRPS1 positive" .
+
+okg:LE_serum_CA15_3_BreastLineage a okg:LineageEvidence,
+        owl:NamedIndividual ;
+    rdfs:label "serum CA15_3 > ULN" ;
+    okg:criterionValue "1.0" ;
+    okg:featureKey "serum.CA15_3_xULN" ;
+    okg:forLineage okg:BreastLineage ;
+    okg:operator "gt" ;
+    okg:weight 0.5 ;
+    skos:prefLabel "serum CA15_3 > ULN" .
+
+okg:LE_serum_CYFRA21_1_LungLineage a okg:LineageEvidence,
+        owl:NamedIndividual ;
+    rdfs:label "serum CYFRA21_1 > ULN" ;
+    okg:criterionValue "1.0" ;
+    okg:featureKey "serum.CYFRA21_1_xULN" ;
+    okg:forLineage okg:LungLineage ;
+    okg:operator "gt" ;
+    okg:weight 0.5 ;
+    skos:prefLabel "serum CYFRA21_1 > ULN" .
+
+okg:LE_serum_PSA_ProstateLineage a okg:LineageEvidence,
+        owl:NamedIndividual ;
+    rdfs:label "serum PSA > ULN" ;
+    okg:criterionValue "1.0" ;
+    okg:featureKey "serum.PSA_xULN" ;
+    okg:forLineage okg:ProstateLineage ;
+    okg:operator "gt" ;
+    okg:weight 1.0 ;
+    skos:prefLabel "serum PSA > ULN" .
+
+okg:LE_serum_ProGRP_LungLineage a okg:LineageEvidence,
+        owl:NamedIndividual ;
+    rdfs:label "serum ProGRP > ULN" ;
+    okg:criterionValue "1.0" ;
+    okg:featureKey "serum.ProGRP_xULN" ;
+    okg:forLineage okg:LungLineage ;
+    okg:operator "gt" ;
+    okg:weight 1.0 ;
+    skos:prefLabel "serum ProGRP > ULN" .
+
+okg:LuminalALike a owl:Class ;
+    rdfs:label "Luminal A-like" ;
+    okg:approxPrevalence "~40-50%" ;
+    okg:hasGuideline okg:ST_GALLEN_2013 ;
+    okg:isRareSubtype false ;
+    okg:rarityTier "common" ;
+    rdfs:subClassOf okg:HRPositiveHER2NegativeBreastCancer .
+
+okg:LuminalBLikeHER2Negative a owl:Class ;
+    rdfs:label "Luminal B-like (HER2-negative)" ;
+    okg:approxPrevalence "~20%" ;
+    okg:hasGuideline okg:ST_GALLEN_2013 ;
+    okg:isRareSubtype false ;
+    okg:rarityTier "common" ;
+    rdfs:subClassOf okg:HRPositiveHER2NegativeBreastCancer .
+
+okg:LuminalBLikeHER2Positive a owl:Class ;
+    rdfs:label "Luminal B-like (HER2-positive)" ;
+    okg:approxPrevalence "~10%" ;
+    okg:hasGuideline okg:ST_GALLEN_2013 ;
+    okg:isRareSubtype false ;
+    okg:rarityTier "uncommon" ;
+    rdfs:subClassOf okg:HER2PositiveBreastCancer .
+
+okg:LungAdenocarcinoma a owl:Class ;
+    rdfs:label "Lung adenocarcinoma" ;
+    okg:approxPrevalence "~50% of lung cancer" ;
+    okg:hasGuideline okg:WHO_THORACIC_2021 ;
+    okg:isRareSubtype false ;
+    okg:rarityTier "common" ;
+    rdfs:subClassOf okg:NonSmallCellLungCancer .
+
+okg:LungSquamousCellCarcinoma a owl:Class ;
+    rdfs:label "Lung squamous cell carcinoma" ;
+    okg:approxPrevalence "~25-30% of lung cancer" ;
+    okg:hasGuideline okg:WHO_THORACIC_2021 ;
+    okg:isRareSubtype false ;
+    okg:rarityTier "common" ;
+    rdfs:subClassOf okg:NonSmallCellLungCancer .
+
+okg:METEx14SkippingNSCLC a owl:Class ;
+    rdfs:label "MET exon 14 skipping NSCLC" ;
+    okg:approxPrevalence "~3% of LUAD" ;
+    okg:hasGuideline okg:CAP_IASLC_AMP_2018 ;
+    okg:isRareSubtype true ;
+    okg:rarityTier "rare" ;
+    okg:therapyRelevance "capmatinib / tepotinib" ;
+    rdfs:subClassOf okg:NonSmallCellLungCancer .
+
+okg:NCCN_BREAST_2026 a okg:Guideline,
+        owl:NamedIndividual ;
+    rdfs:label "NCCN Breast Cancer 2026: HER2-null / ultralow / low categories" ;
+    okg:clinicalNote "https://www.nccn.org" ;
+    skos:prefLabel "NCCN Breast Cancer 2026: HER2-null / ultralow / low categories" .
+
+okg:NTRKFusionNSCLC a owl:Class ;
+    rdfs:label "NTRK fusion-positive NSCLC" ;
+    okg:approxPrevalence "<1% of LUAD" ;
+    okg:hasGuideline okg:CAP_IASLC_AMP_2018 ;
+    okg:isRareSubtype true ;
+    okg:rarityTier "rare" ;
+    okg:therapyRelevance "larotrectinib / entrectinib" ;
+    rdfs:subClassOf okg:NonSmallCellLungCancer .
+
+okg:NeuroendocrineProstateCancer a owl:Class ;
+    rdfs:label "Neuroendocrine prostate cancer (NEPC)" ;
+    okg:approxPrevalence "<2% de novo; ~10-17% treatment-emergent in mCRPC" ;
+    okg:hasGuideline okg:WHO_URINARY_MALE_GENITAL_2022 ;
+    okg:isRareSubtype true ;
+    okg:rarityTier "rare" ;
+    okg:therapyRelevance "platinum-based chemotherapy; trials" ;
+    rdfs:subClassOf okg:ProstateCancer .
+
+okg:RETRearrangedNSCLC a owl:Class ;
+    rdfs:label "RET-rearranged NSCLC" ;
+    okg:approxPrevalence "~1-2% of LUAD" ;
+    okg:hasGuideline okg:CAP_IASLC_AMP_2018 ;
+    okg:isRareSubtype true ;
+    okg:rarityTier "rare" ;
+    okg:therapyRelevance "selpercatinib / pralsetinib" ;
+    rdfs:subClassOf okg:NonSmallCellLungCancer .
+
+okg:RG_prostate_molecular a okg:RuleGroup,
+        owl:NamedIndividual ;
+    rdfs:label "Prostate actionable molecular class" ;
+    okg:groupAppliesTo okg:ProstateAdenocarcinoma ;
+    okg:groupOrder 2 ;
+    okg:outputSlot "molecular" ;
+    skos:prefLabel "Prostate actionable molecular class" .
+
+okg:RG_tnbc_subtype a okg:RuleGroup,
+        owl:NamedIndividual ;
+    rdfs:label "TNBC molecular subtype" ;
+    okg:groupAppliesTo okg:TripleNegativeBreastCancer ;
+    okg:groupOrder 2 ;
+    okg:outputSlot "molecular" ;
+    skos:prefLabel "TNBC molecular subtype" .
+
+okg:ROS1RearrangedNSCLC a owl:Class ;
+    rdfs:label "ROS1-rearranged NSCLC" ;
+    okg:approxPrevalence "~1-2% of LUAD" ;
+    okg:hasGuideline okg:CAP_IASLC_AMP_2018 ;
+    okg:isRareSubtype true ;
+    okg:rarityTier "rare" ;
+    okg:therapyRelevance "crizotinib / entrectinib / repotrectinib" ;
+    rdfs:subClassOf okg:NonSmallCellLungCancer .
+
+okg:SmallCellLungCancer a owl:Class ;
+    rdfs:label "Small cell lung cancer (SCLC)" ;
+    okg:approxPrevalence "~13-15% of lung cancer" ;
+    okg:hasGuideline okg:WHO_THORACIC_2021 ;
+    okg:isRareSubtype true ;
+    okg:rarityTier "uncommon" ;
+    okg:therapyRelevance "platinum-etoposide + IO; DLL3-targeted (tarlatamab)" ;
+    rdfs:subClassOf okg:LungCancer .
+
+okg:TNBCLuminalAndrogenReceptor a owl:Class ;
+    rdfs:label "TNBC, luminal androgen receptor (LAR)-like" ;
+    okg:approxPrevalence "~10-15% of TNBC (~1-2% of all BC)" ;
+    okg:hasGuideline okg:LEHMANN_TNBC ;
+    okg:isRareSubtype true ;
+    okg:rarityTier "rare" ;
+    okg:therapyRelevance "AR-directed / PI3K pathway trials" ;
+    rdfs:subClassOf okg:TripleNegativeBreastCancer .
+
+okg:kU_per_L a okg:Unit,
+        owl:NamedIndividual ;
+    rdfs:label "kU/L" ;
+    okg:ucumCode "kU/L" ;
+    skos:altLabel "KU/L",
+        "kU/L" ;
+    skos:prefLabel "kU/L" .
+
+okg:ng_per_L a okg:Unit,
+        owl:NamedIndividual ;
+    rdfs:label "ng/L" ;
+    okg:ucumCode "ng/L" ;
+    skos:altLabel "ng/L" ;
+    skos:prefLabel "ng/L" .
+
+okg:HER2PositiveBreastCancer a owl:Class ;
+    rdfs:label "HER2-positive breast cancer" ;
+    okg:approxPrevalence "~15-20%" ;
+    okg:hasGuideline okg:ASCO_CAP_HER2_2018 ;
+    okg:isRareSubtype false ;
+    okg:rarityTier "common" ;
+    okg:therapyRelevance "trastuzumab / pertuzumab / T-DXd" ;
+    rdfs:subClassOf okg:BreastCancer .
+
+okg:RG_prostate_histology a okg:RuleGroup,
+        owl:NamedIndividual ;
+    rdfs:label "Prostate histologic program" ;
+    okg:groupAppliesTo okg:ProstateCancer ;
+    okg:groupOrder 1 ;
+    okg:outputSlot "histology" ;
+    skos:prefLabel "Prostate histologic program" .
+
+okg:RawObservation a owl:Class ;
+    rdfs:label "RawObservation" ;
+    rdfs:comment "A value as exported by a source laboratory, before normalization." .
+
+okg:Specimen a owl:Class ;
+    rdfs:label "Specimen" ;
+    rdfs:comment "Tissue, cytology or blood sample." .
+
+okg:Tumor a owl:Class ;
+    rdfs:label "Tumor" ;
+    rdfs:comment "The neoplasm (or tissue) characterised in a patient; typed with Disease classes." .
+
+okg:HRPositiveHER2NegativeBreastCancer a owl:Class ;
+    rdfs:label "HR+/HER2- breast cancer" ;
+    okg:approxPrevalence "~70% of breast cancer" ;
+    okg:hasGuideline okg:ASCO_CAP_ER_PR_2020 ;
+    okg:isRareSubtype false ;
+    okg:rarityTier "common" ;
+    okg:therapyRelevance "endocrine therapy +/- CDK4/6i" ;
+    rdfs:subClassOf okg:BreastCancer .
+
+okg:LEHMANN_TNBC a okg:Guideline,
+        owl:NamedIndividual ;
+    rdfs:label "Lehmann et al. TNBC molecular subtypes incl. LAR" ;
+    okg:clinicalNote "https://doi.org/10.1172/JCI45014" ;
+    skos:prefLabel "Lehmann et al. TNBC molecular subtypes incl. LAR" .
+
+okg:ProstateAdenocarcinoma a owl:Class ;
+    rdfs:label "Prostate adenocarcinoma (acinar)" ;
+    okg:approxPrevalence ">95%" ;
+    okg:hasGuideline okg:WHO_URINARY_MALE_GENITAL_2022 ;
+    okg:isRareSubtype false ;
+    okg:rarityTier "common" ;
+    okg:therapyRelevance "ADT / ARPI" ;
+    rdfs:subClassOf okg:ProstateCancer .
+
+okg:TripleNegativeBreastCancer a owl:Class ;
+    rdfs:label "Triple-negative breast cancer (TNBC)" ;
+    okg:approxPrevalence "~10-15%" ;
+    okg:hasGuideline okg:ASCO_CAP_ER_PR_2020 ;
+    okg:isRareSubtype true ;
+    okg:rarityTier "uncommon" ;
+    okg:therapyRelevance "chemo-IO (pembrolizumab), sacituzumab govitecan, PARPi if gBRCA" ;
+    rdfs:subClassOf okg:BreastCancer .
+
+okg:Patient a owl:Class ;
+    rdfs:label "Patient" ;
+    rdfs:comment "A person whose specimens are profiled." .
+
+okg:RG_lung_histology a okg:RuleGroup,
+        owl:NamedIndividual ;
+    rdfs:label "Lung histologic type (IHC/NE program)" ;
+    okg:groupAppliesTo okg:LungCancer ;
+    okg:groupOrder 1 ;
+    okg:outputSlot "histology" ;
+    skos:prefLabel "Lung histologic type (IHC/NE program)" .
+
+okg:U_per_mL a okg:Unit,
+        owl:NamedIndividual ;
+    rdfs:label "U/mL" ;
+    okg:ucumCode "U/mL" ;
+    skos:altLabel "U/mL",
+        "U/ml" ;
+    skos:prefLabel "U/mL" .
+
+okg:ug_per_L a okg:Unit,
+        owl:NamedIndividual ;
+    rdfs:label "ug/L" ;
+    okg:ucumCode "ug/L" ;
+    skos:altLabel "mcg/L",
+        "ug/L",
+        "µg/L" ;
+    skos:prefLabel "ug/L" .
+
+okg:DiagnosisAssertion a owl:Class ;
+    rdfs:label "DiagnosisAssertion" ;
+    rdfs:comment "Provenance record for an inferred diagnosis." .
+
+okg:SpecimenSitePrior a owl:Class ;
+    rdfs:label "SpecimenSitePrior" ;
+    rdfs:comment "Prior weight from anatomic specimen site to a lineage." .
+
+okg:pg_per_mL a okg:Unit,
+        owl:NamedIndividual ;
+    rdfs:label "pg/mL" ;
+    okg:ucumCode "pg/mL" ;
+    skos:altLabel "pg/mL",
+        "pg/ml" ;
+    skos:prefLabel "pg/mL" .
+
+okg:CopyNumberAlteration a owl:Class ;
+    rdfs:label "CopyNumberAlteration" ;
+    rdfs:subClassOf okg:GenomicAlteration .
+
+okg:GenomicAlteration a owl:Class ;
+    rdfs:label "GenomicAlteration" ;
+    rdfs:comment "Defined DNA/RNA alteration." ;
+    rdfs:subClassOf okg:Biomarker .
+
+okg:HousekeepingGene a owl:Class ;
+    rdfs:label "HousekeepingGene" ;
+    rdfs:comment "Reference gene used for RNA normalization." ;
+    rdfs:subClassOf okg:Gene .
+
+okg:NormalizedFinding a owl:Class ;
+    rdfs:label "NormalizedFinding" ;
+    rdfs:comment "A canonical, unit-harmonised finding derived from raw observations." .
+
+okg:WHO_URINARY_MALE_GENITAL_2022 a okg:Guideline,
+        owl:NamedIndividual ;
+    rdfs:label "WHO Classification of Urinary and Male Genital Tumours, 5th ed." ;
+    okg:clinicalNote "https://publications.iarc.fr" ;
+    skos:prefLabel "WHO Classification of Urinary and Male Genital Tumours, 5th ed." .
+
+okg:ASCO_CAP_HER2_2018 a okg:Guideline,
+        owl:NamedIndividual ;
+    rdfs:label "ASCO/CAP HER2 testing in breast cancer 2018 (affirmed 2023)" ;
+    okg:clinicalNote "https://doi.org/10.1200/JCO.2018.77.8738" ;
+    skos:prefLabel "ASCO/CAP HER2 testing in breast cancer 2018 (affirmed 2023)" .
+
+okg:Biomarker a owl:Class ;
+    rdfs:label "Biomarker" ;
+    rdfs:comment "Measurable molecular characteristic." .
+
+okg:Cancer a owl:Class ;
+    rdfs:label "Cancer" ;
+    rdfs:subClassOf okg:Disease .
+
+okg:Lineage a owl:Class ;
+    rdfs:label "Lineage" ;
+    rdfs:comment "Tissue-of-origin lineage program." .
+
+okg:RG_breast_receptor a okg:RuleGroup,
+        owl:NamedIndividual ;
+    rdfs:label "Breast receptor-defined surrogate subtype" ;
+    okg:groupAppliesTo okg:BreastCancer ;
+    okg:groupOrder 1 ;
+    okg:outputSlot "histology" ;
+    skos:prefLabel "Breast receptor-defined surrogate subtype" .
+
+okg:SerumBiomarker a owl:Class ;
+    rdfs:label "SerumBiomarker" ;
+    rdfs:comment "Circulating protein measured by immunoassay." ;
+    rdfs:subClassOf okg:Biomarker .
+
+okg:Assay a owl:Class ;
+    rdfs:label "Assay" ;
+    rdfs:comment "Laboratory method producing observations." .
+
+okg:RG_nsclc_driver a okg:RuleGroup,
+        owl:NamedIndividual ;
+    rdfs:label "NSCLC oncogenic driver (mutually exclusive, rarest first)" ;
+    okg:groupAppliesTo okg:NonSmallCellLungCancer ;
+    okg:groupOrder 2 ;
+    okg:outputSlot "molecular" ;
+    skos:prefLabel "NSCLC oncogenic driver (mutually exclusive, rarest first)" .
+
+okg:ST_GALLEN_2013 a okg:Guideline,
+        owl:NamedIndividual ;
+    rdfs:label "St Gallen 2013 surrogate intrinsic subtypes (Ki-67 / PR thresholds)" ;
+    okg:clinicalNote "https://doi.org/10.1093/annonc/mdt303" ;
+    skos:prefLabel "St Gallen 2013 surrogate intrinsic subtypes (Ki-67 / PR thresholds)" .
+
+okg:BreastLineage a okg:Lineage,
+        owl:NamedIndividual ;
+    rdfs:label "Breast lineage" ;
+    okg:lineageRootDisease okg:BreastCancer ;
+    skos:prefLabel "Breast lineage" .
+
+okg:GeneFusionAlteration a owl:Class ;
+    rdfs:label "GeneFusionAlteration" ;
+    rdfs:subClassOf okg:GenomicAlteration .
+
+okg:WHO_THORACIC_2021 a okg:Guideline,
+        owl:NamedIndividual ;
+    rdfs:label "WHO Classification of Thoracic Tumours, 5th ed. (TTF-1/p40 IHC)" ;
+    okg:clinicalNote "https://publications.iarc.fr" ;
+    skos:prefLabel "WHO Classification of Thoracic Tumours, 5th ed. (TTF-1/p40 IHC)" .
+
+okg:ProstateLineage a okg:Lineage,
+        owl:NamedIndividual ;
+    rdfs:label "Prostate lineage" ;
+    okg:lineageRootDisease okg:ProstateCancer ;
+    okg:requiredSex "M" ;
+    skos:prefLabel "Prostate lineage" .
+
+okg:RuleGroup a owl:Class ;
+    rdfs:label "RuleGroup" ;
+    rdfs:comment "Set of mutually exclusive diagnostic rules evaluated in priority order." .
+
+okg:ASCO_CAP_ER_PR_2020 a okg:Guideline,
+        owl:NamedIndividual ;
+    rdfs:label "ASCO/CAP ER and PgR testing in breast cancer 2020" ;
+    okg:clinicalNote "https://doi.org/10.1200/JCO.19.02309" ;
+    skos:prefLabel "ASCO/CAP ER and PgR testing in breast cancer 2020" .
+
+okg:CompositeBiomarker a owl:Class ;
+    rdfs:label "CompositeBiomarker" ;
+    rdfs:comment "Status integrated from several assays by a guideline algorithm (e.g. HER2 status)." ;
+    rdfs:subClassOf okg:Biomarker .
+
+okg:Disease a owl:Class ;
+    rdfs:label "Disease" ;
+    rdfs:comment "Diagnostic category." .
+
+okg:Guideline a owl:Class ;
+    rdfs:label "Guideline" ;
+    rdfs:comment "Published source of a rule or threshold." .
+
+okg:LungCancer a owl:Class ;
+    rdfs:label "Lung cancer" ;
+    rdfs:subClassOf okg:Cancer .
+
+okg:LungLineage a okg:Lineage,
+        owl:NamedIndividual ;
+    rdfs:label "Lung (thoracic) lineage" ;
+    okg:lineageRootDisease okg:LungCancer ;
+    skos:prefLabel "Lung (thoracic) lineage" .
+
+okg:ProstateCancer a owl:Class ;
+    rdfs:label "Prostate cancer" ;
+    rdfs:subClassOf okg:Cancer .
+
+okg:BreastCancer a owl:Class ;
+    rdfs:label "Breast cancer" ;
+    rdfs:subClassOf okg:Cancer .
+
+okg:NonSmallCellLungCancer a owl:Class ;
+    rdfs:label "Non-small cell lung cancer (NSCLC)" ;
+    okg:approxPrevalence "~85% of lung cancer" ;
+    okg:hasGuideline okg:WHO_THORACIC_2021 ;
+    okg:isRareSubtype false ;
+    okg:rarityTier "common" ;
+    rdfs:subClassOf okg:LungCancer .
+
+okg:MalignancyEvidence a owl:Class ;
+    rdfs:label "MalignancyEvidence" ;
+    rdfs:comment "Weighted feature state supporting malignancy." .
+
+okg:Unit a owl:Class ;
+    rdfs:label "Unit" ;
+    rdfs:comment "Unit of measure." .
+
+okg:UnitConversion a owl:Class ;
+    rdfs:label "UnitConversion" ;
+    rdfs:comment "Factor to convert a source unit to the canonical unit." .
+
+okg:ng_per_mL a okg:Unit,
+        owl:NamedIndividual ;
+    rdfs:label "ng/mL" ;
+    okg:ucumCode "ng/mL" ;
+    skos:altLabel "NG/ML",
+        "ng/mL",
+        "ng/ml" ;
+    skos:prefLabel "ng/mL" .
+
+okg:SYNTHETIC_DESIGN a okg:Guideline,
+        owl:NamedIndividual ;
+    rdfs:label "OncoKG synthetic design choice (not a clinical guideline)" ;
+    skos:prefLabel "OncoKG synthetic design choice (not a clinical guideline)" .
+
+okg:CAP_IASLC_AMP_2018 a okg:Guideline,
+        owl:NamedIndividual ;
+    rdfs:label "CAP/IASLC/AMP molecular testing guideline for lung cancer 2018" ;
+    okg:clinicalNote "https://doi.org/10.5858/arpa.2017-0388-CP" ;
+    skos:prefLabel "CAP/IASLC/AMP molecular testing guideline for lung cancer 2018" .
+
+okg:SequenceVariantAlteration a owl:Class ;
+    rdfs:label "SequenceVariantAlteration" ;
+    rdfs:subClassOf okg:GenomicAlteration .
+
+okg:DiagnosticRule a owl:Class ;
+    rdfs:label "DiagnosticRule" ;
+    rdfs:comment "Rule assigning a Disease class when all criteria are satisfied." .
+
+okg:MolecularModifier a owl:Class ;
+    rdfs:label "MolecularModifier" ;
+    rdfs:comment "Non-exclusive molecular annotation of a tumor (e.g. HER2-low, BRCA1-altered)." .
+
+okg:LineageEvidence a owl:Class ;
+    rdfs:label "LineageEvidence" ;
+    rdfs:comment "Weighted link from a feature state to a lineage (tissue-of-origin scoring)." .
+
+okg:Parameter a owl:Class ;
+    rdfs:label "Parameter" ;
+    rdfs:comment "Named numeric threshold used by normalization or reasoning." .
+
+okg:ProteinExpressionBiomarker a owl:Class ;
+    rdfs:label "ProteinExpressionBiomarker" ;
+    rdfs:comment "Assessed by IHC and/or RNA expression of the encoding gene." ;
+    rdfs:subClassOf okg:Biomarker .
+
+okg:Gene a owl:Class ;
+    rdfs:label "Gene" ;
+    rdfs:comment "HGNC gene." .
+
+okg:Criterion a owl:Class ;
+    rdfs:label "Criterion" ;
+    rdfs:comment "Atomic test on a normalized feature." .
+

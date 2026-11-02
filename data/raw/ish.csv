@@ -1,0 +1,105 @@
+patient_id,site,test,result_text
+PT0001,SITE_A,ALK FISH,ALK break-apart: 8% cells rearranged
+PT0010,SITE_C,ALK FISH,ALK BA FISH negative (5%)
+PT0013,SITE_B,ALK FISH,"ALK FISH (Vysis) negative, 7% split signals"
+PT0022,SITE_B,ALK FISH,"ALK FISH (Vysis) negative, 1% split signals"
+PT0024,SITE_B,HER2 SISH,"Ratio 2.52, mean HER2 signals 3.7"
+PT0025,SITE_C,ALK FISH,ALK BA FISH negative (3%)
+PT0030,SITE_A,HER2 dual-probe ISH,HER2/CEP17 ratio=1.40; HER2 copies/cell=1.9
+PT0045,SITE_C,ALK FISH,ALK BA FISH negative (7%)
+PT0048,SITE_A,ALK FISH,ALK break-apart: 7% cells rearranged
+PT0050,SITE_B,ALK FISH,"ALK FISH (Vysis) negative, 3% split signals"
+PT0051,SITE_C,ERBB2 FISH,ERBB2:CEP17 1.58 | avg ERBB2 2.7
+PT0056,SITE_B,HER2 SISH,"Ratio 4.07, mean HER2 signals 6.4"
+PT0059,SITE_C,ALK FISH,ALK BA FISH negative (1%)
+PT0061,SITE_A,ALK FISH,ALK break-apart: 5% cells rearranged
+PT0069,SITE_B,ALK FISH,"ALK FISH (Vysis) negative, 4% split signals"
+PT0074,SITE_C,ALK FISH,ALK BA FISH negative (2%)
+PT0079,SITE_C,ALK FISH,ALK BA FISH negative (1%)
+PT0082,SITE_C,ALK FISH,ALK BA FISH negative (6%)
+PT0085,SITE_C,ERBB2 FISH,ERBB2:CEP17 1.94 | avg ERBB2 7.2
+PT0088,SITE_A,ALK FISH,ALK break-apart: 19% cells rearranged
+PT0092,SITE_C,ALK FISH,ALK BA FISH negative (7%)
+PT0100,SITE_C,ALK FISH,ALK BA FISH negative (4%)
+PT0108,SITE_B,ALK FISH,"ALK FISH (Vysis) negative, 5% split signals"
+PT0110,SITE_C,ERBB2 FISH,ERBB2:CEP17 1.41 | avg ERBB2 2.6
+PT0118,SITE_A,ALK FISH,ALK break-apart: 61% cells rearranged
+PT0120,SITE_C,ALK FISH,ALK BA FISH positive (64%)
+PT0121,SITE_B,HER2 SISH,"Ratio 1.41, mean HER2 signals 3.3"
+PT0124,SITE_B,ALK FISH,"ALK FISH (Vysis) negative, 2% split signals"
+PT0125,SITE_B,ALK FISH,"ALK FISH (Vysis) negative, 5% split signals"
+PT0129,SITE_B,ALK FISH,"ALK FISH (Vysis) negative, 7% split signals"
+PT0130,SITE_C,ERBB2 FISH,ERBB2:CEP17 1.44 | avg ERBB2 2.8
+PT0131,SITE_A,HER2 dual-probe ISH,HER2/CEP17 ratio=3.50; HER2 copies/cell=15.6
+PT0137,SITE_C,ALK FISH,ALK BA FISH negative (3%)
+PT0140,SITE_B,ALK FISH,"ALK FISH (Vysis) negative, 4% split signals"
+PT0148,SITE_A,HER2 dual-probe ISH,HER2/CEP17 ratio=1.68; HER2 copies/cell=2.8
+PT0154,SITE_B,HER2 SISH,"Ratio 1.27, mean HER2 signals 2.1"
+PT0163,SITE_A,HER2 dual-probe ISH,HER2/CEP17 ratio=1.03; HER2 copies/cell=1.9
+PT0166,SITE_A,ALK FISH,ALK break-apart: 8% cells rearranged
+PT0178,SITE_C,ALK FISH,ALK BA FISH negative (2%)
+PT0186,SITE_B,HER2 SISH,"Ratio 2.58, mean HER2 signals 6.1"
+PT0196,SITE_A,ALK FISH,ALK break-apart: 6% cells rearranged
+PT0211,SITE_C,ERBB2 FISH,ERBB2:CEP17 4.33 | avg ERBB2 9.6
+PT0224,SITE_B,ALK FISH,"ALK FISH (Vysis) negative, 7% split signals"
+PT0226,SITE_B,ALK FISH,"ALK FISH (Vysis) negative, 6% split signals"
+PT0230,SITE_B,HER2 SISH,"Ratio 1.52, mean HER2 signals 4.4"
+PT0233,SITE_C,ALK FISH,ALK BA FISH negative (8%)
+PT0239,SITE_A,ALK FISH,ALK break-apart: 1% cells rearranged
+PT0248,SITE_B,ALK FISH,"ALK FISH (Vysis) negative, 3% split signals"
+PT0250,SITE_B,ALK FISH,"ALK FISH (Vysis) negative, 6% split signals"
+PT0252,SITE_C,ALK FISH,ALK BA FISH negative (5%)
+PT0261,SITE_A,ALK FISH,ALK break-apart: 0% cells rearranged
+PT0262,SITE_A,HER2 dual-probe ISH,HER2/CEP17 ratio=1.09; HER2 copies/cell=1.9
+PT0263,SITE_A,ALK FISH,ALK break-apart: 6% cells rearranged
+PT0267,SITE_A,ALK FISH,ALK break-apart: 4% cells rearranged
+PT0284,SITE_C,ALK FISH,ALK BA FISH negative (6%)
+PT0285,SITE_C,ALK FISH,ALK BA FISH negative (6%)
+PT0291,SITE_B,ALK FISH,"ALK FISH (Vysis) positive, 19% split signals"
+PT0293,SITE_B,ALK FISH,"ALK FISH (Vysis) negative, 7% split signals"
+PT0299,SITE_A,ALK FISH,ALK break-apart: 7% cells rearranged
+PT0312,SITE_C,ERBB2 FISH,ERBB2:CEP17 1.09 | avg ERBB2 2.1
+PT0315,SITE_C,ALK FISH,ALK BA FISH negative (5%)
+PT0318,SITE_B,HER2 SISH,"Ratio 2.58, mean HER2 signals 8.8"
+PT0322,SITE_B,ALK FISH,"ALK FISH (Vysis) negative, 4% split signals"
+PT0327,SITE_A,ALK FISH,ALK break-apart: 8% cells rearranged
+PT0333,SITE_B,ALK FISH,"ALK FISH (Vysis) negative, 6% split signals"
+PT0336,SITE_C,ALK FISH,ALK BA FISH negative (5%)
+PT0346,SITE_B,ALK FISH,"ALK FISH (Vysis) negative, 4% split signals"
+PT0351,SITE_C,ALK FISH,ALK BA FISH negative (6%)
+PT0352,SITE_C,ALK FISH,ALK BA FISH negative (8%)
+PT0357,SITE_A,ALK FISH,ALK break-apart: 47% cells rearranged
+PT0361,SITE_C,ALK FISH,ALK BA FISH positive (61%)
+PT0362,SITE_A,HER2 dual-probe ISH,HER2/CEP17 ratio=1.46; HER2 copies/cell=3.1
+PT0363,SITE_C,ERBB2 FISH,ERBB2:CEP17 1.56 | avg ERBB2 5.7
+PT0364,SITE_A,HER2 dual-probe ISH,HER2/CEP17 ratio=1.34; HER2 copies/cell=1.9
+PT0380,SITE_A,ALK FISH,ALK break-apart: 7% cells rearranged
+PT0386,SITE_A,ALK FISH,ALK break-apart: 7% cells rearranged
+PT0394,SITE_A,ALK FISH,ALK break-apart: 7% cells rearranged
+PT0397,SITE_C,ALK FISH,ALK BA FISH negative (3%)
+PT0401,SITE_C,ERBB2 FISH,ERBB2:CEP17 6.08 | avg ERBB2 9.9
+PT0414,SITE_A,ALK FISH,ALK break-apart: 0% cells rearranged
+PT0440,SITE_B,ALK FISH,"ALK FISH (Vysis) negative, 1% split signals"
+PT0452,SITE_C,ALK FISH,ALK BA FISH negative (5%)
+PT0459,SITE_C,ALK FISH,ALK BA FISH negative (3%)
+PT0462,SITE_C,ERBB2 FISH,ERBB2:CEP17 3.20 | avg ERBB2 16.5
+PT0464,SITE_A,ALK FISH,ALK break-apart: 6% cells rearranged
+PT0471,SITE_B,ALK FISH,"ALK FISH (Vysis) negative, 8% split signals"
+PT0473,SITE_C,ERBB2 FISH,ERBB2:CEP17 1.22 | avg ERBB2 2.6
+PT0475,SITE_C,ERBB2 FISH,ERBB2:CEP17 3.32 | avg ERBB2 9.8
+PT0480,SITE_C,ALK FISH,ALK BA FISH positive (63%)
+PT0483,SITE_A,HER2 dual-probe ISH,HER2/CEP17 ratio=2.24; HER2 copies/cell=7.2
+PT0484,SITE_C,ALK FISH,ALK BA FISH negative (3%)
+PT0494,SITE_A,ALK FISH,ALK break-apart: 5% cells rearranged
+PT0495,SITE_A,ALK FISH,ALK break-apart: 0% cells rearranged
+PT0496,SITE_A,ALK FISH,ALK break-apart: 7% cells rearranged
+PT0508,SITE_B,ALK FISH,"ALK FISH (Vysis) negative, 2% split signals"
+PT0517,SITE_A,ALK FISH,ALK break-apart: 6% cells rearranged
+PT0519,SITE_A,ALK FISH,ALK break-apart: 3% cells rearranged
+PT0526,SITE_B,ALK FISH,"ALK FISH (Vysis) negative, 8% split signals"
+PT0562,SITE_C,ERBB2 FISH,ERBB2:CEP17 1.06 | avg ERBB2 2.3
+PT0565,SITE_B,ALK FISH,"ALK FISH (Vysis) negative, 0% split signals"
+PT0566,SITE_C,ERBB2 FISH,ERBB2:CEP17 1.30 | avg ERBB2 4.8
+PT0569,SITE_C,ERBB2 FISH,ERBB2:CEP17 1.08 | avg ERBB2 1.8
+PT0570,SITE_A,HER2 dual-probe ISH,HER2/CEP17 ratio=1.85; HER2 copies/cell=7.3
+PT0575,SITE_B,ALK FISH,"ALK FISH (Vysis) positive, 64% split signals"

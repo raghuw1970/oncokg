@@ -1,0 +1,599 @@
+patient_id,scenario,true_lineage,true_histology,true_molecular,true_modifiers,edge_case,note
+PT0001,lung:LUSC,lung,LungSquamousCellCarcinoma,,MOD_PDL1_NEG;MOD_TP53,,metastatic specimen
+PT0002,benign:lung,lung,NoMalignancyDetected,,,,benign lung nodule (granuloma/hamartoma)
+PT0003,lung:LUSC,lung,LungSquamousCellCarcinoma,,MOD_PDL1_LOW,,
+PT0004,lung:KRASG12C,lung,LungAdenocarcinoma,KRASG12CMutantNSCLC,MOD_PDL1_LOW;MOD_STK11,,low purity
+PT0005,prostate:HRR,prostate,ProstateAdenocarcinoma,HRRDeficientProstateCancer,MOD_BRCA2,,
+PT0006,breast:LUMB,breast,LuminalBLikeHER2Negative,,MOD_HER2_ULTRALOW,,
+PT0007,breast:LUMB_HER2P,breast,LuminalBLikeHER2Positive,,,,
+PT0008,prostate:ADENO,prostate,ProstateAdenocarcinoma,,MOD_TMPRSS2_ERG,,
+PT0009,breast:LUMA,breast,LuminalALike,,MOD_HER2_ULTRALOW;MOD_PIK3CA,,
+PT0010,lung:KRASG12C,lung,LungAdenocarcinoma,KRASG12CMutantNSCLC,MOD_PDL1_HIGH,,
+PT0011,lung:NOS,lung,LungAdenocarcinoma,,MOD_KRAS_OTHER;MOD_PDL1_NEG,,metastatic specimen
+PT0012,lung:MET,lung,LungAdenocarcinoma,METEx14SkippingNSCLC,MOD_PDL1_NEG,,
+PT0013,lung:LUSC,lung,LungSquamousCellCarcinoma,,MOD_PDL1_NEG;MOD_TP53,,
+PT0014,breast:LUMB_HER2P,breast,LuminalBLikeHER2Positive,,MOD_TP53,,
+PT0015,prostate:ADENO,prostate,ProstateAdenocarcinoma,,MOD_TP53,,metastatic specimen
+PT0016,breast:LUMA,breast,LuminalALike,,MOD_HER2_LOW;MOD_PIK3CA;MOD_TP53,,
+PT0017,lung:LUSC,lung,LungSquamousCellCarcinoma,,MOD_PDL1_LOW;MOD_TP53,,
+PT0018,benign:lung,lung,NoMalignancyDetected,,,,benign lung nodule (granuloma/hamartoma)
+PT0019,lung:LUSC,lung,LungSquamousCellCarcinoma,,MOD_PDL1_LOW;MOD_TP53,,
+PT0020,prostate:HRR,prostate,ProstateAdenocarcinoma,HRRDeficientProstateCancer,MOD_ATM;MOD_PTEN;MOD_TMPRSS2_ERG,,low purity
+PT0021,lung:LUSC,lung,LungSquamousCellCarcinoma,,MOD_PDL1_NEG;MOD_TP53,,
+PT0022,lung:SCLC,lung,SmallCellLungCancer,,MOD_RB1;MOD_TP53,,
+PT0023,breast:TNBC,breast,TripleNegativeBreastCancer,,MOD_HER2_LOW;MOD_TP53,,low purity
+PT0024,breast:LUMA,breast,LuminalALike,,MOD_HER2_LOW,,HER2 ISH group 2
+PT0025,lung:MET,lung,LungAdenocarcinoma,METEx14SkippingNSCLC,MOD_PDL1_LOW,,
+PT0026,lung:EGFR,lung,LungAdenocarcinoma,EGFRMutantNSCLC,MOD_EGFR_T790M;MOD_PDL1_NEG,,
+PT0027,lung:KRASG12C,lung,LungAdenocarcinoma,KRASG12CMutantNSCLC,MOD_PDL1_NEG;MOD_TP53,,metastatic specimen
+PT0028,breast:LUMA,breast,LuminalALike,,MOD_HER2_NULL,,metastatic specimen
+PT0029,breast:LUMB,breast,LuminalBLikeHER2Negative,,MOD_HER2_ULTRALOW;MOD_TP53,,
+PT0030,breast:TNBC,breast,TripleNegativeBreastCancer,,MOD_HER2_LOW;MOD_TP53,,
+PT0031,breast:HER2_EQUIVOCAL,breast,BreastCancer,,,HER2 IHC 2+ with ISH pending (expect HER2-equivocal flag),metastatic specimen
+PT0032,prostate:ADENO,prostate,ProstateAdenocarcinoma,,MOD_SPOP,,
+PT0033,breast:LUMA,breast,LuminalALike,,MOD_HER2_NULL,,
+PT0034,prostate:ADENO,prostate,ProstateAdenocarcinoma,,MOD_TMPRSS2_ERG;MOD_TP53,,
+PT0035,lung:SCLC,lung,SmallCellLungCancer,,MOD_RB1;MOD_TP53,,
+PT0036,prostate:ADENO,prostate,ProstateAdenocarcinoma,,MOD_TMPRSS2_ERG,,
+PT0037,prostate:ADENO,prostate,ProstateAdenocarcinoma,,MOD_TP53,,
+PT0038,prostate:NEPC,prostate,NeuroendocrineProstateCancer,,MOD_AURKA;MOD_RB1;MOD_TMPRSS2_ERG;MOD_TP53,,
+PT0039,prostate:ADENO,prostate,ProstateAdenocarcinoma,,,,
+PT0040,lung:SCLC,lung,SmallCellLungCancer,,MOD_TP53,,low purity; metastatic specimen
+PT0041,breast:TNBC,breast,TripleNegativeBreastCancer,,MOD_HER2_LOW;MOD_TP53,,
+PT0042,prostate:ADENO,prostate,ProstateAdenocarcinoma,,MOD_TMPRSS2_ERG,,
+PT0043,lung:MET,lung,LungAdenocarcinoma,METEx14SkippingNSCLC,MOD_PDL1_LOW,,
+PT0044,breast:LUMA,breast,LuminalALike,,MOD_HER2_ULTRALOW,,near-diploid
+PT0045,lung:EGFR,lung,LungAdenocarcinoma,EGFRMutantNSCLC,MOD_PDL1_NEG,,
+PT0046,lung:KRASG12C,lung,LungAdenocarcinoma,KRASG12CMutantNSCLC,MOD_PDL1_LOW;MOD_TP53,,low purity
+PT0047,breast:LUMB,breast,LuminalBLikeHER2Negative,,MOD_HER2_ULTRALOW;MOD_PIK3CA,,
+PT0048,lung:SCLC,lung,SmallCellLungCancer,,MOD_RB1;MOD_TP53,,low purity
+PT0049,lung:LUSC,lung,LungSquamousCellCarcinoma,,MOD_PDL1_NEG;MOD_TP53,,
+PT0050,lung:EGFR,lung,LungAdenocarcinoma,EGFRMutantNSCLC,MOD_PDL1_NEG;MOD_TP53,,
+PT0051,breast:LUMA,breast,LuminalALike,,MOD_HER2_LOW,,
+PT0052,lung:NOS,lung,LungAdenocarcinoma,,MOD_KRAS_OTHER;MOD_PDL1_LOW;MOD_TP53,,metastatic specimen
+PT0053,lung:LUSC,lung,LungSquamousCellCarcinoma,,MOD_PDL1_LOW;MOD_TP53,,
+PT0054,prostate:ADENO,prostate,ProstateAdenocarcinoma,,,,metastatic specimen
+PT0055,prostate:ADENO,prostate,ProstateAdenocarcinoma,,,,
+PT0056,breast:HER2E,breast,HER2Enriched,,MOD_TP53,,
+PT0057,breast:LUMB_HER2P,breast,LuminalBLikeHER2Positive,,,,
+PT0058,lung:SCLC,lung,SmallCellLungCancer,,MOD_RB1;MOD_TP53,,
+PT0059,lung:LUSC,lung,LungSquamousCellCarcinoma,,MOD_KEAP1;MOD_PDL1_LOW,,
+PT0060,prostate:ADENO,prostate,ProstateAdenocarcinoma,,,,low purity; metastatic specimen
+PT0061,benign:lung,lung,NoMalignancyDetected,,,,benign lung nodule (granuloma/hamartoma)
+PT0062,prostate:ADENO,prostate,ProstateAdenocarcinoma,,,,
+PT0063,breast:LUMB_HER2P,breast,LuminalBLikeHER2Positive,,,,
+PT0064,lung:SCLC,lung,SmallCellLungCancer,,MOD_RB1;MOD_TP53,,
+PT0065,breast:LAR,breast,TripleNegativeBreastCancer,TNBCLuminalAndrogenReceptor,MOD_HER2_LOW;MOD_PIK3CA,,metastatic specimen
+PT0066,lung:LUSC,lung,LungSquamousCellCarcinoma,,MOD_KEAP1;MOD_PDL1_NEG;MOD_TP53,,
+PT0067,breast:LUMA,breast,LuminalALike,,MOD_HER2_LOW,,metastatic specimen
+PT0068,prostate:ADENO,prostate,ProstateAdenocarcinoma,,,,
+PT0069,lung:LUSC,lung,LungSquamousCellCarcinoma,,MOD_PDL1_HIGH;MOD_TP53,,
+PT0070,prostate:ADENO,prostate,ProstateAdenocarcinoma,,MOD_TMPRSS2_ERG,,metastatic specimen
+PT0071,breast:LUMA,breast,LuminalALike,,MOD_HER2_ULTRALOW,,metastatic specimen
+PT0072,breast:HER2E,breast,HER2Enriched,,,,
+PT0073,prostate:ADENO,prostate,ProstateAdenocarcinoma,,MOD_TMPRSS2_ERG,,
+PT0074,lung:LUSC,lung,LungSquamousCellCarcinoma,,MOD_PDL1_NEG,,
+PT0075,lung:EGFR,lung,LungAdenocarcinoma,EGFRMutantNSCLC,MOD_PDL1_HIGH,,metastatic specimen
+PT0076,lung:NOS,lung,LungAdenocarcinoma,,MOD_KRAS_OTHER;MOD_PDL1_HIGH;MOD_TP53,,
+PT0077,prostate:ADENO,prostate,ProstateAdenocarcinoma,,MOD_TP53,,metastatic specimen
+PT0078,breast:LUMA,breast,LuminalALike,,MOD_HER2_NULL;MOD_PIK3CA,,
+PT0079,lung:SCLC,lung,SmallCellLungCancer,,MOD_RB1;MOD_TP53,,
+PT0080,lung:LUSC,lung,LungSquamousCellCarcinoma,,MOD_PDL1_LOW;MOD_TP53,,
+PT0081,lung:NOS,lung,LungAdenocarcinoma,,MOD_PDL1_LOW,,
+PT0082,lung:LUSC,lung,LungSquamousCellCarcinoma,,MOD_KEAP1;MOD_PDL1_NEG;MOD_TP53,,
+PT0083,lung:ROS1,lung,LungAdenocarcinoma,ROS1RearrangedNSCLC,MOD_PDL1_LOW,TTF-1/Napsin A double-negative adenocarcinoma (expect NSCLC-NOS),
+PT0084,breast:LUMA,breast,LuminalALike,,MOD_HER2_LOW,,
+PT0085,breast:LUMB_HER2P,breast,LuminalBLikeHER2Positive,,MOD_TP53,,low purity; HER2 ISH group 3
+PT0086,benign:lung,lung,NoMalignancyDetected,,,,benign lung nodule (granuloma/hamartoma)
+PT0087,breast:LUMB,breast,LuminalBLikeHER2Negative,,MOD_HER2_LOW;MOD_TP53,,
+PT0088,lung:ALK,lung,LungAdenocarcinoma,ALKRearrangedNSCLC,MOD_PDL1_LOW,,
+PT0089,breast:LUMA,breast,LuminalALike,,MOD_HER2_ULTRALOW;MOD_PIK3CA,,
+PT0090,lung:LUSC,lung,LungSquamousCellCarcinoma,,MOD_PDL1_HIGH;MOD_TP53,,
+PT0091,breast:LUMA,breast,LuminalALike,,MOD_HER2_LOW;MOD_TP53,,
+PT0092,lung:EGFR,lung,LungAdenocarcinoma,EGFRMutantNSCLC,MOD_EGFR_T790M;MOD_PDL1_NEG;MOD_TP53,,
+PT0093,breast:LUMA,breast,LuminalALike,,MOD_HER2_LOW;MOD_PIK3CA,,near-diploid
+PT0094,lung:BRAF,lung,LungAdenocarcinoma,BRAFV600EMutantNSCLC,MOD_PDL1_NEG,,
+PT0095,prostate:ADENO,prostate,ProstateAdenocarcinoma,,MOD_SPOP,,
+PT0096,breast:ERLOW,breast,ERLowHER2NegativeBreastCancer,,MOD_ER_LOW;MOD_HER2_ULTRALOW,,
+PT0097,breast:LUMB,breast,LuminalBLikeHER2Negative,,MOD_ESR1;MOD_HER2_ULTRALOW,,
+PT0098,prostate:NEPC,prostate,NeuroendocrineProstateCancer,,MOD_AURKA;MOD_RB1;MOD_TMPRSS2_ERG;MOD_TP53,,
+PT0099,benign:prostate,prostate,NoMalignancyDetected,,,,benign prostatic hyperplasia with elevated serum PSA
+PT0100,lung:NOS,lung,LungAdenocarcinoma,,MOD_PDL1_LOW,,metastatic specimen
+PT0101,lung:EGFR,lung,LungAdenocarcinoma,EGFRMutantNSCLC,MOD_PDL1_NEG,,
+PT0102,lung:EGFR,lung,LungAdenocarcinoma,EGFRMutantNSCLC,MOD_PDL1_HIGH,,
+PT0103,lung:BRAF,lung,LungAdenocarcinoma,BRAFV600EMutantNSCLC,MOD_PDL1_NEG,,
+PT0104,breast:TNBC,breast,TripleNegativeBreastCancer,,MOD_HER2_ULTRALOW;MOD_TP53,,
+PT0105,breast:LUMA,breast,LuminalALike,,MOD_HER2_LOW,,
+PT0106,benign:prostate,prostate,NoMalignancyDetected,,,,benign prostatic hyperplasia with elevated serum PSA
+PT0107,benign:prostate,prostate,NoMalignancyDetected,,,,benign prostatic hyperplasia with elevated serum PSA
+PT0108,lung:EGFR,lung,LungAdenocarcinoma,EGFRMutantNSCLC,MOD_EGFR_T790M;MOD_PDL1_HIGH,,
+PT0109,prostate:ADENO,prostate,ProstateAdenocarcinoma,,MOD_TMPRSS2_ERG,,
+PT0110,breast:LUMB,breast,LuminalBLikeHER2Negative,,MOD_HER2_LOW;MOD_PIK3CA,,
+PT0111,breast:HER2_EQUIVOCAL,breast,BreastCancer,,,HER2 IHC 2+ with ISH pending (expect HER2-equivocal flag),
+PT0112,breast:LUMA,breast,LuminalALike,,MOD_HER2_LOW,,near-diploid
+PT0113,prostate:ADENO,prostate,ProstateAdenocarcinoma,,MOD_TMPRSS2_ERG,,
+PT0114,prostate:ADENO,prostate,ProstateAdenocarcinoma,,,,metastatic specimen
+PT0115,breast:LUMB,breast,LuminalBLikeHER2Negative,,MOD_HER2_LOW,,
+PT0116,lung:SCLC,lung,SmallCellLungCancer,,MOD_RB1;MOD_TP53,,low purity
+PT0117,prostate:NEPC,prostate,NeuroendocrineProstateCancer,,MOD_RB1;MOD_TMPRSS2_ERG;MOD_TP53,,
+PT0118,lung:ALK,lung,LungAdenocarcinoma,ALKRearrangedNSCLC,MOD_PDL1_LOW,,
+PT0119,breast:LUMA,breast,LuminalALike,,MOD_HER2_ULTRALOW;MOD_PIK3CA,,male breast cancer
+PT0120,lung:ALK,lung,LungAdenocarcinoma,ALKRearrangedNSCLC,MOD_PDL1_NEG,,
+PT0121,breast:LUMB,breast,LuminalBLikeHER2Negative,,MOD_HER2_LOW;MOD_PIK3CA,,
+PT0122,prostate:HRR,prostate,ProstateAdenocarcinoma,HRRDeficientProstateCancer,MOD_ATM,,
+PT0123,lung:MET,lung,LungAdenocarcinoma,METEx14SkippingNSCLC,MOD_PDL1_HIGH,,
+PT0124,lung:EGFR,lung,LungAdenocarcinoma,EGFRMutantNSCLC,MOD_PDL1_LOW,,
+PT0125,lung:NOS,lung,LungAdenocarcinoma,,MOD_PDL1_NEG;MOD_TP53,,metastatic specimen
+PT0126,lung:LUSC,lung,LungSquamousCellCarcinoma,,MOD_KEAP1;MOD_PDL1_HIGH;MOD_TP53,,
+PT0127,breast:ERLOW,breast,ERLowHER2NegativeBreastCancer,,MOD_ER_LOW;MOD_HER2_ULTRALOW,,
+PT0128,breast:LUMA,breast,LuminalALike,,MOD_HER2_LOW,,
+PT0129,lung:EGFR,lung,LungAdenocarcinoma,EGFRMutantNSCLC,MOD_PDL1_NEG,,
+PT0130,breast:LUMA,breast,LuminalALike,,MOD_HER2_LOW;MOD_PIK3CA,,near-diploid
+PT0131,breast:LUMB_HER2P,breast,LuminalBLikeHER2Positive,,MOD_PIK3CA,,
+PT0132,prostate:HRR,prostate,ProstateAdenocarcinoma,HRRDeficientProstateCancer,MOD_BRCA2;MOD_TMPRSS2_ERG,,metastatic specimen
+PT0133,breast:LUMA,breast,LuminalALike,,MOD_HER2_LOW;MOD_PIK3CA,,
+PT0134,lung:SCLC,lung,SmallCellLungCancer,,MOD_RB1;MOD_TP53,,
+PT0135,breast:LUMA,breast,LuminalALike,,MOD_HER2_NULL,,male breast cancer; metastatic specimen
+PT0136,lung:SCLC,lung,SmallCellLungCancer,,MOD_RB1;MOD_TP53,,
+PT0137,lung:BRAF,lung,LungAdenocarcinoma,BRAFV600EMutantNSCLC,MOD_PDL1_LOW,,
+PT0138,breast:LUMA,breast,LuminalALike,,MOD_HER2_ULTRALOW;MOD_PIK3CA,,
+PT0139,breast:LUMA,breast,LuminalALike,,MOD_HER2_ULTRALOW;MOD_PIK3CA,,
+PT0140,lung:NTRK,lung,LungAdenocarcinoma,NTRKFusionNSCLC,MOD_PDL1_HIGH,,
+PT0141,breast:LUMB,breast,LuminalBLikeHER2Negative,,MOD_HER2_LOW,,
+PT0142,breast:LUMB,breast,LuminalBLikeHER2Negative,,MOD_HER2_LOW,,
+PT0143,breast:LUMB,breast,LuminalBLikeHER2Negative,,MOD_HER2_LOW,,metastatic specimen
+PT0144,lung:NOS,lung,LungAdenocarcinoma,,MOD_PDL1_NEG;MOD_TP53,,
+PT0145,prostate:ADENO,prostate,ProstateAdenocarcinoma,,MOD_TP53,,metastatic specimen
+PT0146,breast:TNBC,breast,TripleNegativeBreastCancer,,MOD_BRCA1;MOD_HER2_ULTRALOW;MOD_TP53,,BRCA1-associated TNBC
+PT0147,lung:EGFR,lung,LungAdenocarcinoma,EGFRMutantNSCLC,MOD_PDL1_LOW;MOD_TP53,,
+PT0148,breast:LUMB,breast,LuminalBLikeHER2Negative,,MOD_HER2_LOW;MOD_PIK3CA,,
+PT0149,breast:TNBC,breast,TripleNegativeBreastCancer,,MOD_BRCA1;MOD_HER2_LOW;MOD_TP53,,metastatic specimen; BRCA1-associated TNBC
+PT0150,breast:LAR,breast,TripleNegativeBreastCancer,TNBCLuminalAndrogenReceptor,MOD_HER2_NULL;MOD_PIK3CA,,
+PT0151,breast:LAR,breast,TripleNegativeBreastCancer,TNBCLuminalAndrogenReceptor,MOD_HER2_NULL,,
+PT0152,lung:EGFR,lung,LungAdenocarcinoma,EGFRMutantNSCLC,MOD_PDL1_LOW,,
+PT0153,lung:EGFR,lung,LungAdenocarcinoma,EGFRMutantNSCLC,MOD_PDL1_LOW;MOD_TP53,,
+PT0154,breast:LUMA,breast,LuminalALike,,MOD_HER2_LOW,,
+PT0155,prostate:ADENO,prostate,ProstateAdenocarcinoma,,MOD_SPOP,,
+PT0156,prostate:HRR,prostate,ProstateAdenocarcinoma,HRRDeficientProstateCancer,MOD_CDK12;MOD_PTEN,,metastatic specimen
+PT0157,breast:LUMA,breast,LuminalALike,,MOD_HER2_ULTRALOW,,near-diploid
+PT0158,breast:LUMA,breast,LuminalALike,,MOD_HER2_NULL,,metastatic specimen
+PT0159,lung:NOS,lung,LungAdenocarcinoma,,MOD_KRAS_OTHER;MOD_PDL1_LOW,,
+PT0160,breast:LUMA,breast,LuminalALike,,MOD_HER2_ULTRALOW;MOD_PIK3CA,,
+PT0161,prostate:HRR,prostate,ProstateAdenocarcinoma,HRRDeficientProstateCancer,MOD_BRCA2;MOD_SPOP,,
+PT0162,prostate:ADENO,prostate,ProstateAdenocarcinoma,,MOD_PTEN,,low purity
+PT0163,breast:LUMA,breast,LuminalALike,,MOD_HER2_LOW;MOD_PIK3CA,,
+PT0164,lung:NOS,lung,LungAdenocarcinoma,,MOD_KRAS_OTHER;MOD_PDL1_NEG,,
+PT0165,prostate:ADENO,prostate,ProstateAdenocarcinoma,,,,metastatic specimen
+PT0166,lung:LUSC,lung,LungSquamousCellCarcinoma,,MOD_PDL1_LOW;MOD_TP53,,low purity
+PT0167,lung:LUSC,lung,LungSquamousCellCarcinoma,,MOD_PDL1_NEG;MOD_TP53,,
+PT0168,lung:LUSC,lung,LungSquamousCellCarcinoma,,MOD_PDL1_LOW,,
+PT0169,benign:prostate,prostate,NoMalignancyDetected,,,,benign prostatic hyperplasia with elevated serum PSA
+PT0170,benign:breast,breast,NoMalignancyDetected,,,,benign breast (fibroadenoma / fibrocystic)
+PT0171,lung:EGFR,lung,LungAdenocarcinoma,EGFRMutantNSCLC,MOD_PDL1_HIGH;MOD_TP53,,
+PT0172,breast:LUMA,breast,LuminalALike,,MOD_HER2_NULL;MOD_PIK3CA,,metastatic specimen
+PT0173,lung:LUSC,lung,LungSquamousCellCarcinoma,,MOD_KEAP1;MOD_PDL1_HIGH;MOD_TP53,,
+PT0174,lung:ROS1,lung,LungAdenocarcinoma,ROS1RearrangedNSCLC,MOD_PDL1_LOW,,
+PT0175,lung:LUSC,lung,LungSquamousCellCarcinoma,,MOD_PDL1_LOW;MOD_TP53,,
+PT0176,lung:KRASG12C,lung,LungAdenocarcinoma,KRASG12CMutantNSCLC,MOD_PDL1_HIGH;MOD_STK11,,
+PT0177,benign:breast,breast,NoMalignancyDetected,,,,benign breast (fibroadenoma / fibrocystic)
+PT0178,lung:LUSC,lung,LungSquamousCellCarcinoma,,MOD_PDL1_LOW;MOD_TP53,,
+PT0179,benign:lung,lung,NoMalignancyDetected,,,,benign lung nodule (granuloma/hamartoma)
+PT0180,breast:ERNEG_PRPOS,breast,BreastCancer,,MOD_HER2_LOW,ER-/PR+ discordant phenotype (expect flag + retest),metastatic specimen
+PT0181,breast:HER2E,breast,HER2Enriched,,MOD_TP53,,
+PT0182,breast:LUMB_HER2P,breast,LuminalBLikeHER2Positive,,MOD_TP53,,
+PT0183,breast:TNBC,breast,TripleNegativeBreastCancer,,MOD_HER2_NULL;MOD_TP53,,
+PT0184,breast:LUMA,breast,LuminalALike,,MOD_HER2_LOW,,
+PT0185,breast:LUMA,breast,LuminalALike,,MOD_HER2_LOW,,
+PT0186,breast:LUMB_HER2P,breast,LuminalBLikeHER2Positive,,MOD_PIK3CA;MOD_TP53,,
+PT0187,breast:TNBC,breast,TripleNegativeBreastCancer,,MOD_HER2_LOW;MOD_TP53,,
+PT0188,prostate:NEPC,prostate,NeuroendocrineProstateCancer,,MOD_RB1;MOD_TP53,,
+PT0189,lung:EGFR,lung,LungAdenocarcinoma,EGFRMutantNSCLC,MOD_PDL1_HIGH,,
+PT0190,breast:LUMA,breast,LuminalALike,,MOD_HER2_LOW;MOD_TP53,,
+PT0191,breast:LAR,breast,TripleNegativeBreastCancer,TNBCLuminalAndrogenReceptor,MOD_HER2_ULTRALOW;MOD_TP53,,
+PT0192,lung:KRASG12C,lung,LungAdenocarcinoma,KRASG12CMutantNSCLC,MOD_PDL1_HIGH;MOD_TP53,,
+PT0193,breast:LUMB_HER2P,breast,LuminalBLikeHER2Positive,,MOD_TP53,,
+PT0194,lung:EGFR,lung,LungAdenocarcinoma,EGFRMutantNSCLC,MOD_PDL1_LOW;MOD_TP53,,metastatic specimen
+PT0195,breast:LUMA,breast,LuminalALike,,MOD_HER2_LOW,,
+PT0196,lung:NOS,lung,LungAdenocarcinoma,,MOD_KRAS_OTHER;MOD_PDL1_LOW,,
+PT0197,lung:KRASG12C,lung,LungAdenocarcinoma,KRASG12CMutantNSCLC,MOD_PDL1_LOW,,
+PT0198,lung:EGFR,lung,LungAdenocarcinoma,EGFRMutantNSCLC,MOD_PDL1_NEG,,
+PT0199,breast:LUMA,breast,LuminalALike,,MOD_HER2_ULTRALOW,,
+PT0200,lung:KRASG12C,lung,LungAdenocarcinoma,KRASG12CMutantNSCLC,MOD_PDL1_NEG;MOD_STK11;MOD_TP53,,
+PT0201,prostate:HRR,prostate,ProstateAdenocarcinoma,HRRDeficientProstateCancer,MOD_BRCA2;MOD_TP53,,metastatic specimen
+PT0202,prostate:ADENO,prostate,ProstateAdenocarcinoma,,MOD_TMPRSS2_ERG,,
+PT0203,breast:LUMB,breast,LuminalBLikeHER2Negative,,MOD_HER2_LOW;MOD_PIK3CA,,
+PT0204,benign:breast,breast,NoMalignancyDetected,,,,benign breast (fibroadenoma / fibrocystic)
+PT0205,breast:TNBC,breast,TripleNegativeBreastCancer,,MOD_BRCA1;MOD_HER2_NULL;MOD_TP53,,BRCA1-associated TNBC
+PT0206,lung:SCLC,lung,SmallCellLungCancer,,MOD_RB1,,
+PT0207,prostate:ADENO,prostate,ProstateAdenocarcinoma,,,,
+PT0208,prostate:HRR,prostate,ProstateAdenocarcinoma,HRRDeficientProstateCancer,MOD_BRCA2;MOD_TP53,,
+PT0209,benign:breast,breast,NoMalignancyDetected,,,,benign breast (fibroadenoma / fibrocystic)
+PT0210,breast:TNBC,breast,TripleNegativeBreastCancer,,MOD_HER2_NULL;MOD_TP53,,
+PT0211,breast:LUMB_HER2P,breast,LuminalBLikeHER2Positive,,MOD_TP53,,low purity
+PT0212,lung:LUSC,lung,LungSquamousCellCarcinoma,,MOD_PDL1_HIGH,,
+PT0213,breast:TNBC,breast,TripleNegativeBreastCancer,,MOD_HER2_ULTRALOW;MOD_TP53,,metastatic specimen
+PT0214,breast:LUMA,breast,LuminalALike,,MOD_HER2_ULTRALOW;MOD_PIK3CA,,
+PT0215,prostate:ADENO,prostate,ProstateAdenocarcinoma,,MOD_PTEN,,
+PT0216,breast:TNBC,breast,TripleNegativeBreastCancer,,MOD_HER2_LOW;MOD_TP53,,
+PT0217,breast:LUMB,breast,LuminalBLikeHER2Negative,,MOD_HER2_NULL;MOD_PIK3CA,,
+PT0218,lung:EGFR,lung,LungAdenocarcinoma,EGFRMutantNSCLC,MOD_PDL1_NEG;MOD_TP53,,
+PT0219,prostate:ADENO,prostate,ProstateAdenocarcinoma,,,,
+PT0220,prostate:ADENO,prostate,ProstateAdenocarcinoma,,MOD_TMPRSS2_ERG,,
+PT0221,breast:LUMA,breast,LuminalALike,,MOD_HER2_LOW,,near-diploid
+PT0222,prostate:ADENO,prostate,ProstateAdenocarcinoma,,,,
+PT0223,breast:LUMA,breast,LuminalALike,,MOD_HER2_LOW,,
+PT0224,lung:SCLC,lung,SmallCellLungCancer,,MOD_RB1;MOD_TP53,,
+PT0225,breast:LUMB,breast,LuminalBLikeHER2Negative,,MOD_HER2_LOW;MOD_PIK3CA,,
+PT0226,lung:NOS,lung,LungAdenocarcinoma,,MOD_PDL1_LOW;MOD_TP53,,
+PT0227,breast:LUMA,breast,LuminalALike,,MOD_HER2_LOW,,near-diploid
+PT0228,benign:breast,breast,NoMalignancyDetected,,,,benign breast (fibroadenoma / fibrocystic)
+PT0229,breast:LUMB,breast,LuminalBLikeHER2Negative,,MOD_HER2_LOW,,
+PT0230,breast:ERLOW,breast,ERLowHER2NegativeBreastCancer,,MOD_ER_LOW;MOD_HER2_LOW;MOD_TP53,,HER2 ISH group 4
+PT0231,lung:KRASG12C,lung,LungAdenocarcinoma,KRASG12CMutantNSCLC,MOD_PDL1_LOW;MOD_TP53,,
+PT0232,breast:HER2_EQUIVOCAL,breast,BreastCancer,,,HER2 IHC 2+ with ISH pending (expect HER2-equivocal flag),
+PT0233,lung:KRASG12C,lung,LungAdenocarcinoma,KRASG12CMutantNSCLC,MOD_KEAP1;MOD_PDL1_HIGH;MOD_TP53,,metastatic specimen
+PT0234,breast:LUMA,breast,LuminalALike,,MOD_HER2_LOW;MOD_PIK3CA,,
+PT0235,benign:breast,breast,NoMalignancyDetected,,,,benign breast (fibroadenoma / fibrocystic)
+PT0236,breast:HER2E,breast,HER2Enriched,,,,
+PT0237,lung:SCLC,lung,SmallCellLungCancer,,MOD_RB1;MOD_TP53,,
+PT0238,breast:LUMB_HER2P,breast,LuminalBLikeHER2Positive,,,,
+PT0239,lung:KRASG12C,lung,LungAdenocarcinoma,KRASG12CMutantNSCLC,MOD_PDL1_HIGH;MOD_STK11,,metastatic specimen
+PT0240,breast:LUMB,breast,LuminalBLikeHER2Negative,,MOD_HER2_ULTRALOW;MOD_TP53,,
+PT0241,benign:prostate,prostate,NoMalignancyDetected,,,,benign prostatic hyperplasia with elevated serum PSA
+PT0242,prostate:ADENO,prostate,ProstateAdenocarcinoma,,MOD_TMPRSS2_ERG,,
+PT0243,breast:LUMB,breast,LuminalBLikeHER2Negative,,MOD_HER2_LOW;MOD_PIK3CA,,
+PT0244,breast:TNBC,breast,TripleNegativeBreastCancer,,MOD_HER2_LOW;MOD_TP53,,
+PT0245,breast:HER2E,breast,HER2Enriched,,MOD_TP53,,
+PT0246,breast:LUMB,breast,LuminalBLikeHER2Negative,,MOD_HER2_NULL;MOD_TP53,,
+PT0247,breast:LUMB_HER2P,breast,LuminalBLikeHER2Positive,,MOD_TP53,,
+PT0248,lung:KRASG12C,lung,LungAdenocarcinoma,KRASG12CMutantNSCLC,MOD_KEAP1;MOD_PDL1_NEG;MOD_TP53,,
+PT0249,breast:LUMB,breast,LuminalBLikeHER2Negative,,MOD_HER2_LOW;MOD_TP53,,
+PT0250,lung:NOS,lung,LungAdenocarcinoma,,MOD_KRAS_OTHER;MOD_PDL1_LOW,,
+PT0251,breast:LUMB,breast,LuminalBLikeHER2Negative,,MOD_HER2_LOW,,
+PT0252,lung:LUSC,lung,LungSquamousCellCarcinoma,,MOD_KEAP1;MOD_PDL1_NEG;MOD_TP53,,
+PT0253,prostate:HRR,prostate,ProstateAdenocarcinoma,HRRDeficientProstateCancer,MOD_ATM;MOD_PTEN,,
+PT0254,prostate:ADENO,prostate,ProstateAdenocarcinoma,,MOD_TMPRSS2_ERG,,
+PT0255,lung:EGFR,lung,LungAdenocarcinoma,EGFRMutantNSCLC,MOD_PDL1_LOW,,
+PT0256,breast:TNBC,breast,TripleNegativeBreastCancer,,MOD_HER2_ULTRALOW,,
+PT0257,breast:LUMA,breast,LuminalALike,,MOD_HER2_ULTRALOW;MOD_TP53,,
+PT0258,breast:LUMB,breast,LuminalBLikeHER2Negative,,MOD_HER2_LOW;MOD_PIK3CA,,
+PT0259,breast:TNBC,breast,TripleNegativeBreastCancer,,MOD_HER2_LOW;MOD_RB1;MOD_TP53,,metastatic specimen
+PT0260,prostate:ADENO,prostate,ProstateAdenocarcinoma,,,,
+PT0261,lung:RET,lung,LungAdenocarcinoma,RETRearrangedNSCLC,MOD_PDL1_HIGH,,
+PT0262,breast:TNBC,breast,TripleNegativeBreastCancer,,MOD_BRCA1;MOD_HER2_LOW;MOD_RB1;MOD_TP53,,BRCA1-associated TNBC
+PT0263,benign:lung,lung,NoMalignancyDetected,,,,benign lung nodule (granuloma/hamartoma)
+PT0264,prostate:ADENO,prostate,ProstateAdenocarcinoma,,MOD_SPOP,,low purity
+PT0265,breast:LUMA,breast,LuminalALike,,MOD_HER2_NULL;MOD_PIK3CA;MOD_TP53,,
+PT0266,breast:HER2E,breast,HER2Enriched,,MOD_TP53,,metastatic specimen
+PT0267,lung:MET,lung,LungAdenocarcinoma,METEx14SkippingNSCLC,MOD_PDL1_LOW,,
+PT0268,lung:EGFR,lung,LungAdenocarcinoma,EGFRMutantNSCLC,MOD_PDL1_LOW,,
+PT0269,prostate:NEPC,prostate,NeuroendocrineProstateCancer,,MOD_AURKA;MOD_MYCN;MOD_RB1;MOD_TMPRSS2_ERG;MOD_TP53,,
+PT0270,breast:HER2E,breast,HER2Enriched,,,,
+PT0271,breast:TNBC,breast,TripleNegativeBreastCancer,,MOD_BRCA1;MOD_HER2_ULTRALOW;MOD_RB1,,BRCA1-associated TNBC
+PT0272,prostate:ADENO,prostate,ProstateAdenocarcinoma,,MOD_TP53,,
+PT0273,prostate:HRR,prostate,ProstateAdenocarcinoma,HRRDeficientProstateCancer,MOD_BRCA2;MOD_TP53,,
+PT0274,breast:HER2E,breast,HER2Enriched,,,,
+PT0275,benign:breast,breast,NoMalignancyDetected,,,,benign breast (fibroadenoma / fibrocystic)
+PT0276,prostate:ADENO,prostate,ProstateAdenocarcinoma,,MOD_PTEN;MOD_TMPRSS2_ERG,,metastatic specimen
+PT0277,prostate:HRR,prostate,ProstateAdenocarcinoma,HRRDeficientProstateCancer,MOD_CDK12;MOD_TMPRSS2_ERG,,
+PT0278,breast:LUMB_HER2P,breast,LuminalBLikeHER2Positive,,MOD_TP53,,
+PT0279,breast:HER2E,breast,HER2Enriched,,MOD_TP53,,
+PT0280,lung:NOS,lung,LungAdenocarcinoma,,MOD_KRAS_OTHER;MOD_PDL1_HIGH,,
+PT0281,benign:lung,lung,NoMalignancyDetected,,,,benign lung nodule (granuloma/hamartoma)
+PT0282,prostate:ADENO,prostate,ProstateAdenocarcinoma,,MOD_TMPRSS2_ERG,,
+PT0283,breast:TNBC,breast,TripleNegativeBreastCancer,,MOD_HER2_ULTRALOW,,
+PT0284,lung:SCLC,lung,SmallCellLungCancer,,MOD_RB1;MOD_TP53,,
+PT0285,lung:KRASG12C,lung,LungAdenocarcinoma,KRASG12CMutantNSCLC,MOD_PDL1_LOW;MOD_STK11;MOD_TP53,,
+PT0286,benign:breast,breast,NoMalignancyDetected,,,,benign breast (fibroadenoma / fibrocystic)
+PT0287,breast:TNBC,breast,TripleNegativeBreastCancer,,MOD_HER2_ULTRALOW;MOD_TP53,,
+PT0288,lung:BRAF,lung,LungAdenocarcinoma,BRAFV600EMutantNSCLC,MOD_PDL1_NEG,,metastatic specimen
+PT0289,prostate:ADENO,prostate,ProstateAdenocarcinoma,,MOD_SPOP,,metastatic specimen
+PT0290,breast:LAR,breast,TripleNegativeBreastCancer,TNBCLuminalAndrogenReceptor,MOD_HER2_ULTRALOW,,metastatic specimen
+PT0291,lung:ALK,lung,LungAdenocarcinoma,ALKRearrangedNSCLC,MOD_PDL1_LOW,,
+PT0292,prostate:ADENO,prostate,ProstateAdenocarcinoma,,MOD_TMPRSS2_ERG;MOD_TP53,,metastatic specimen
+PT0293,lung:KRASG12C,lung,LungAdenocarcinoma,KRASG12CMutantNSCLC,MOD_PDL1_LOW;MOD_TP53,,
+PT0294,prostate:HRR,prostate,ProstateAdenocarcinoma,HRRDeficientProstateCancer,MOD_CDK12;MOD_TMPRSS2_ERG,,low purity
+PT0295,breast:LUMA,breast,LuminalALike,,MOD_HER2_LOW,,
+PT0296,lung:SCLC,lung,SmallCellLungCancer,,MOD_RB1;MOD_TP53,,
+PT0297,breast:LUMB,breast,LuminalBLikeHER2Negative,,MOD_HER2_NULL;MOD_TP53,,
+PT0298,breast:TNBC,breast,TripleNegativeBreastCancer,,MOD_BRCA1;MOD_HER2_NULL;MOD_TP53,,BRCA1-associated TNBC
+PT0299,lung:LUSC,lung,LungSquamousCellCarcinoma,,MOD_PDL1_NEG;MOD_TP53,,
+PT0300,lung:EGFR,lung,LungAdenocarcinoma,EGFRMutantNSCLC,MOD_EGFR_T790M;MOD_PDL1_NEG;MOD_TP53,,
+PT0301,breast:LUMA,breast,LuminalALike,,MOD_HER2_ULTRALOW,,near-diploid
+PT0302,lung:EGFR,lung,LungAdenocarcinoma,EGFRMutantNSCLC,MOD_PDL1_LOW;MOD_TP53,,
+PT0303,lung:NOS,lung,LungAdenocarcinoma,,MOD_PDL1_HIGH;MOD_TP53,,
+PT0304,lung:ALK,lung,LungAdenocarcinoma,ALKRearrangedNSCLC,MOD_PDL1_LOW,,metastatic specimen
+PT0305,lung:NOS,lung,LungAdenocarcinoma,,MOD_KRAS_OTHER;MOD_PDL1_LOW;MOD_TP53,,
+PT0306,breast:TNBC,breast,TripleNegativeBreastCancer,,MOD_BRCA1;MOD_HER2_NULL;MOD_TP53,,BRCA1-associated TNBC
+PT0307,prostate:HRR,prostate,ProstateAdenocarcinoma,HRRDeficientProstateCancer,MOD_BRCA2;MOD_PTEN;MOD_SPOP,,
+PT0308,lung:NTRK,lung,LungAdenocarcinoma,NTRKFusionNSCLC,MOD_PDL1_NEG,,
+PT0309,lung:LUSC,lung,LungSquamousCellCarcinoma,,MOD_KEAP1;MOD_PDL1_HIGH,,
+PT0310,lung:MET,lung,LungAdenocarcinoma,METEx14SkippingNSCLC,MOD_PDL1_LOW,,metastatic specimen
+PT0311,lung:NOS,lung,LungAdenocarcinoma,,MOD_KRAS_OTHER;MOD_PDL1_LOW,TTF-1/Napsin A double-negative adenocarcinoma (expect NSCLC-NOS),
+PT0312,breast:LUMA,breast,LuminalALike,,MOD_HER2_LOW,,
+PT0313,lung:LUSC,lung,LungSquamousCellCarcinoma,,MOD_PDL1_LOW;MOD_TP53,,
+PT0314,prostate:HRR,prostate,ProstateAdenocarcinoma,HRRDeficientProstateCancer,MOD_BRCA2;MOD_TMPRSS2_ERG,,
+PT0315,lung:SCLC,lung,SmallCellLungCancer,,MOD_RB1,,
+PT0316,lung:EGFR,lung,LungAdenocarcinoma,EGFRMutantNSCLC,MOD_PDL1_HIGH,,metastatic specimen
+PT0317,breast:TNBC,breast,TripleNegativeBreastCancer,,MOD_HER2_NULL,,
+PT0318,breast:HER2E,breast,HER2Enriched,,MOD_TP53,,
+PT0319,benign:prostate,prostate,NoMalignancyDetected,,,,benign prostatic hyperplasia with elevated serum PSA
+PT0320,benign:breast,breast,NoMalignancyDetected,,,,benign breast (fibroadenoma / fibrocystic)
+PT0321,breast:LUMB_HER2P,breast,LuminalBLikeHER2Positive,,MOD_TP53,,metastatic specimen
+PT0322,lung:LUSC,lung,LungSquamousCellCarcinoma,,MOD_KEAP1;MOD_PDL1_HIGH,,
+PT0323,breast:TNBC,breast,TripleNegativeBreastCancer,,MOD_HER2_NULL;MOD_TP53,,
+PT0324,breast:LUMB,breast,LuminalBLikeHER2Negative,,MOD_HER2_LOW,,
+PT0325,prostate:ADENO,prostate,ProstateAdenocarcinoma,,MOD_TMPRSS2_ERG,,metastatic specimen
+PT0326,lung:ROS1,lung,LungAdenocarcinoma,ROS1RearrangedNSCLC,MOD_PDL1_HIGH,,metastatic specimen
+PT0327,lung:NOS,lung,LungAdenocarcinoma,,MOD_PDL1_LOW,,low purity
+PT0328,lung:ROS1,lung,LungAdenocarcinoma,ROS1RearrangedNSCLC,MOD_PDL1_NEG,,metastatic specimen
+PT0329,breast:HER2E,breast,HER2Enriched,,,,
+PT0330,breast:LUMB_HER2P,breast,LuminalBLikeHER2Positive,,MOD_PIK3CA;MOD_TP53,,
+PT0331,breast:LUMA,breast,LuminalALike,,MOD_HER2_NULL;MOD_PIK3CA;MOD_TP53,,
+PT0332,breast:LUMB,breast,LuminalBLikeHER2Negative,,MOD_HER2_NULL,,
+PT0333,benign:lung,lung,NoMalignancyDetected,,,,benign lung nodule (granuloma/hamartoma)
+PT0334,lung:KRASG12C,lung,LungAdenocarcinoma,KRASG12CMutantNSCLC,MOD_PDL1_HIGH;MOD_TP53,,
+PT0335,breast:HER2_EQUIVOCAL,breast,BreastCancer,,,HER2 IHC 2+ with ISH pending (expect HER2-equivocal flag),
+PT0336,lung:EGFR,lung,LungAdenocarcinoma,EGFRMutantNSCLC,MOD_PDL1_LOW;MOD_TP53,,
+PT0337,prostate:NEPC,prostate,NeuroendocrineProstateCancer,,MOD_RB1;MOD_TMPRSS2_ERG;MOD_TP53,,
+PT0338,breast:LUMB,breast,LuminalBLikeHER2Negative,,MOD_HER2_LOW;MOD_TP53,,metastatic specimen
+PT0339,prostate:ADENO,prostate,ProstateAdenocarcinoma,,MOD_TMPRSS2_ERG;MOD_TP53,,
+PT0340,breast:HER2_EQUIVOCAL,breast,BreastCancer,,,HER2 IHC 2+ with ISH pending (expect HER2-equivocal flag),
+PT0341,lung:EGFR,lung,LungAdenocarcinoma,EGFRMutantNSCLC,MOD_PDL1_HIGH;MOD_TP53,,
+PT0342,prostate:HRR,prostate,ProstateAdenocarcinoma,HRRDeficientProstateCancer,,,metastatic specimen
+PT0343,prostate:ADENO,prostate,ProstateAdenocarcinoma,,MOD_SPOP,,
+PT0344,breast:HER2E,breast,HER2Enriched,,MOD_TP53,,
+PT0345,prostate:NEPC,prostate,NeuroendocrineProstateCancer,,MOD_AURKA;MOD_RB1;MOD_TP53,,
+PT0346,lung:LUSC,lung,LungSquamousCellCarcinoma,,MOD_PDL1_LOW;MOD_TP53,,metastatic specimen
+PT0347,breast:LUMA,breast,LuminalALike,,MOD_HER2_NULL;MOD_PIK3CA,,
+PT0348,prostate:HRR,prostate,ProstateAdenocarcinoma,HRRDeficientProstateCancer,MOD_BRCA2,,
+PT0349,prostate:ADENO,prostate,ProstateAdenocarcinoma,,MOD_TMPRSS2_ERG,,
+PT0350,breast:LUMB,breast,LuminalBLikeHER2Negative,,MOD_HER2_LOW;MOD_TP53,,
+PT0351,lung:LUSC,lung,LungSquamousCellCarcinoma,,MOD_PDL1_HIGH,,
+PT0352,lung:NOS,lung,LungAdenocarcinoma,,MOD_KRAS_OTHER;MOD_PDL1_LOW;MOD_TP53,,
+PT0353,breast:LAR,breast,TripleNegativeBreastCancer,TNBCLuminalAndrogenReceptor,MOD_HER2_ULTRALOW;MOD_PIK3CA,,
+PT0354,prostate:ADENO,prostate,ProstateAdenocarcinoma,,MOD_PTEN;MOD_TMPRSS2_ERG,,
+PT0355,benign:prostate,prostate,NoMalignancyDetected,,,,benign prostatic hyperplasia with elevated serum PSA
+PT0356,breast:LUMA,breast,LuminalALike,,MOD_HER2_ULTRALOW;MOD_TP53,,
+PT0357,lung:ALK,lung,LungAdenocarcinoma,ALKRearrangedNSCLC,MOD_PDL1_LOW,,
+PT0358,prostate:HRR,prostate,ProstateAdenocarcinoma,HRRDeficientProstateCancer,MOD_BRCA2;MOD_PTEN,,metastatic specimen
+PT0359,benign:prostate,prostate,NoMalignancyDetected,,,,benign prostatic hyperplasia with elevated serum PSA
+PT0360,benign:breast,breast,NoMalignancyDetected,,,,benign breast (fibroadenoma / fibrocystic)
+PT0361,lung:ALK,lung,LungAdenocarcinoma,ALKRearrangedNSCLC,MOD_PDL1_NEG,,
+PT0362,breast:LUMA,breast,LuminalALike,,MOD_HER2_LOW;MOD_PIK3CA,,
+PT0363,breast:LUMA,breast,LuminalALike,,MOD_HER2_LOW;MOD_PIK3CA,,HER2 ISH group 4
+PT0364,breast:LUMB,breast,LuminalBLikeHER2Negative,,MOD_HER2_LOW;MOD_PIK3CA,,
+PT0365,lung:RET,lung,LungAdenocarcinoma,RETRearrangedNSCLC,MOD_PDL1_NEG,,
+PT0366,lung:RET,lung,LungAdenocarcinoma,RETRearrangedNSCLC,MOD_PDL1_HIGH,,metastatic specimen
+PT0367,prostate:NEPC,prostate,NeuroendocrineProstateCancer,,MOD_RB1;MOD_TP53,,
+PT0368,lung:KRASG12C,lung,LungAdenocarcinoma,KRASG12CMutantNSCLC,MOD_PDL1_LOW,,
+PT0369,breast:LAR,breast,TripleNegativeBreastCancer,TNBCLuminalAndrogenReceptor,MOD_HER2_ULTRALOW;MOD_PIK3CA;MOD_TP53,,
+PT0370,lung:LUSC,lung,LungSquamousCellCarcinoma,,MOD_PDL1_NEG;MOD_TP53,,metastatic specimen
+PT0371,breast:LUMB,breast,LuminalBLikeHER2Negative,,MOD_HER2_ULTRALOW;MOD_TP53,,
+PT0372,breast:TNBC,breast,TripleNegativeBreastCancer,,MOD_HER2_NULL;MOD_TP53,,
+PT0373,benign:breast,breast,NoMalignancyDetected,,,,benign breast (fibroadenoma / fibrocystic)
+PT0374,breast:LUMB_HER2P,breast,LuminalBLikeHER2Positive,,,,metastatic specimen
+PT0375,breast:LUMB_HER2P,breast,LuminalBLikeHER2Positive,,MOD_TP53,,metastatic specimen
+PT0376,lung:NTRK,lung,LungAdenocarcinoma,NTRKFusionNSCLC,MOD_PDL1_NEG,,
+PT0377,breast:HER2E,breast,HER2Enriched,,,,metastatic specimen
+PT0378,lung:SCLC,lung,SmallCellLungCancer,,MOD_RB1;MOD_TP53,,
+PT0379,lung:EGFR,lung,LungAdenocarcinoma,EGFRMutantNSCLC,MOD_PDL1_NEG,,
+PT0380,lung:LUSC,lung,LungSquamousCellCarcinoma,,MOD_KEAP1;MOD_PDL1_LOW;MOD_TP53,,
+PT0381,breast:ERLOW,breast,ERLowHER2NegativeBreastCancer,,MOD_ER_LOW;MOD_HER2_LOW;MOD_TP53,,
+PT0382,breast:TNBC,breast,TripleNegativeBreastCancer,,MOD_HER2_NULL,,metastatic specimen
+PT0383,breast:LUMA,breast,LuminalALike,,MOD_HER2_LOW;MOD_PIK3CA,,
+PT0384,prostate:ADENO,prostate,ProstateAdenocarcinoma,,MOD_TMPRSS2_ERG,,metastatic specimen
+PT0385,breast:TNBC,breast,TripleNegativeBreastCancer,,MOD_BRCA1;MOD_HER2_LOW;MOD_RB1;MOD_TP53,,BRCA1-associated TNBC
+PT0386,lung:SCLC,lung,SmallCellLungCancer,,MOD_RB1;MOD_TP53,,
+PT0387,lung:KRASG12C,lung,LungAdenocarcinoma,KRASG12CMutantNSCLC,MOD_PDL1_LOW;MOD_STK11,,
+PT0388,prostate:HRR,prostate,ProstateAdenocarcinoma,HRRDeficientProstateCancer,MOD_BRCA2;MOD_TMPRSS2_ERG,,
+PT0389,prostate:ADENO,prostate,ProstateAdenocarcinoma,,MOD_TMPRSS2_ERG;MOD_TP53,,metastatic specimen
+PT0390,lung:LUSC,lung,LungSquamousCellCarcinoma,,MOD_PDL1_LOW;MOD_TP53,,
+PT0391,lung:ALK,lung,LungAdenocarcinoma,ALKRearrangedNSCLC,MOD_PDL1_LOW,,
+PT0392,lung:KRASG12C,lung,LungAdenocarcinoma,KRASG12CMutantNSCLC,MOD_PDL1_NEG;MOD_TP53,,
+PT0393,breast:ERLOW,breast,ERLowHER2NegativeBreastCancer,,MOD_ER_LOW;MOD_HER2_NULL,,low purity
+PT0394,lung:ROS1,lung,LungAdenocarcinoma,ROS1RearrangedNSCLC,MOD_PDL1_HIGH,,
+PT0395,breast:TNBC,breast,TripleNegativeBreastCancer,,MOD_HER2_ULTRALOW;MOD_TP53,,
+PT0396,breast:LUMA,breast,LuminalALike,,MOD_HER2_LOW,,
+PT0397,lung:LUSC,lung,LungSquamousCellCarcinoma,,MOD_PDL1_LOW;MOD_TP53,,metastatic specimen
+PT0398,breast:LUMB,breast,LuminalBLikeHER2Negative,,MOD_HER2_ULTRALOW;MOD_PIK3CA;MOD_TP53,,low purity
+PT0399,prostate:ADENO,prostate,ProstateAdenocarcinoma,,,,
+PT0400,benign:lung,lung,NoMalignancyDetected,,,,benign lung nodule (granuloma/hamartoma)
+PT0401,breast:LUMB_HER2P,breast,LuminalBLikeHER2Positive,,MOD_TP53,,
+PT0402,lung:NOS,lung,LungAdenocarcinoma,,MOD_PDL1_LOW;MOD_TP53,,
+PT0403,breast:TNBC,breast,TripleNegativeBreastCancer,,MOD_BRCA1;MOD_HER2_ULTRALOW;MOD_TP53,,BRCA1-associated TNBC
+PT0404,benign:breast,breast,NoMalignancyDetected,,,,benign breast (fibroadenoma / fibrocystic)
+PT0405,breast:ERLOW,breast,ERLowHER2NegativeBreastCancer,,MOD_ER_LOW;MOD_HER2_LOW;MOD_TP53,,
+PT0406,prostate:HRR,prostate,ProstateAdenocarcinoma,HRRDeficientProstateCancer,MOD_BRCA2;MOD_TMPRSS2_ERG,,
+PT0407,breast:LUMB,breast,LuminalBLikeHER2Negative,,MOD_HER2_LOW,,
+PT0408,lung:SCLC,lung,SmallCellLungCancer,,MOD_RB1;MOD_TP53,,
+PT0409,breast:LUMB,breast,LuminalBLikeHER2Negative,,MOD_HER2_LOW,,metastatic specimen
+PT0410,benign:lung,lung,NoMalignancyDetected,,,,benign lung nodule (granuloma/hamartoma)
+PT0411,prostate:ADENO,prostate,ProstateAdenocarcinoma,,,,
+PT0412,lung:NOS,lung,LungAdenocarcinoma,,MOD_KRAS_OTHER;MOD_PDL1_LOW,,low purity
+PT0413,breast:LUMB,breast,LuminalBLikeHER2Negative,,MOD_HER2_LOW;MOD_TP53,,
+PT0414,lung:EGFR,lung,LungAdenocarcinoma,EGFRMutantNSCLC,MOD_PDL1_LOW;MOD_TP53,,
+PT0415,prostate:ADENO,prostate,ProstateAdenocarcinoma,,MOD_PTEN;MOD_SPOP,,
+PT0416,lung:SCLC,lung,SmallCellLungCancer,,MOD_RB1;MOD_TP53,,low purity
+PT0417,breast:LUMA,breast,LuminalALike,,MOD_HER2_ULTRALOW;MOD_PIK3CA,,near-diploid
+PT0418,benign:lung,lung,NoMalignancyDetected,,,,benign lung nodule (granuloma/hamartoma)
+PT0419,lung:BRAF,lung,LungAdenocarcinoma,BRAFV600EMutantNSCLC,MOD_PDL1_NEG,TTF-1/Napsin A double-negative adenocarcinoma (expect NSCLC-NOS),
+PT0420,breast:LUMA,breast,LuminalALike,,MOD_HER2_LOW,,
+PT0421,breast:LUMB,breast,LuminalBLikeHER2Negative,,MOD_HER2_ULTRALOW,,
+PT0422,lung:SCLC,lung,SmallCellLungCancer,,MOD_RB1,,
+PT0423,lung:RET,lung,LungAdenocarcinoma,RETRearrangedNSCLC,MOD_PDL1_LOW,,
+PT0424,lung:MET,lung,LungAdenocarcinoma,METEx14SkippingNSCLC,MOD_PDL1_LOW,,
+PT0425,prostate:ADENO,prostate,ProstateAdenocarcinoma,,MOD_PTEN;MOD_TP53,,
+PT0426,lung:KRASG12C,lung,LungAdenocarcinoma,KRASG12CMutantNSCLC,MOD_PDL1_LOW;MOD_STK11;MOD_TP53,,
+PT0427,prostate:ADENO,prostate,ProstateAdenocarcinoma,,,,
+PT0428,breast:TNBC,breast,TripleNegativeBreastCancer,,MOD_HER2_NULL;MOD_TP53,,
+PT0429,breast:LUMB,breast,LuminalBLikeHER2Negative,,MOD_HER2_LOW;MOD_PIK3CA,,
+PT0430,breast:HER2E,breast,HER2Enriched,,MOD_TP53,,metastatic specimen
+PT0431,breast:LUMB,breast,LuminalBLikeHER2Negative,,MOD_HER2_ULTRALOW,,
+PT0432,prostate:ADENO,prostate,ProstateAdenocarcinoma,,MOD_TP53,,metastatic specimen
+PT0433,breast:LUMB_HER2P,breast,LuminalBLikeHER2Positive,,MOD_PIK3CA;MOD_TP53,,
+PT0434,prostate:ADENO,prostate,ProstateAdenocarcinoma,,,,
+PT0435,breast:ERLOW,breast,ERLowHER2NegativeBreastCancer,,MOD_BRCA1;MOD_ER_LOW;MOD_HER2_LOW;MOD_TP53,,
+PT0436,lung:EGFR,lung,LungAdenocarcinoma,EGFRMutantNSCLC,MOD_EGFR_T790M;MOD_PDL1_LOW;MOD_TP53,,
+PT0437,breast:LUMA,breast,LuminalALike,,MOD_HER2_LOW,,low purity; metastatic specimen
+PT0438,lung:KRASG12C,lung,LungAdenocarcinoma,KRASG12CMutantNSCLC,MOD_PDL1_LOW,TTF-1/Napsin A double-negative adenocarcinoma (expect NSCLC-NOS),
+PT0439,breast:HER2E,breast,HER2Enriched,,MOD_TP53,,metastatic specimen
+PT0440,lung:LUSC,lung,LungSquamousCellCarcinoma,,MOD_PDL1_HIGH;MOD_TP53,,
+PT0441,breast:LUMA,breast,LuminalALike,,MOD_HER2_LOW,,metastatic specimen
+PT0442,breast:ERLOW,breast,ERLowHER2NegativeBreastCancer,,MOD_ER_LOW;MOD_HER2_NULL,,low purity
+PT0443,benign:prostate,prostate,NoMalignancyDetected,,,,benign prostatic hyperplasia with elevated serum PSA
+PT0444,benign:breast,breast,NoMalignancyDetected,,,,benign breast (fibroadenoma / fibrocystic)
+PT0445,lung:EGFR,lung,LungAdenocarcinoma,EGFRMutantNSCLC,MOD_PDL1_HIGH,,
+PT0446,prostate:NEPC,prostate,NeuroendocrineProstateCancer,,MOD_MYCN;MOD_RB1;MOD_TP53,,
+PT0447,prostate:ADENO,prostate,ProstateAdenocarcinoma,,,,
+PT0448,lung:EGFR,lung,LungAdenocarcinoma,EGFRMutantNSCLC,MOD_PDL1_NEG;MOD_TP53,,
+PT0449,lung:NOS,lung,LungAdenocarcinoma,,MOD_PDL1_LOW,,
+PT0450,breast:LUMA,breast,LuminalALike,,MOD_HER2_LOW,,
+PT0451,prostate:ADENO,prostate,ProstateAdenocarcinoma,,MOD_TMPRSS2_ERG,,
+PT0452,lung:KRASG12C,lung,LungAdenocarcinoma,KRASG12CMutantNSCLC,MOD_PDL1_NEG,,
+PT0453,breast:HER2E,breast,HER2Enriched,,,,
+PT0454,breast:ERLOW,breast,ERLowHER2NegativeBreastCancer,,MOD_ER_LOW;MOD_HER2_LOW,,
+PT0455,breast:HER2E,breast,HER2Enriched,,MOD_TP53,,
+PT0456,breast:ERLOW,breast,ERLowHER2NegativeBreastCancer,,MOD_ER_LOW;MOD_HER2_LOW;MOD_TP53,,
+PT0457,breast:LUMA,breast,LuminalALike,,MOD_HER2_LOW,,
+PT0458,prostate:ADENO,prostate,ProstateAdenocarcinoma,,MOD_TMPRSS2_ERG,,
+PT0459,lung:ROS1,lung,LungAdenocarcinoma,ROS1RearrangedNSCLC,MOD_PDL1_LOW,,
+PT0460,prostate:ADENO,prostate,ProstateAdenocarcinoma,,MOD_TMPRSS2_ERG,,metastatic specimen
+PT0461,breast:ERNEG_PRPOS,breast,BreastCancer,,MOD_HER2_NULL,ER-/PR+ discordant phenotype (expect flag + retest),
+PT0462,breast:LUMB_HER2P,breast,LuminalBLikeHER2Positive,,MOD_TP53,,metastatic specimen
+PT0463,prostate:ADENO,prostate,ProstateAdenocarcinoma,,MOD_TMPRSS2_ERG,,
+PT0464,lung:EGFR,lung,LungAdenocarcinoma,EGFRMutantNSCLC,MOD_PDL1_LOW;MOD_TP53,,
+PT0465,lung:LUSC,lung,LungSquamousCellCarcinoma,,MOD_PDL1_LOW;MOD_TP53,,
+PT0466,breast:LUMA,breast,LuminalALike,,MOD_HER2_LOW;MOD_TP53,,
+PT0467,breast:LUMB_HER2P,breast,LuminalBLikeHER2Positive,,,,
+PT0468,breast:LUMB,breast,LuminalBLikeHER2Negative,,MOD_HER2_LOW;MOD_PIK3CA,,
+PT0469,prostate:ADENO,prostate,ProstateAdenocarcinoma,,,,
+PT0470,prostate:ADENO,prostate,ProstateAdenocarcinoma,,,,metastatic specimen
+PT0471,lung:EGFR,lung,LungAdenocarcinoma,EGFRMutantNSCLC,MOD_PDL1_HIGH,,
+PT0472,prostate:HRR,prostate,ProstateAdenocarcinoma,HRRDeficientProstateCancer,MOD_BRCA1,,metastatic specimen
+PT0473,breast:LUMA,breast,LuminalALike,,MOD_HER2_LOW,,
+PT0474,lung:KRASG12C,lung,LungAdenocarcinoma,KRASG12CMutantNSCLC,MOD_PDL1_NEG,,
+PT0475,breast:HER2E,breast,HER2Enriched,,MOD_TP53,,
+PT0476,prostate:ADENO,prostate,ProstateAdenocarcinoma,,,,
+PT0477,prostate:ADENO,prostate,ProstateAdenocarcinoma,,MOD_TMPRSS2_ERG,,
+PT0478,lung:NOS,lung,LungAdenocarcinoma,,MOD_PDL1_HIGH,,
+PT0479,prostate:NEPC,prostate,NeuroendocrineProstateCancer,,MOD_MYCN;MOD_RB1,,
+PT0480,lung:ALK,lung,LungAdenocarcinoma,ALKRearrangedNSCLC,MOD_PDL1_LOW,,
+PT0481,prostate:ADENO,prostate,ProstateAdenocarcinoma,,MOD_PTEN;MOD_TP53,,
+PT0482,prostate:ADENO,prostate,ProstateAdenocarcinoma,,MOD_TMPRSS2_ERG,,
+PT0483,breast:LUMB_HER2P,breast,LuminalBLikeHER2Positive,,MOD_TP53,,
+PT0484,lung:KRASG12C,lung,LungAdenocarcinoma,KRASG12CMutantNSCLC,MOD_PDL1_LOW,,metastatic specimen
+PT0485,prostate:ADENO,prostate,ProstateAdenocarcinoma,,MOD_PTEN,,
+PT0486,prostate:ADENO,prostate,ProstateAdenocarcinoma,,MOD_TMPRSS2_ERG,,
+PT0487,prostate:ADENO,prostate,ProstateAdenocarcinoma,,,,low purity; metastatic specimen
+PT0488,lung:LUSC,lung,LungSquamousCellCarcinoma,,MOD_PDL1_NEG;MOD_TP53,,
+PT0489,lung:EGFR,lung,LungAdenocarcinoma,EGFRMutantNSCLC,MOD_PDL1_HIGH,,
+PT0490,breast:LUMA,breast,LuminalALike,,MOD_HER2_ULTRALOW;MOD_PIK3CA;MOD_TP53,,
+PT0491,lung:SCLC,lung,SmallCellLungCancer,,MOD_RB1;MOD_TP53,,
+PT0492,breast:LUMB_HER2P,breast,LuminalBLikeHER2Positive,,,,
+PT0493,lung:LUSC,lung,LungSquamousCellCarcinoma,,MOD_PDL1_LOW;MOD_TP53,,low purity
+PT0494,lung:NOS,lung,LungAdenocarcinoma,,MOD_PDL1_NEG;MOD_TP53,,metastatic specimen
+PT0495,lung:KRASG12C,lung,LungAdenocarcinoma,KRASG12CMutantNSCLC,MOD_PDL1_HIGH;MOD_STK11;MOD_TP53,,
+PT0496,lung:BRAF,lung,LungAdenocarcinoma,BRAFV600EMutantNSCLC,MOD_PDL1_LOW,,
+PT0497,breast:LUMB,breast,LuminalBLikeHER2Negative,,MOD_ESR1;MOD_HER2_ULTRALOW;MOD_PIK3CA;MOD_TP53,,
+PT0498,prostate:NEPC,prostate,NeuroendocrineProstateCancer,,MOD_AURKA;MOD_TMPRSS2_ERG,,
+PT0499,breast:LUMB,breast,LuminalBLikeHER2Negative,,MOD_HER2_LOW;MOD_PIK3CA,,
+PT0500,breast:TNBC,breast,TripleNegativeBreastCancer,,MOD_BRCA1;MOD_HER2_ULTRALOW;MOD_TP53,,BRCA1-associated TNBC
+PT0501,benign:prostate,prostate,NoMalignancyDetected,,,,benign prostatic hyperplasia with elevated serum PSA
+PT0502,lung:EGFR,lung,LungAdenocarcinoma,EGFRMutantNSCLC,MOD_EGFR_T790M;MOD_PDL1_HIGH,,
+PT0503,breast:LUMA,breast,LuminalALike,,MOD_HER2_LOW;MOD_PIK3CA,,
+PT0504,lung:LUSC,lung,LungSquamousCellCarcinoma,,MOD_PDL1_NEG;MOD_TP53,,
+PT0505,prostate:NEPC,prostate,NeuroendocrineProstateCancer,,MOD_MYCN;MOD_RB1;MOD_TMPRSS2_ERG;MOD_TP53,,
+PT0506,lung:SCLC,lung,SmallCellLungCancer,,MOD_TP53,,
+PT0507,prostate:NEPC,prostate,NeuroendocrineProstateCancer,,MOD_AURKA;MOD_MYCN;MOD_RB1,,
+PT0508,lung:RET,lung,LungAdenocarcinoma,RETRearrangedNSCLC,MOD_PDL1_LOW,,metastatic specimen
+PT0509,benign:prostate,prostate,NoMalignancyDetected,,,,benign prostatic hyperplasia with elevated serum PSA
+PT0510,prostate:HRR,prostate,ProstateAdenocarcinoma,HRRDeficientProstateCancer,MOD_ATM;MOD_PTEN;MOD_SPOP;MOD_TP53,,
+PT0511,benign:breast,breast,NoMalignancyDetected,,,,benign breast (fibroadenoma / fibrocystic)
+PT0512,breast:LAR,breast,TripleNegativeBreastCancer,TNBCLuminalAndrogenReceptor,MOD_HER2_NULL,,
+PT0513,breast:LUMA,breast,LuminalALike,,MOD_HER2_ULTRALOW,,near-diploid
+PT0514,prostate:ADENO,prostate,ProstateAdenocarcinoma,,MOD_TMPRSS2_ERG;MOD_TP53,,
+PT0515,lung:SCLC,lung,SmallCellLungCancer,,MOD_RB1;MOD_TP53,,
+PT0516,prostate:ADENO,prostate,ProstateAdenocarcinoma,,MOD_PTEN,,
+PT0517,lung:NOS,lung,LungAdenocarcinoma,,MOD_KRAS_OTHER;MOD_PDL1_NEG,,
+PT0518,breast:LAR,breast,TripleNegativeBreastCancer,TNBCLuminalAndrogenReceptor,MOD_HER2_NULL,,
+PT0519,lung:EGFR,lung,LungAdenocarcinoma,EGFRMutantNSCLC,MOD_EGFR_T790M;MOD_PDL1_HIGH,,
+PT0520,lung:KRASG12C,lung,LungAdenocarcinoma,KRASG12CMutantNSCLC,MOD_PDL1_LOW;MOD_TP53,,
+PT0521,prostate:ADENO,prostate,ProstateAdenocarcinoma,,MOD_TMPRSS2_ERG;MOD_TP53,,
+PT0522,prostate:ADENO,prostate,ProstateAdenocarcinoma,,MOD_TMPRSS2_ERG,,metastatic specimen
+PT0523,prostate:ADENO,prostate,ProstateAdenocarcinoma,,MOD_TMPRSS2_ERG,,
+PT0524,prostate:NEPC,prostate,NeuroendocrineProstateCancer,,MOD_AURKA;MOD_RB1;MOD_TP53,,
+PT0525,lung:SCLC,lung,SmallCellLungCancer,,MOD_RB1;MOD_TP53,,low purity
+PT0526,lung:EGFR,lung,LungAdenocarcinoma,EGFRMutantNSCLC,MOD_EGFR_T790M;MOD_PDL1_LOW;MOD_TP53,,
+PT0527,breast:LUMA,breast,LuminalALike,,MOD_HER2_NULL,,
+PT0528,lung:KRASG12C,lung,LungAdenocarcinoma,KRASG12CMutantNSCLC,MOD_PDL1_NEG;MOD_STK11,,
+PT0529,lung:NOS,lung,LungAdenocarcinoma,,MOD_KRAS_OTHER;MOD_PDL1_HIGH;MOD_TP53,,
+PT0530,breast:ERNEG_PRPOS,breast,BreastCancer,,MOD_HER2_NULL;MOD_TP53,ER-/PR+ discordant phenotype (expect flag + retest),low purity; metastatic specimen
+PT0531,breast:LUMB,breast,LuminalBLikeHER2Negative,,MOD_HER2_LOW;MOD_TP53,,
+PT0532,lung:SCLC,lung,SmallCellLungCancer,,MOD_RB1;MOD_TP53,,
+PT0533,prostate:ADENO,prostate,ProstateAdenocarcinoma,,MOD_TMPRSS2_ERG;MOD_TP53,,
+PT0534,breast:TNBC,breast,TripleNegativeBreastCancer,,MOD_HER2_NULL;MOD_TP53,,
+PT0535,lung:SCLC,lung,SmallCellLungCancer,,MOD_RB1;MOD_TP53,,
+PT0536,breast:TNBC,breast,TripleNegativeBreastCancer,,MOD_HER2_LOW;MOD_TP53,,
+PT0537,lung:NOS,lung,LungAdenocarcinoma,,MOD_PDL1_NEG;MOD_TP53,,
+PT0538,benign:prostate,prostate,NoMalignancyDetected,,,,benign prostatic hyperplasia with elevated serum PSA
+PT0539,breast:LUMA,breast,LuminalALike,,MOD_HER2_ULTRALOW;MOD_PIK3CA,,metastatic specimen
+PT0540,lung:KRASG12C,lung,LungAdenocarcinoma,KRASG12CMutantNSCLC,MOD_PDL1_LOW,,
+PT0541,prostate:HRR,prostate,ProstateAdenocarcinoma,HRRDeficientProstateCancer,MOD_ATM;MOD_TMPRSS2_ERG,,
+PT0542,lung:MET,lung,LungAdenocarcinoma,METEx14SkippingNSCLC,MOD_PDL1_NEG,,
+PT0543,breast:LUMB_HER2P,breast,LuminalBLikeHER2Positive,,MOD_TP53,,
+PT0544,breast:LUMA,breast,LuminalALike,,MOD_HER2_NULL;MOD_PIK3CA,,
+PT0545,prostate:ADENO,prostate,ProstateAdenocarcinoma,,MOD_TMPRSS2_ERG,,low purity
+PT0546,breast:LUMA,breast,LuminalALike,,MOD_HER2_LOW;MOD_PIK3CA,,
+PT0547,breast:LUMA,breast,LuminalALike,,MOD_HER2_NULL;MOD_PIK3CA;MOD_TP53,,
+PT0548,lung:ALK,lung,LungAdenocarcinoma,ALKRearrangedNSCLC,MOD_PDL1_LOW,,
+PT0549,lung:EGFR,lung,LungAdenocarcinoma,EGFRMutantNSCLC,MOD_PDL1_HIGH,,
+PT0550,lung:NOS,lung,LungAdenocarcinoma,,MOD_PDL1_LOW;MOD_TP53,,
+PT0551,breast:LUMA,breast,LuminalALike,,MOD_HER2_LOW,,
+PT0552,breast:LUMA,breast,LuminalALike,,MOD_HER2_ULTRALOW,,
+PT0553,benign:lung,lung,NoMalignancyDetected,,,,benign lung nodule (granuloma/hamartoma)
+PT0554,lung:SCLC,lung,SmallCellLungCancer,,MOD_RB1;MOD_TP53,,
+PT0555,breast:LUMB,breast,LuminalBLikeHER2Negative,,MOD_HER2_ULTRALOW;MOD_TP53,,
+PT0556,prostate:HRR,prostate,ProstateAdenocarcinoma,HRRDeficientProstateCancer,MOD_BRCA2;MOD_TMPRSS2_ERG,,metastatic specimen
+PT0557,prostate:HRR,prostate,ProstateAdenocarcinoma,HRRDeficientProstateCancer,MOD_BRCA2;MOD_SPOP,,
+PT0558,prostate:ADENO,prostate,ProstateAdenocarcinoma,,MOD_PTEN;MOD_TMPRSS2_ERG,,metastatic specimen
+PT0559,breast:TNBC,breast,TripleNegativeBreastCancer,,MOD_HER2_LOW;MOD_TP53,,metastatic specimen
+PT0560,breast:LUMB,breast,LuminalBLikeHER2Negative,,MOD_HER2_LOW;MOD_PIK3CA,,
+PT0561,prostate:ADENO,prostate,ProstateAdenocarcinoma,,MOD_TMPRSS2_ERG,,
+PT0562,breast:LUMA,breast,LuminalALike,,MOD_HER2_LOW,,near-diploid
+PT0563,breast:LUMA,breast,LuminalALike,,MOD_HER2_LOW;MOD_PIK3CA,,
+PT0564,lung:NOS,lung,LungAdenocarcinoma,,MOD_KRAS_OTHER;MOD_PDL1_HIGH,,metastatic specimen
+PT0565,lung:EGFR,lung,LungAdenocarcinoma,EGFRMutantNSCLC,MOD_PDL1_LOW,,
+PT0566,breast:LUMA,breast,LuminalALike,,MOD_HER2_LOW;MOD_PIK3CA,,HER2 ISH group 4
+PT0567,lung:KRASG12C,lung,LungAdenocarcinoma,KRASG12CMutantNSCLC,MOD_PDL1_HIGH,,
+PT0568,prostate:NEPC,prostate,NeuroendocrineProstateCancer,,MOD_AURKA;MOD_TP53,,
+PT0569,breast:LUMA,breast,LuminalALike,,MOD_HER2_LOW;MOD_PIK3CA,,
+PT0570,breast:HER2E,breast,HER2Enriched,,,,metastatic specimen; HER2 ISH group 3
+PT0571,benign:prostate,prostate,NoMalignancyDetected,,,,benign prostatic hyperplasia with elevated serum PSA
+PT0572,breast:LUMA,breast,LuminalALike,,MOD_HER2_NULL;MOD_PIK3CA,,
+PT0573,lung:KRASG12C,lung,LungAdenocarcinoma,KRASG12CMutantNSCLC,MOD_PDL1_HIGH,,
+PT0574,lung:NOS,lung,LungAdenocarcinoma,,MOD_PDL1_LOW,,
+PT0575,lung:ALK,lung,LungAdenocarcinoma,ALKRearrangedNSCLC,MOD_PDL1_LOW,,
+PT0576,prostate:ADENO,prostate,ProstateAdenocarcinoma,,MOD_PTEN;MOD_TMPRSS2_ERG,,
+PT0577,prostate:HRR,prostate,ProstateAdenocarcinoma,HRRDeficientProstateCancer,MOD_BRCA2;MOD_PTEN;MOD_TMPRSS2_ERG,,metastatic specimen
+PT0578,prostate:ADENO,prostate,ProstateAdenocarcinoma,,MOD_TMPRSS2_ERG,,
+PT0579,lung:ALK,lung,LungAdenocarcinoma,ALKRearrangedNSCLC,MOD_PDL1_LOW,,
+PT0580,lung:LUSC,lung,LungSquamousCellCarcinoma,,MOD_PDL1_NEG;MOD_TP53,,low purity
+PT0581,breast:LAR,breast,TripleNegativeBreastCancer,TNBCLuminalAndrogenReceptor,MOD_HER2_LOW,,metastatic specimen
+PT0582,lung:EGFR,lung,LungAdenocarcinoma,EGFRMutantNSCLC,MOD_PDL1_LOW,,
+PT0583,breast:LUMB,breast,LuminalBLikeHER2Negative,,MOD_HER2_LOW,,
+PT0584,lung:KRASG12C,lung,LungAdenocarcinoma,KRASG12CMutantNSCLC,MOD_PDL1_LOW;MOD_STK11,,
+PT0585,breast:LUMA,breast,LuminalALike,,MOD_HER2_ULTRALOW,,
+PT0586,breast:TNBC,breast,TripleNegativeBreastCancer,,MOD_BRCA1;MOD_HER2_ULTRALOW;MOD_TP53,,low purity; BRCA1-associated TNBC
+PT0587,lung:SCLC,lung,SmallCellLungCancer,,,,
+PT0588,breast:TNBC,breast,TripleNegativeBreastCancer,,MOD_BRCA2;MOD_HER2_NULL;MOD_TP53,,
+PT0589,benign:prostate,prostate,NoMalignancyDetected,,,,benign prostatic hyperplasia with elevated serum PSA
+PT0590,prostate:ADENO,prostate,ProstateAdenocarcinoma,,,,
+PT0591,breast:HER2E,breast,HER2Enriched,,MOD_TP53,,
+PT0592,lung:NOS,lung,LungAdenocarcinoma,,MOD_PDL1_NEG,TTF-1/Napsin A double-negative adenocarcinoma (expect NSCLC-NOS),
+PT0593,prostate:ADENO,prostate,ProstateAdenocarcinoma,,,,
+PT0594,breast:LUMB,breast,LuminalBLikeHER2Negative,,MOD_HER2_LOW,,
+PT0595,breast:LUMB_HER2P,breast,LuminalBLikeHER2Positive,,MOD_PIK3CA;MOD_TP53,,
+PT0596,breast:LUMB,breast,LuminalBLikeHER2Negative,,MOD_HER2_ULTRALOW;MOD_TP53,,
+PT0597,lung:SCLC,lung,SmallCellLungCancer,,MOD_RB1;MOD_TP53,,
+PT0598,lung:EGFR,lung,LungAdenocarcinoma,EGFRMutantNSCLC,MOD_PDL1_NEG,,metastatic specimen

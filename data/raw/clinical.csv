@@ -1,0 +1,599 @@
+patient_id,site,sex,age,specimen_site,smoking_history,clinical_history,tumor_cellularity
+PT0001,SITE_A,M,54,Brain,61 pack-years,,45%
+PT0002,SITE_B,Female,53,lung wedge resection,"former smoker, 36 py",,
+PT0003,SITE_B,Male,65,lung wedge resection,"former smoker, 38 py",,0.56
+PT0004,SITE_A,F,64,Lung LLL biopsy,"former smoker, 38 py",,18%
+PT0005,SITE_B,Male,64,Prostatectomy,,,0.60
+PT0006,SITE_B,Female,60,R breast core bx,,,0.63
+PT0007,SITE_A,F,60,Breast lumpectomy,,,78%
+PT0008,SITE_A,M,72,prostate needle biopsy,,,42%
+PT0009,SITE_C,female,70,"Breast, left, core",,,46 %
+PT0010,SITE_C,female,64,lung wedge resection,"former smoker, 20 py",,49 %
+PT0011,SITE_A,F,65,Brain,"former smoker, 31 py",,50%
+PT0012,SITE_B,Male,85,Lung LLL biopsy,"former smoker, 46 py",,0.81
+PT0013,SITE_B,Male,70,Lung LLL biopsy,"former smoker, 45 py",,0.65
+PT0014,SITE_B,Female,66,Breast lumpectomy,,,0.76
+PT0015,SITE_A,M,58,"LN, pelvic",,,40%
+PT0016,SITE_B,Female,60,"Breast, left, core",,,0.32
+PT0017,SITE_A,M,49,"Lung, RUL core",44 pack-years,,39%
+PT0018,SITE_C,female,60,Bronchial biopsy,32 pack-years,,
+PT0019,SITE_B,Male,75,lung wedge resection,current 59 PY,,0.83
+PT0020,SITE_C,male,69,Prostatectomy,,,16 %
+PT0021,SITE_C,female,49,Bronchial biopsy,40 pack-years,,60 %
+PT0022,SITE_B,Female,61,"Lung, RUL core",50 pack-years,,0.84
+PT0023,SITE_A,F,57,"Breast, left, core",,,17%
+PT0024,SITE_B,Female,54,"Breast, left, core",,,0.47
+PT0025,SITE_C,male,63,"Lung, RUL core",current 56 PY,,48 %
+PT0026,SITE_C,male,49,Lung LLL biopsy,Never smoker,,75 %
+PT0027,SITE_C,female,71,"LN, mediastinal (EBUS)",67 pack-years,,80 %
+PT0028,SITE_C,female,48,Liver,,prior breast carcinoma (2018),45 %
+PT0029,SITE_C,female,38,R breast core bx,,,81 %
+PT0030,SITE_A,F,64,Breast lumpectomy,,,65%
+PT0031,SITE_A,F,60,Brain,,history of breast cancer,81%
+PT0032,SITE_B,Male,64,Prostatectomy,,,0.32
+PT0033,SITE_C,female,63,"Breast, left, core",,,37 %
+PT0034,SITE_B,Male,70,prostate needle biopsy,,,0.82
+PT0035,SITE_C,female,70,"Lung, RUL core",current 34 PY,,67 %
+PT0036,SITE_B,Male,78,Prostate core bx,,,0.83
+PT0037,SITE_A,M,64,Prostate core bx,,,80%
+PT0038,SITE_C,male,49,Prostate core bx,,"mCRPC on abiraterone, prostate adenocarcinoma 2020",43 %
+PT0039,SITE_B,Male,72,Prostate core bx,,,0.78
+PT0040,SITE_C,male,66,Pleural fluid cell block,"former smoker, 73 py",,16 %
+PT0041,SITE_C,female,63,R breast core bx,,,35 %
+PT0042,SITE_B,Male,69,Prostate core bx,,,0.47
+PT0043,SITE_C,male,80,Bronchial biopsy,"former smoker, 48 py",,34 %
+PT0044,SITE_C,female,59,Breast lumpectomy,,,32 %
+PT0045,SITE_C,female,62,lung wedge resection,"former smoker, 30 py",,49 %
+PT0046,SITE_B,Female,77,"Lung, RUL core",current 67 PY,,0.13
+PT0047,SITE_A,F,49,"Breast, left, core",,,36%
+PT0048,SITE_A,M,65,Bronchial biopsy,current 59 PY,,17%
+PT0049,SITE_C,male,73,"Lung, RUL core","former smoker, 37 py",,53 %
+PT0050,SITE_B,Female,63,lung wedge resection,Never smoker,,0.36
+PT0051,SITE_C,female,65,"Breast, left, core",,,47 %
+PT0052,SITE_B,Male,68,Liver,63 pack-years,,0.48
+PT0053,SITE_B,Female,52,"Lung, RUL core",30 pack-years,,0.60
+PT0054,SITE_B,Male,48,Liver,,,0.30
+PT0055,SITE_B,Male,60,Prostate core bx,,,0.32
+PT0056,SITE_B,Female,54,Breast lumpectomy,,,0.51
+PT0057,SITE_B,Female,51,"Breast, left, core",,,0.51
+PT0058,SITE_C,female,62,"Lung, RUL core",current 79 PY,,42 %
+PT0059,SITE_C,male,59,lung wedge resection,44 pack-years,,65 %
+PT0060,SITE_A,M,58,Liver,,,11%
+PT0061,SITE_A,M,58,lung wedge resection,5 pack-years,,
+PT0062,SITE_B,Male,63,Prostatectomy,,,0.80
+PT0063,SITE_A,F,64,R breast core bx,,,53%
+PT0064,SITE_C,female,60,"Lung, RUL core",current 48 PY,,84 %
+PT0065,SITE_C,female,63,Bone (iliac),,"Hx breast ca 2019, s/p lumpectomy",72 %
+PT0066,SITE_A,M,67,Bronchial biopsy,35 pack-years,,53%
+PT0067,SITE_C,female,51,Brain,,,46 %
+PT0068,SITE_A,M,80,prostate needle biopsy,,,47%
+PT0069,SITE_B,Female,39,lung wedge resection,current 67 PY,,0.68
+PT0070,SITE_C,male,68,Bone (iliac),,,31 %
+PT0071,SITE_C,female,64,Bone (iliac),,prior breast carcinoma (2018),31 %
+PT0072,SITE_A,F,42,R breast core bx,,,85%
+PT0073,SITE_B,Male,66,Prostatectomy,,,0.60
+PT0074,SITE_C,male,67,Bronchial biopsy,57 pack-years,,52 %
+PT0075,SITE_B,Female,63,Pleural fluid cell block,current 63 PY,,0.34
+PT0076,SITE_B,Male,62,lung wedge resection,43 pack-years,,0.31
+PT0077,SITE_B,Male,59,Bone (iliac),,,0.59
+PT0078,SITE_A,F,59,Breast lumpectomy,,,52%
+PT0079,SITE_C,male,53,"Lung, RUL core",70 pack-years,,72 %
+PT0080,SITE_B,Male,85,Lung LLL biopsy,69 pack-years,,0.52
+PT0081,SITE_C,female,70,Lung LLL biopsy,current 28 PY,,58 %
+PT0082,SITE_C,female,65,lung wedge resection,current 31 PY,,62 %
+PT0083,SITE_C,female,80,lung wedge resection,Never smoker,,81 %
+PT0084,SITE_B,Female,74,"Breast, left, core",,,0.36
+PT0085,SITE_C,female,81,R breast core bx,,,14 %
+PT0086,SITE_C,female,64,Bronchial biopsy,"former smoker, 5 py",,
+PT0087,SITE_B,Female,61,Breast lumpectomy,,,0.81
+PT0088,SITE_A,M,57,Bronchial biopsy,8 pack-years,,39%
+PT0089,SITE_B,Female,82,Breast lumpectomy,,,0.58
+PT0090,SITE_B,Female,58,Lung LLL biopsy,current 36 PY,,0.40
+PT0091,SITE_B,Female,44,R breast core bx,,,0.42
+PT0092,SITE_C,male,54,lung wedge resection,never,,51 %
+PT0093,SITE_C,female,49,Breast lumpectomy,,,37 %
+PT0094,SITE_A,M,62,lung wedge resection,current 41 PY,,63%
+PT0095,SITE_B,Male,63,Prostate core bx,,,0.72
+PT0096,SITE_A,F,81,"Breast, left, core",,,41%
+PT0097,SITE_B,Female,78,Breast lumpectomy,,,0.60
+PT0098,SITE_C,male,64,"LN, pelvic",,"mCRPC on abiraterone, prostate adenocarcinoma 2020",79 %
+PT0099,SITE_A,M,52,Prostate core bx,,,
+PT0100,SITE_C,male,51,Liver,current 44 PY,,66 %
+PT0101,SITE_A,F,73,Lung LLL biopsy,Never smoker,,77%
+PT0102,SITE_A,M,40,"Lung, RUL core",never,,61%
+PT0103,SITE_B,Female,57,lung wedge resection,"former smoker, 23 py",,0.32
+PT0104,SITE_A,F,47,"Breast, left, core",,,51%
+PT0105,SITE_B,Female,60,"Breast, left, core",,,0.40
+PT0106,SITE_B,Male,65,prostate needle biopsy,,,
+PT0107,SITE_B,Male,51,prostate needle biopsy,,,
+PT0108,SITE_B,Female,53,Lung LLL biopsy,"former smoker, 41 py",,0.32
+PT0109,SITE_A,M,71,Prostatectomy,,,68%
+PT0110,SITE_C,female,55,R breast core bx,,,80 %
+PT0111,SITE_B,Female,62,R breast core bx,,,0.53
+PT0112,SITE_C,female,65,"Breast, left, core",,,82 %
+PT0113,SITE_C,male,61,Prostatectomy,,,66 %
+PT0114,SITE_B,Male,69,Bone (iliac),,,0.44
+PT0115,SITE_C,female,66,"Breast, left, core",,,79 %
+PT0116,SITE_C,male,63,"Lung, RUL core",31 pack-years,,18 %
+PT0117,SITE_C,male,85,Prostate core bx,,"Hx prostate ca 2019 Gleason 4+4, on ADT",76 %
+PT0118,SITE_A,M,44,Bronchial biopsy,Never smoker,,73%
+PT0119,SITE_A,M,59,"Breast, left, core",,,43%
+PT0120,SITE_C,female,57,Bronchial biopsy,7 pack-years,,52 %
+PT0121,SITE_B,Female,69,Breast lumpectomy,,,0.79
+PT0122,SITE_C,male,76,Prostate core bx,,,84 %
+PT0123,SITE_C,female,76,"Lung, RUL core","former smoker, 52 py",,46 %
+PT0124,SITE_B,Male,68,"Lung, RUL core","former smoker, 52 py",,0.79
+PT0125,SITE_B,Male,78,Pleural fluid cell block,"former smoker, 60 py",,0.62
+PT0126,SITE_B,Male,75,lung wedge resection,"former smoker, 35 py",,0.32
+PT0127,SITE_A,F,58,"Breast, left, core",,,33%
+PT0128,SITE_A,F,54,"Breast, left, core",,,77%
+PT0129,SITE_B,Male,45,"Lung, RUL core",59 pack-years,,0.84
+PT0130,SITE_C,female,65,R breast core bx,,,78 %
+PT0131,SITE_A,F,57,"Breast, left, core",,,43%
+PT0132,SITE_A,M,71,Liver,,,61%
+PT0133,SITE_A,F,60,Breast lumpectomy,,,31%
+PT0134,SITE_A,M,67,"Lung, RUL core",current 68 PY,,49%
+PT0135,SITE_C,male,75,Brain,,,40 %
+PT0136,SITE_B,Male,59,lung wedge resection,52 pack-years,,0.34
+PT0137,SITE_C,female,69,"Lung, RUL core",never,,33 %
+PT0138,SITE_C,female,72,"Breast, left, core",,,82 %
+PT0139,SITE_B,Female,49,"Breast, left, core",,,0.67
+PT0140,SITE_B,Male,52,Bronchial biopsy,Never smoker,,0.43
+PT0141,SITE_C,female,52,"Breast, left, core",,,35 %
+PT0142,SITE_C,female,55,Breast lumpectomy,,,85 %
+PT0143,SITE_C,female,65,LN axillary,,,67 %
+PT0144,SITE_C,female,61,Bronchial biopsy,38 pack-years,,32 %
+PT0145,SITE_C,male,72,Liver,,,60 %
+PT0146,SITE_B,Female,80,Breast lumpectomy,,,0.54
+PT0147,SITE_C,male,55,"Lung, RUL core",non-smoker,,36 %
+PT0148,SITE_A,F,50,R breast core bx,,,48%
+PT0149,SITE_A,F,73,LN axillary,,history of breast cancer,61%
+PT0150,SITE_A,F,71,"Breast, left, core",,,83%
+PT0151,SITE_C,female,80,R breast core bx,,,62 %
+PT0152,SITE_C,female,67,lung wedge resection,Never smoker,,54 %
+PT0153,SITE_C,male,46,Bronchial biopsy,current 58 PY,,61 %
+PT0154,SITE_B,Female,56,"Breast, left, core",,,0.66
+PT0155,SITE_A,M,56,Prostate core bx,,,74%
+PT0156,SITE_C,male,66,Bone (iliac),,,70 %
+PT0157,SITE_B,Female,52,R breast core bx,,,0.34
+PT0158,SITE_B,Female,70,Liver,,,0.30
+PT0159,SITE_B,Male,72,Lung LLL biopsy,current 20 PY,,0.50
+PT0160,SITE_B,Female,48,R breast core bx,,,0.45
+PT0161,SITE_C,male,73,prostate needle biopsy,,,45 %
+PT0162,SITE_A,M,64,Prostate core bx,,,19%
+PT0163,SITE_A,F,69,Breast lumpectomy,,,53%
+PT0164,SITE_C,male,64,"Lung, RUL core",37 pack-years,,50 %
+PT0165,SITE_A,M,61,"LN, pelvic",,,43%
+PT0166,SITE_A,M,54,Bronchial biopsy,65 pack-years,,18%
+PT0167,SITE_B,Female,61,Lung LLL biopsy,35 pack-years,,0.41
+PT0168,SITE_C,female,65,Lung LLL biopsy,current 66 PY,,57 %
+PT0169,SITE_C,male,72,prostate needle biopsy,,,
+PT0170,SITE_A,F,46,"Breast, left, core",,,
+PT0171,SITE_C,female,55,Lung LLL biopsy,current 30 PY,,52 %
+PT0172,SITE_C,female,63,Bone (iliac),,,62 %
+PT0173,SITE_B,Male,73,Bronchial biopsy,22 pack-years,,0.83
+PT0174,SITE_A,F,46,lung wedge resection,"former smoker, 5 py",,71%
+PT0175,SITE_B,Female,60,Lung LLL biopsy,current 60 PY,,0.35
+PT0176,SITE_A,F,59,Bronchial biopsy,41 pack-years,,52%
+PT0177,SITE_B,Female,54,"Breast, left, core",,,
+PT0178,SITE_C,female,54,Bronchial biopsy,45 pack-years,,71 %
+PT0179,SITE_C,male,72,Lung LLL biopsy,18 pack-years,,
+PT0180,SITE_A,F,64,Brain,,"Hx breast ca 2019, s/p lumpectomy",41%
+PT0181,SITE_C,female,53,R breast core bx,,,77 %
+PT0182,SITE_C,female,69,R breast core bx,,,83 %
+PT0183,SITE_C,female,67,Breast lumpectomy,,,84 %
+PT0184,SITE_A,F,77,R breast core bx,,,62%
+PT0185,SITE_A,F,64,R breast core bx,,,39%
+PT0186,SITE_B,Female,63,"Breast, left, core",,,0.47
+PT0187,SITE_C,female,61,"Breast, left, core",,,30 %
+PT0188,SITE_A,M,57,"LN, pelvic",,"Hx prostate ca 2019 Gleason 4+4, on ADT",49%
+PT0189,SITE_B,Male,54,lung wedge resection,non-smoker,,0.60
+PT0190,SITE_B,Female,72,"Breast, left, core",,,0.41
+PT0191,SITE_C,female,72,"Breast, left, core",,,31 %
+PT0192,SITE_B,Male,48,Lung LLL biopsy,"former smoker, 26 py",,0.33
+PT0193,SITE_B,Female,66,"Breast, left, core",,,0.78
+PT0194,SITE_B,Female,49,Brain,current 6 PY,,0.65
+PT0195,SITE_B,Female,66,R breast core bx,,,0.82
+PT0196,SITE_A,F,56,"Lung, RUL core",current 67 PY,,79%
+PT0197,SITE_C,male,49,"Lung, RUL core",64 pack-years,,43 %
+PT0198,SITE_A,F,73,lung wedge resection,never,,70%
+PT0199,SITE_B,Female,52,Breast lumpectomy,,,0.30
+PT0200,SITE_A,M,42,Lung LLL biopsy,30 pack-years,,44%
+PT0201,SITE_C,male,68,Liver,,,63 %
+PT0202,SITE_A,M,68,Prostate core bx,,,67%
+PT0203,SITE_B,Female,83,R breast core bx,,,0.59
+PT0204,SITE_A,F,72,R breast core bx,,,
+PT0205,SITE_A,F,58,R breast core bx,,,48%
+PT0206,SITE_A,F,59,Lung LLL biopsy,"former smoker, 75 py",,40%
+PT0207,SITE_A,M,70,Prostatectomy,,,42%
+PT0208,SITE_A,M,76,prostate needle biopsy,,,32%
+PT0209,SITE_C,female,53,R breast core bx,,,
+PT0210,SITE_C,female,65,R breast core bx,,,58 %
+PT0211,SITE_C,female,55,R breast core bx,,,11 %
+PT0212,SITE_C,female,57,lung wedge resection,55 pack-years,,79 %
+PT0213,SITE_C,female,69,Bone (iliac),,"Hx breast ca 2019, s/p lumpectomy",34 %
+PT0214,SITE_A,F,62,"Breast, left, core",,,51%
+PT0215,SITE_B,Male,69,Prostate core bx,,,0.36
+PT0216,SITE_C,female,57,"Breast, left, core",,,55 %
+PT0217,SITE_C,female,58,Breast lumpectomy,,,68 %
+PT0218,SITE_B,Female,47,Bronchial biopsy,2 pack-years,,0.39
+PT0219,SITE_C,male,78,prostate needle biopsy,,,46 %
+PT0220,SITE_B,Male,64,Prostate core bx,,,0.71
+PT0221,SITE_C,female,60,R breast core bx,,,84 %
+PT0222,SITE_A,M,78,Prostatectomy,,,75%
+PT0223,SITE_A,F,39,"Breast, left, core",,,47%
+PT0224,SITE_B,Female,70,lung wedge resection,"former smoker, 44 py",,0.84
+PT0225,SITE_B,Female,63,"Breast, left, core",,,0.83
+PT0226,SITE_B,Female,63,lung wedge resection,40 pack-years,,0.56
+PT0227,SITE_C,female,80,"Breast, left, core",,,84 %
+PT0228,SITE_A,F,67,"Breast, left, core",,,
+PT0229,SITE_B,Female,53,Breast lumpectomy,,,0.45
+PT0230,SITE_B,Female,48,Breast lumpectomy,,,0.38
+PT0231,SITE_B,Male,78,Lung LLL biopsy,"former smoker, 28 py",,0.45
+PT0232,SITE_C,female,79,R breast core bx,,,57 %
+PT0233,SITE_C,male,43,"LN, mediastinal (EBUS)",current 31 PY,,60 %
+PT0234,SITE_C,female,66,"Breast, left, core",,,65 %
+PT0235,SITE_B,Female,73,"Breast, left, core",,,
+PT0236,SITE_B,Female,62,"Breast, left, core",,,0.46
+PT0237,SITE_A,M,49,Bronchial biopsy,72 pack-years,,32%
+PT0238,SITE_A,F,81,"Breast, left, core",,,85%
+PT0239,SITE_A,F,49,"LN, mediastinal (EBUS)","former smoker, 63 py",,84%
+PT0240,SITE_B,Female,69,Breast lumpectomy,,,0.79
+PT0241,SITE_A,M,72,prostate needle biopsy,,,
+PT0242,SITE_A,M,59,prostate needle biopsy,,,54%
+PT0243,SITE_B,Female,72,R breast core bx,,,0.66
+PT0244,SITE_A,F,73,"Breast, left, core",,,41%
+PT0245,SITE_A,F,52,"Breast, left, core",,,64%
+PT0246,SITE_C,female,66,R breast core bx,,,81 %
+PT0247,SITE_C,female,52,"Breast, left, core",,,63 %
+PT0248,SITE_B,Female,75,"Lung, RUL core",24 pack-years,,0.75
+PT0249,SITE_B,Female,53,Breast lumpectomy,,,0.42
+PT0250,SITE_B,Male,65,Bronchial biopsy,current 24 PY,,0.50
+PT0251,SITE_B,Female,76,R breast core bx,,,0.40
+PT0252,SITE_C,male,70,Bronchial biopsy,21 pack-years,,66 %
+PT0253,SITE_A,M,70,Prostatectomy,,,37%
+PT0254,SITE_A,M,69,Prostate core bx,,,52%
+PT0255,SITE_B,Female,66,lung wedge resection,Never smoker,,0.44
+PT0256,SITE_C,female,78,Breast lumpectomy,,,49 %
+PT0257,SITE_C,female,76,Breast lumpectomy,,,41 %
+PT0258,SITE_C,female,54,R breast core bx,,,63 %
+PT0259,SITE_B,Female,33,Liver,,"Hx breast ca 2019, s/p lumpectomy",0.33
+PT0260,SITE_B,Male,69,Prostate core bx,,,0.66
+PT0261,SITE_A,M,68,"Lung, RUL core",never,,54%
+PT0262,SITE_A,F,67,"Breast, left, core",,,46%
+PT0263,SITE_A,M,68,lung wedge resection,"former smoker, 16 py",,
+PT0264,SITE_A,M,65,Prostatectomy,,,16%
+PT0265,SITE_C,female,69,R breast core bx,,,51 %
+PT0266,SITE_A,F,58,Brain,,"Hx breast ca 2019, s/p lumpectomy",47%
+PT0267,SITE_A,M,74,lung wedge resection,current 27 PY,,82%
+PT0268,SITE_A,M,51,Bronchial biopsy,current 1 PY,,47%
+PT0269,SITE_A,M,80,Bone (iliac),,"prior prostate adenocarcinoma (2021), ADT + enzalutamide",62%
+PT0270,SITE_C,female,59,Breast lumpectomy,,,73 %
+PT0271,SITE_C,female,71,R breast core bx,,,79 %
+PT0272,SITE_B,Male,68,prostate needle biopsy,,,0.47
+PT0273,SITE_C,male,67,Prostate core bx,,,33 %
+PT0274,SITE_B,Female,64,R breast core bx,,,0.82
+PT0275,SITE_C,female,65,R breast core bx,,,
+PT0276,SITE_C,male,76,Bone (iliac),,,79 %
+PT0277,SITE_A,M,68,Prostatectomy,,,56%
+PT0278,SITE_B,Female,66,R breast core bx,,,0.53
+PT0279,SITE_B,Female,72,R breast core bx,,,0.38
+PT0280,SITE_B,Male,64,Lung LLL biopsy,current 22 PY,,0.84
+PT0281,SITE_C,male,77,lung wedge resection,"former smoker, 32 py",,
+PT0282,SITE_A,M,74,Prostate core bx,,,55%
+PT0283,SITE_B,Female,56,R breast core bx,,,0.37
+PT0284,SITE_C,female,57,Lung LLL biopsy,current 60 PY,,63 %
+PT0285,SITE_C,male,61,lung wedge resection,55 pack-years,,72 %
+PT0286,SITE_A,F,56,R breast core bx,,,
+PT0287,SITE_A,F,55,Breast lumpectomy,,,55%
+PT0288,SITE_B,Female,56,Pleural fluid cell block,"former smoker, 51 py",,0.63
+PT0289,SITE_B,Male,71,"LN, pelvic",,,0.66
+PT0290,SITE_C,female,62,LN axillary,,"Hx breast ca 2019, s/p lumpectomy",62 %
+PT0291,SITE_B,Male,61,Bronchial biopsy,never,,0.58
+PT0292,SITE_A,M,59,"LN, pelvic",,,41%
+PT0293,SITE_B,Male,55,lung wedge resection,current 25 PY,,0.45
+PT0294,SITE_C,male,63,prostate needle biopsy,,,17 %
+PT0295,SITE_A,F,85,R breast core bx,,,64%
+PT0296,SITE_B,Female,60,lung wedge resection,69 pack-years,,0.63
+PT0297,SITE_A,F,75,"Breast, left, core",,,50%
+PT0298,SITE_A,F,66,R breast core bx,,,58%
+PT0299,SITE_A,F,67,Bronchial biopsy,current 53 PY,,31%
+PT0300,SITE_B,Male,64,lung wedge resection,"former smoker, 4 py",,0.79
+PT0301,SITE_B,Female,79,"Breast, left, core",,,0.83
+PT0302,SITE_C,female,52,lung wedge resection,"former smoker, 34 py",,54 %
+PT0303,SITE_A,M,66,Bronchial biopsy,current 49 PY,,45%
+PT0304,SITE_A,M,49,"LN, mediastinal (EBUS)",non-smoker,,68%
+PT0305,SITE_A,M,59,Bronchial biopsy,53 pack-years,,37%
+PT0306,SITE_B,Female,67,R breast core bx,,,0.65
+PT0307,SITE_A,M,73,prostate needle biopsy,,,69%
+PT0308,SITE_C,female,65,Lung LLL biopsy,non-smoker,,46 %
+PT0309,SITE_B,Male,65,Bronchial biopsy,62 pack-years,,0.37
+PT0310,SITE_A,F,81,Pleural fluid cell block,current 64 PY,,80%
+PT0311,SITE_A,F,55,"Lung, RUL core",current 43 PY,,33%
+PT0312,SITE_C,female,55,"Breast, left, core",,,36 %
+PT0313,SITE_A,F,72,Bronchial biopsy,36 pack-years,,39%
+PT0314,SITE_C,male,68,Prostatectomy,,,63 %
+PT0315,SITE_C,male,65,lung wedge resection,"former smoker, 35 py",,48 %
+PT0316,SITE_A,F,77,Brain,non-smoker,,68%
+PT0317,SITE_C,female,73,Breast lumpectomy,,,50 %
+PT0318,SITE_B,Female,53,"Breast, left, core",,,0.50
+PT0319,SITE_C,male,57,prostate needle biopsy,,,
+PT0320,SITE_C,female,71,"Breast, left, core",,,
+PT0321,SITE_C,female,90,LN axillary,,,36 %
+PT0322,SITE_B,Male,51,Bronchial biopsy,current 39 PY,,0.55
+PT0323,SITE_A,F,69,R breast core bx,,,84%
+PT0324,SITE_A,F,70,Breast lumpectomy,,,41%
+PT0325,SITE_A,M,74,Liver,,,56%
+PT0326,SITE_C,female,52,Pleural fluid cell block,never,,84 %
+PT0327,SITE_A,M,77,Lung LLL biopsy,"former smoker, 69 py",,14%
+PT0328,SITE_C,male,68,Brain,never,,60 %
+PT0329,SITE_B,Female,73,Breast lumpectomy,,,0.77
+PT0330,SITE_C,female,74,"Breast, left, core",,,54 %
+PT0331,SITE_C,female,46,R breast core bx,,,81 %
+PT0332,SITE_A,F,64,"Breast, left, core",,,41%
+PT0333,SITE_B,Male,57,"Lung, RUL core","former smoker, 26 py",,
+PT0334,SITE_A,M,58,Bronchial biopsy,current 35 PY,,40%
+PT0335,SITE_B,Female,73,"Breast, left, core",,,0.43
+PT0336,SITE_C,male,82,Bronchial biopsy,"former smoker, 66 py",,39 %
+PT0337,SITE_C,male,64,Liver,,"Hx prostate ca 2019 Gleason 4+4, on ADT",35 %
+PT0338,SITE_C,female,70,LN axillary,,history of breast cancer,69 %
+PT0339,SITE_C,male,66,Prostate core bx,,,57 %
+PT0340,SITE_B,Female,83,Breast lumpectomy,,,0.69
+PT0341,SITE_A,M,58,"Lung, RUL core","former smoker, 6 py",,85%
+PT0342,SITE_A,M,66,Bone (iliac),,,36%
+PT0343,SITE_A,M,66,Prostatectomy,,,53%
+PT0344,SITE_A,F,54,R breast core bx,,,40%
+PT0345,SITE_C,male,61,Liver,,"prior prostate adenocarcinoma (2021), ADT + enzalutamide",38 %
+PT0346,SITE_B,Female,66,Liver,68 pack-years,,0.43
+PT0347,SITE_B,Female,81,Breast lumpectomy,,,0.33
+PT0348,SITE_C,male,54,Prostate core bx,,,49 %
+PT0349,SITE_B,Male,68,prostate needle biopsy,,,0.62
+PT0350,SITE_C,female,68,Breast lumpectomy,,,36 %
+PT0351,SITE_C,male,55,lung wedge resection,36 pack-years,,32 %
+PT0352,SITE_C,male,88,"Lung, RUL core","former smoker, 68 py",,76 %
+PT0353,SITE_B,Female,61,"Breast, left, core",,,0.55
+PT0354,SITE_B,Male,62,Prostate core bx,,,0.45
+PT0355,SITE_B,Male,69,Prostate core bx,,,
+PT0356,SITE_A,F,53,Breast lumpectomy,,,42%
+PT0357,SITE_A,M,69,Bronchial biopsy,non-smoker,,56%
+PT0358,SITE_C,male,65,"LN, pelvic",,,83 %
+PT0359,SITE_B,Male,68,prostate needle biopsy,,,
+PT0360,SITE_B,Female,66,"Breast, left, core",,,
+PT0361,SITE_C,male,58,Lung LLL biopsy,Never smoker,,62 %
+PT0362,SITE_A,F,58,R breast core bx,,,42%
+PT0363,SITE_C,female,49,"Breast, left, core",,,48 %
+PT0364,SITE_A,F,65,R breast core bx,,,63%
+PT0365,SITE_B,Male,59,Bronchial biopsy,non-smoker,,0.78
+PT0366,SITE_C,female,52,Pleural fluid cell block,current 58 PY,,46 %
+PT0367,SITE_B,Male,63,Liver,,"mCRPC on abiraterone, prostate adenocarcinoma 2020",0.50
+PT0368,SITE_B,Male,56,Bronchial biopsy,current 31 PY,,0.36
+PT0369,SITE_C,female,66,Breast lumpectomy,,,45 %
+PT0370,SITE_A,M,48,Brain,59 pack-years,,65%
+PT0371,SITE_B,Female,66,Breast lumpectomy,,,0.65
+PT0372,SITE_A,F,58,R breast core bx,,,50%
+PT0373,SITE_B,Female,73,"Breast, left, core",,,
+PT0374,SITE_B,Female,66,Brain,,history of breast cancer,0.46
+PT0375,SITE_B,Female,69,Bone (iliac),,,0.41
+PT0376,SITE_A,F,43,"Lung, RUL core",never,,37%
+PT0377,SITE_A,F,58,Bone (iliac),,,59%
+PT0378,SITE_C,male,65,Bronchial biopsy,current 71 PY,,52 %
+PT0379,SITE_C,male,47,"Lung, RUL core",non-smoker,,37 %
+PT0380,SITE_A,F,68,Bronchial biopsy,current 33 PY,,51%
+PT0381,SITE_A,F,52,R breast core bx,,,43%
+PT0382,SITE_B,Female,55,Liver,,prior breast carcinoma (2018),0.35
+PT0383,SITE_C,female,55,"Breast, left, core",,,42 %
+PT0384,SITE_C,male,76,"LN, pelvic",,,39 %
+PT0385,SITE_A,F,80,Breast lumpectomy,,,59%
+PT0386,SITE_A,M,57,lung wedge resection,"former smoker, 37 py",,76%
+PT0387,SITE_A,M,46,Bronchial biopsy,current 35 PY,,65%
+PT0388,SITE_B,Male,66,prostate needle biopsy,,,0.82
+PT0389,SITE_B,Male,75,Liver,,,0.53
+PT0390,SITE_C,male,55,Lung LLL biopsy,current 34 PY,,69 %
+PT0391,SITE_A,M,28,lung wedge resection,current 23 PY,,50%
+PT0392,SITE_C,male,52,Lung LLL biopsy,24 pack-years,,69 %
+PT0393,SITE_B,Female,78,Breast lumpectomy,,,0.19
+PT0394,SITE_A,M,61,"Lung, RUL core",Never smoker,,55%
+PT0395,SITE_A,F,51,R breast core bx,,,67%
+PT0396,SITE_C,female,63,"Breast, left, core",,,66 %
+PT0397,SITE_C,male,67,"LN, mediastinal (EBUS)","former smoker, 65 py",,50 %
+PT0398,SITE_B,Female,62,Breast lumpectomy,,,0.17
+PT0399,SITE_A,M,63,prostate needle biopsy,,,68%
+PT0400,SITE_B,Male,79,Bronchial biopsy,"former smoker, 1 py",,
+PT0401,SITE_C,female,61,Breast lumpectomy,,,51 %
+PT0402,SITE_C,male,56,Bronchial biopsy,24 pack-years,,82 %
+PT0403,SITE_A,F,64,"Breast, left, core",,,44%
+PT0404,SITE_C,female,79,Breast lumpectomy,,,
+PT0405,SITE_B,Female,66,R breast core bx,,,0.39
+PT0406,SITE_C,male,79,prostate needle biopsy,,,52 %
+PT0407,SITE_B,Female,85,R breast core bx,,,0.40
+PT0408,SITE_C,female,67,Bronchial biopsy,39 pack-years,,55 %
+PT0409,SITE_C,female,67,Brain,,history of breast cancer,68 %
+PT0410,SITE_A,F,47,"Lung, RUL core",1 pack-years,,
+PT0411,SITE_C,male,83,Prostate core bx,,,75 %
+PT0412,SITE_B,Male,64,Bronchial biopsy,current 40 PY,,0.19
+PT0413,SITE_A,F,58,"Breast, left, core",,,65%
+PT0414,SITE_A,F,60,lung wedge resection,non-smoker,,39%
+PT0415,SITE_C,male,54,prostate needle biopsy,,,41 %
+PT0416,SITE_A,M,41,"Lung, RUL core",75 pack-years,,16%
+PT0417,SITE_A,F,62,Breast lumpectomy,,,36%
+PT0418,SITE_C,female,74,lung wedge resection,current 15 PY,,
+PT0419,SITE_B,Female,62,lung wedge resection,Never smoker,,0.43
+PT0420,SITE_A,F,51,"Breast, left, core",,,34%
+PT0421,SITE_B,Female,70,Breast lumpectomy,,,0.51
+PT0422,SITE_A,M,68,Bronchial biopsy,72 pack-years,,83%
+PT0423,SITE_C,female,39,Lung LLL biopsy,Never smoker,,37 %
+PT0424,SITE_A,F,72,Bronchial biopsy,"former smoker, 54 py",,45%
+PT0425,SITE_A,M,69,Prostate core bx,,,82%
+PT0426,SITE_C,male,59,lung wedge resection,42 pack-years,,71 %
+PT0427,SITE_C,male,62,Prostatectomy,,,61 %
+PT0428,SITE_A,F,51,"Breast, left, core",,,46%
+PT0429,SITE_A,F,62,Breast lumpectomy,,,31%
+PT0430,SITE_C,female,54,Brain,,prior breast carcinoma (2018),63 %
+PT0431,SITE_B,Female,71,"Breast, left, core",,,0.50
+PT0432,SITE_B,Male,66,"LN, pelvic",,,0.48
+PT0433,SITE_A,F,57,Breast lumpectomy,,,69%
+PT0434,SITE_B,Male,69,prostate needle biopsy,,,0.59
+PT0435,SITE_B,Female,60,Breast lumpectomy,,,0.67
+PT0436,SITE_B,Female,42,Lung LLL biopsy,never,,0.72
+PT0437,SITE_B,Female,72,Brain,,"Hx breast ca 2019, s/p lumpectomy",0.10
+PT0438,SITE_A,F,71,Bronchial biopsy,current 39 PY,,48%
+PT0439,SITE_A,F,42,LN axillary,,,73%
+PT0440,SITE_B,Female,52,"Lung, RUL core",current 53 PY,,0.46
+PT0441,SITE_B,Female,75,Brain,,prior breast carcinoma (2018),0.61
+PT0442,SITE_C,female,55,Breast lumpectomy,,,17 %
+PT0443,SITE_A,M,59,Prostate core bx,,,
+PT0444,SITE_A,F,63,"Breast, left, core",,,
+PT0445,SITE_B,Male,72,lung wedge resection,non-smoker,,0.63
+PT0446,SITE_A,M,63,"LN, pelvic",,"mCRPC on abiraterone, prostate adenocarcinoma 2020",63%
+PT0447,SITE_A,M,79,prostate needle biopsy,,,37%
+PT0448,SITE_B,Female,54,Bronchial biopsy,never,,0.54
+PT0449,SITE_C,male,73,Lung LLL biopsy,current 45 PY,,79 %
+PT0450,SITE_C,female,47,"Breast, left, core",,,49 %
+PT0451,SITE_C,male,63,prostate needle biopsy,,,84 %
+PT0452,SITE_C,male,62,lung wedge resection,"former smoker, 54 py",,37 %
+PT0453,SITE_B,Female,60,Breast lumpectomy,,,0.56
+PT0454,SITE_C,female,66,R breast core bx,,,31 %
+PT0455,SITE_B,Female,75,Breast lumpectomy,,,0.43
+PT0456,SITE_A,F,51,Breast lumpectomy,,,39%
+PT0457,SITE_A,F,51,"Breast, left, core",,,75%
+PT0458,SITE_A,M,78,Prostatectomy,,,73%
+PT0459,SITE_C,female,60,Bronchial biopsy,"former smoker, 53 py",,49 %
+PT0460,SITE_C,male,60,Bone (iliac),,,82 %
+PT0461,SITE_B,Female,60,"Breast, left, core",,,0.84
+PT0462,SITE_C,female,79,Brain,,history of breast cancer,39 %
+PT0463,SITE_A,M,69,Prostate core bx,,,66%
+PT0464,SITE_A,M,46,"Lung, RUL core",current 4 PY,,37%
+PT0465,SITE_C,male,67,Lung LLL biopsy,"former smoker, 46 py",,78 %
+PT0466,SITE_B,Female,69,"Breast, left, core",,,0.59
+PT0467,SITE_A,F,67,"Breast, left, core",,,84%
+PT0468,SITE_A,F,79,R breast core bx,,,31%
+PT0469,SITE_A,M,82,Prostatectomy,,,81%
+PT0470,SITE_A,M,72,Bone (iliac),,,36%
+PT0471,SITE_B,Male,56,Bronchial biopsy,never,,0.51
+PT0472,SITE_B,Male,67,Bone (iliac),,,0.83
+PT0473,SITE_C,female,57,Breast lumpectomy,,,43 %
+PT0474,SITE_C,male,68,"Lung, RUL core","former smoker, 49 py",,70 %
+PT0475,SITE_C,female,56,"Breast, left, core",,,71 %
+PT0476,SITE_A,M,64,Prostatectomy,,,48%
+PT0477,SITE_B,Male,59,Prostate core bx,,,0.50
+PT0478,SITE_B,Female,77,"Lung, RUL core","former smoker, 26 py",,0.60
+PT0479,SITE_C,male,68,Prostate core bx,,"prior prostate adenocarcinoma (2021), ADT + enzalutamide",59 %
+PT0480,SITE_C,male,75,Bronchial biopsy,non-smoker,,81 %
+PT0481,SITE_B,Male,64,Prostatectomy,,,0.69
+PT0482,SITE_A,M,65,Prostate core bx,,,34%
+PT0483,SITE_A,F,48,R breast core bx,,,80%
+PT0484,SITE_C,female,57,Brain,current 39 PY,,79 %
+PT0485,SITE_B,Male,61,Prostate core bx,,,0.66
+PT0486,SITE_C,male,71,prostate needle biopsy,,,84 %
+PT0487,SITE_C,male,71,"LN, pelvic",,,18 %
+PT0488,SITE_B,Female,77,lung wedge resection,current 30 PY,,0.39
+PT0489,SITE_B,Male,48,lung wedge resection,Never smoker,,0.75
+PT0490,SITE_B,Female,67,"Breast, left, core",,,0.37
+PT0491,SITE_A,F,83,"Lung, RUL core",current 64 PY,,41%
+PT0492,SITE_B,Female,57,"Breast, left, core",,,0.38
+PT0493,SITE_A,M,68,"Lung, RUL core",66 pack-years,,18%
+PT0494,SITE_A,M,77,Pleural fluid cell block,current 21 PY,,64%
+PT0495,SITE_A,M,68,lung wedge resection,current 69 PY,,52%
+PT0496,SITE_A,F,68,Bronchial biopsy,"former smoker, 57 py",,75%
+PT0497,SITE_B,Female,46,R breast core bx,,,0.42
+PT0498,SITE_B,Male,70,"LN, pelvic",,"Hx prostate ca 2019 Gleason 4+4, on ADT",0.65
+PT0499,SITE_A,F,69,R breast core bx,,,71%
+PT0500,SITE_B,Female,67,R breast core bx,,,0.42
+PT0501,SITE_B,Male,59,Prostate core bx,,,
+PT0502,SITE_A,M,66,"Lung, RUL core",non-smoker,,82%
+PT0503,SITE_A,F,66,"Breast, left, core",,,43%
+PT0504,SITE_A,F,67,Lung LLL biopsy,"former smoker, 26 py",,77%
+PT0505,SITE_A,M,79,"LN, pelvic",,"prior prostate adenocarcinoma (2021), ADT + enzalutamide",37%
+PT0506,SITE_B,Female,59,lung wedge resection,59 pack-years,,0.69
+PT0507,SITE_B,Male,74,"LN, pelvic",,"prior prostate adenocarcinoma (2021), ADT + enzalutamide",0.31
+PT0508,SITE_B,Female,48,Liver,never,,0.42
+PT0509,SITE_B,Male,53,prostate needle biopsy,,,
+PT0510,SITE_A,M,67,prostate needle biopsy,,,63%
+PT0511,SITE_A,F,59,"Breast, left, core",,,
+PT0512,SITE_A,F,70,"Breast, left, core",,,68%
+PT0513,SITE_B,Female,66,"Breast, left, core",,,0.53
+PT0514,SITE_B,Male,65,Prostate core bx,,,0.31
+PT0515,SITE_C,male,54,Bronchial biopsy,current 78 PY,,66 %
+PT0516,SITE_C,male,74,prostate needle biopsy,,,73 %
+PT0517,SITE_A,M,54,"Lung, RUL core","former smoker, 49 py",,36%
+PT0518,SITE_C,female,73,"Breast, left, core",,,43 %
+PT0519,SITE_A,M,55,Bronchial biopsy,"former smoker, 3 py",,46%
+PT0520,SITE_B,Female,52,lung wedge resection,34 pack-years,,0.70
+PT0521,SITE_B,Male,66,prostate needle biopsy,,,0.33
+PT0522,SITE_B,Male,85,Bone (iliac),,,0.41
+PT0523,SITE_B,Male,76,Prostatectomy,,,0.52
+PT0524,SITE_C,male,75,Prostate core bx,,"prior prostate adenocarcinoma (2021), ADT + enzalutamide",33 %
+PT0525,SITE_B,Female,46,"Lung, RUL core",78 pack-years,,0.14
+PT0526,SITE_B,Male,61,"Lung, RUL core",43 pack-years,,0.70
+PT0527,SITE_C,female,67,R breast core bx,,,83 %
+PT0528,SITE_A,F,57,Lung LLL biopsy,59 pack-years,,83%
+PT0529,SITE_B,Female,55,Bronchial biopsy,67 pack-years,,0.79
+PT0530,SITE_A,F,59,Liver,,history of breast cancer,16%
+PT0531,SITE_B,Female,59,R breast core bx,,,0.53
+PT0532,SITE_C,male,52,Bronchial biopsy,"former smoker, 75 py",,83 %
+PT0533,SITE_A,M,69,prostate needle biopsy,,,48%
+PT0534,SITE_C,female,67,R breast core bx,,,80 %
+PT0535,SITE_C,female,58,Bronchial biopsy,current 76 PY,,36 %
+PT0536,SITE_B,Female,61,R breast core bx,,,0.33
+PT0537,SITE_B,Female,72,Lung LLL biopsy,"former smoker, 30 py",,0.61
+PT0538,SITE_A,M,44,Prostate core bx,,,
+PT0539,SITE_B,Female,67,Liver,,history of breast cancer,0.81
+PT0540,SITE_C,male,59,Bronchial biopsy,current 26 PY,,36 %
+PT0541,SITE_B,Male,64,Prostatectomy,,,0.48
+PT0542,SITE_C,female,67,"Lung, RUL core","former smoker, 52 py",,84 %
+PT0543,SITE_C,female,78,R breast core bx,,,77 %
+PT0544,SITE_B,Female,58,Breast lumpectomy,,,0.61
+PT0545,SITE_A,M,57,prostate needle biopsy,,,19%
+PT0546,SITE_B,Female,73,Breast lumpectomy,,,0.50
+PT0547,SITE_B,Female,55,"Breast, left, core",,,0.43
+PT0548,SITE_C,male,69,lung wedge resection,Never smoker,,31 %
+PT0549,SITE_C,female,52,Bronchial biopsy,38 pack-years,,46 %
+PT0550,SITE_A,F,68,Lung LLL biopsy,current 54 PY,,84%
+PT0551,SITE_B,Female,80,R breast core bx,,,0.45
+PT0552,SITE_A,F,69,"Breast, left, core",,,41%
+PT0553,SITE_B,Male,37,Bronchial biopsy,current 5 PY,,
+PT0554,SITE_B,Female,62,Lung LLL biopsy,"former smoker, 40 py",,0.39
+PT0555,SITE_B,Female,66,R breast core bx,,,0.61
+PT0556,SITE_B,Male,70,Bone (iliac),,,0.43
+PT0557,SITE_A,M,81,Prostatectomy,,,60%
+PT0558,SITE_B,Male,65,Bone (iliac),,,0.56
+PT0559,SITE_B,Female,63,Brain,,,0.51
+PT0560,SITE_A,F,72,Breast lumpectomy,,,48%
+PT0561,SITE_B,Male,74,prostate needle biopsy,,,0.77
+PT0562,SITE_C,female,71,Breast lumpectomy,,,62 %
+PT0563,SITE_C,female,46,R breast core bx,,,32 %
+PT0564,SITE_C,male,49,Pleural fluid cell block,current 67 PY,,68 %
+PT0565,SITE_B,Male,65,lung wedge resection,Never smoker,,0.77
+PT0566,SITE_C,female,56,R breast core bx,,,52 %
+PT0567,SITE_A,M,39,Lung LLL biopsy,current 62 PY,,60%
+PT0568,SITE_C,male,67,Prostate core bx,,"Hx prostate ca 2019 Gleason 4+4, on ADT",55 %
+PT0569,SITE_C,female,54,Breast lumpectomy,,,51 %
+PT0570,SITE_A,F,65,Liver,,history of breast cancer,45%
+PT0571,SITE_C,male,54,prostate needle biopsy,,,
+PT0572,SITE_A,F,62,R breast core bx,,,55%
+PT0573,SITE_A,M,55,"Lung, RUL core","former smoker, 31 py",,66%
+PT0574,SITE_C,male,82,"Lung, RUL core",61 pack-years,,55 %
+PT0575,SITE_B,Male,36,"Lung, RUL core",current 57 PY,,0.60
+PT0576,SITE_C,male,56,prostate needle biopsy,,,38 %
+PT0577,SITE_C,male,76,"LN, pelvic",,,36 %
+PT0578,SITE_A,M,75,prostate needle biopsy,,,58%
+PT0579,SITE_B,Male,58,Lung LLL biopsy,current 66 PY,,0.58
+PT0580,SITE_B,Male,74,Bronchial biopsy,25 pack-years,,0.18
+PT0581,SITE_A,F,76,Liver,,,81%
+PT0582,SITE_B,Female,64,"Lung, RUL core","former smoker, 4 py",,0.35
+PT0583,SITE_C,female,66,Breast lumpectomy,,,56 %
+PT0584,SITE_A,F,90,Bronchial biopsy,current 50 PY,,49%
+PT0585,SITE_B,Female,71,"Breast, left, core",,,0.79
+PT0586,SITE_A,F,82,R breast core bx,,,14%
+PT0587,SITE_C,female,50,Bronchial biopsy,63 pack-years,,84 %
+PT0588,SITE_A,F,61,Breast lumpectomy,,,47%
+PT0589,SITE_C,male,80,Prostate core bx,,,
+PT0590,SITE_C,male,60,Prostate core bx,,,30 %
+PT0591,SITE_A,F,70,"Breast, left, core",,,33%
+PT0592,SITE_C,female,82,Bronchial biopsy,current 34 PY,,82 %
+PT0593,SITE_B,Male,76,prostate needle biopsy,,,0.48
+PT0594,SITE_C,female,77,R breast core bx,,,85 %
+PT0595,SITE_A,F,51,"Breast, left, core",,,75%
+PT0596,SITE_B,Female,62,Breast lumpectomy,,,0.77
+PT0597,SITE_A,M,71,lung wedge resection,37 pack-years,,43%
+PT0598,SITE_B,Male,66,Pleural fluid cell block,42 pack-years,,0.67

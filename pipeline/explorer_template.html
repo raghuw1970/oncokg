@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>OncoKG — Explainable Oncology Reasoning Demo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans+Condensed:wght@500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* Layout idea: lab-informatics console — tab bar, summary first, then drill-down from cohort to one patient's rule trace. */
+:root{
+  --bg:#f3f5f7; --panel:#ffffff; --ink:#15212b; --muted:#5b6873; --line:#dde3e8; --soft:#eef2f5;
+  --accent:#0f6e8c; --accent-soft:#e1f0f5; --rare:#9b2c6f; --rare-soft:#f7e6f0;
+  --ok:#1f7a4d; --ok-soft:#e3f3ea; --warn:#a86400; --warn-soft:#fbf0dc; --bad:#b3261e; --bad-soft:#fae5e3;
+  --lung:#2f6fb0; --breast:#c0487e; --prostate:#4f8a3a;
+  --display:"IBM Plex Sans Condensed","Arial Narrow",system-ui,sans-serif;
+  --body:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0f161c; --panel:#162029; --ink:#e3e9ee; --muted:#93a2ae; --line:#2a3743; --soft:#1c2832;
+  --accent:#4fb3d3; --accent-soft:#163543; --rare:#e07ab4; --rare-soft:#3a1c2e;
+  --ok:#5cc58f; --ok-soft:#173327; --warn:#e6a845; --warn-soft:#3a2c13; --bad:#ef7d74; --bad-soft:#3d1c1a;
+  --lung:#6aa5e0; --breast:#e27fae; --prostate:#86c06e; color-scheme:dark;}}
+:root[data-theme="dark"]{
+  --bg:#0f161c; --panel:#162029; --ink:#e3e9ee; --muted:#93a2ae; --line:#2a3743; --soft:#1c2832;
+  --accent:#4fb3d3; --accent-soft:#163543; --rare:#e07ab4; --rare-soft:#3a1c2e;
+  --ok:#5cc58f; --ok-soft:#173327; --warn:#e6a845; --warn-soft:#3a2c13; --bad:#ef7d74; --bad-soft:#3d1c1a;
+  --lung:#6aa5e0; --breast:#e27fae; --prostate:#86c06e; color-scheme:dark;}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.5 var(--body)}
+h1,h2,h3{font-family:var(--display);font-weight:600;text-wrap:balance;margin:0;letter-spacing:.005em}
+h1{font-size:1.55rem} h2{font-size:1.2rem} h3{font-size:1rem}
+.wrap{max-width:1180px;margin:0 auto;padding:0 16px}
+header.top{background:var(--panel);border-bottom:1px solid var(--line)}
+header.top .wrap{display:flex;flex-wrap:wrap;gap:6px 18px;align-items:baseline;padding-top:16px;padding-bottom:10px}
+header.top p{margin:0;color:var(--muted);font-size:.9rem}
+nav.tabs{background:var(--panel);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:5}
+nav.tabs .wrap{display:flex;gap:4px;overflow-x:auto}
+nav.tabs a{padding:10px 12px;color:var(--muted);text-decoration:none;font-weight:500;border-bottom:2px solid transparent;white-space:nowrap}
+nav.tabs a[aria-current="page"]{color:var(--accent);border-bottom-color:var(--accent)}
+nav.tabs a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,summary:focus-visible,.prow:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+main{padding:18px 0 48px}
+section.view{display:none;flex-direction:column;gap:18px}
+section.view.on{display:flex}
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:16px}
+.panel>h2,.panel>h3{margin-bottom:10px}
+.sub{color:var(--muted);font-size:.88rem;margin:0 0 10px}
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px}
+.tile{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:12px 14px;display:flex;flex-direction:column;gap:2px}
+.tile .k{font-size:.78rem;color:var(--muted);text-transform:uppercase;letter-spacing:.05em}
+.tile .v{font-family:var(--display);font-size:1.7rem;font-variant-numeric:tabular-nums}
+.tile .d{font-size:.82rem;color:var(--muted)}
+.tile.ok{border-left:4px solid var(--ok)} .tile.rare{border-left:4px solid var(--rare)} .tile.acc{border-left:4px solid var(--accent)}
+.flow{display:flex;flex-wrap:wrap;gap:8px;align-items:stretch}
+.flow .step{flex:1 1 160px;background:var(--soft);border-radius:6px;padding:10px 12px;font-size:.86rem}
+.flow .step b{display:block;font-family:var(--display);font-size:.95rem;margin-bottom:2px}
+.flow .arrow{align-self:center;color:var(--muted)}
+.tblwrap{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:.86rem}
+th,td{text-align:left;padding:6px 8px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:.74rem;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);font-weight:600;background:var(--panel);position:sticky;top:0}
+td.num,th.num{text-align:right;font-variant-numeric:tabular-nums;font-family:var(--mono);font-size:.82rem}
+.mono{font-family:var(--mono);font-size:.82rem}
+.chip{display:inline-flex;align-items:center;gap:4px;font-size:.72rem;font-weight:600;padding:1px 7px;border-radius:999px;background:var(--soft);color:var(--muted);white-space:nowrap;letter-spacing:.02em}
+.chip.rare{background:var(--rare-soft);color:var(--rare)} .chip.ok{background:var(--ok-soft);color:var(--ok)}
+.chip.warn{background:var(--warn-soft);color:var(--warn)} .chip.bad{background:var(--bad-soft);color:var(--bad)}
+.chip.acc{background:var(--accent-soft);color:var(--accent)}
+.bar{height:8px;background:var(--soft);border-radius:4px;overflow:hidden;min-width:60px}
+.bar>i{display:block;height:100%;background:var(--accent)}
+.bar.rare>i{background:var(--rare)}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.grid2>*,.pt-layout>*{min-width:0}
+@media (max-width:820px){.grid2{grid-template-columns:1fr}}
+/* ontology tree */
+ul.tree{list-style:none;margin:0;padding-left:0}
+ul.tree ul{list-style:none;margin:0;padding-left:18px;border-left:1px dashed var(--line)}
+ul.tree li{padding:4px 0}
+.node{display:flex;flex-wrap:wrap;gap:4px 8px;align-items:baseline}
+.node .nm{font-weight:600}
+.node .meta{font-size:.78rem;color:var(--muted)}
+.heat{display:inline-block;min-width:34px;text-align:center;border-radius:4px;padding:1px 4px;font-family:var(--mono);font-size:.8rem}
+.rg{border:1px solid var(--line);border-radius:6px;padding:10px 12px;display:flex;flex-direction:column;gap:6px}
+.rg .rule{display:grid;grid-template-columns:28px 1fr;gap:6px;font-size:.86rem}
+.rg .rule .p{font-family:var(--mono);color:var(--muted);font-size:.78rem;padding-top:2px}
+.crit{color:var(--muted);font-size:.8rem}
+/* patients */
+.pt-layout{display:grid;grid-template-columns:340px 1fr;gap:18px;align-items:start}
+@media (max-width:900px){.pt-layout{grid-template-columns:1fr}}
+.plist{display:flex;flex-direction:column;gap:8px}
+.controls{display:flex;flex-wrap:wrap;gap:6px}
+.controls input,.controls select{font:inherit;font-size:.88rem;padding:6px 8px;border:1px solid var(--line);border-radius:6px;background:var(--panel);color:var(--ink);flex:1 1 140px;min-width:0}
+.rows{max-height:70vh;overflow-y:auto;border:1px solid var(--line);border-radius:8px;background:var(--panel)}
+@media (max-width:900px){.rows{max-height:300px}}
+.prow{display:grid;grid-template-columns:62px 1fr;gap:2px 8px;padding:8px 10px;border-bottom:1px solid var(--line);cursor:pointer;border-left:3px solid transparent}
+.prow:hover{background:var(--soft)}
+.prow[aria-selected="true"]{background:var(--accent-soft);border-left-color:var(--accent)}
+.prow .id{font-family:var(--mono);font-size:.8rem;color:var(--muted)}
+.prow .lb{font-size:.85rem;font-weight:500}
+.prow .cs{grid-column:2;display:flex;gap:4px;flex-wrap:wrap}
+.count{font-size:.8rem;color:var(--muted)}
+.dx{display:flex;flex-direction:column;gap:14px}
+.dxhead{display:flex;flex-direction:column;gap:6px}
+.dxhead .lbl{font-family:var(--display);font-size:1.35rem;font-weight:600;line-height:1.25}
+.kv{display:flex;flex-wrap:wrap;gap:4px 14px;font-size:.84rem;color:var(--muted)}
+.kv b{color:var(--ink);font-weight:500}
+.flags{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:4px}
+.flags li{background:var(--warn-soft);color:var(--ink);border-left:3px solid var(--warn);padding:6px 10px;border-radius:4px;font-size:.84rem}
+.lrow{display:grid;grid-template-columns:90px 1fr 48px;gap:8px;align-items:center;font-size:.85rem}
+.lrow .bar{height:10px}
+.contrib{font-size:.78rem;color:var(--muted);margin:2px 0 8px 98px}
+@media (max-width:520px){.contrib{margin-left:0}}
+details.grp{border:1px solid var(--line);border-radius:6px;padding:8px 10px}
+details.grp+details.grp{margin-top:8px}
+details.grp summary{cursor:pointer;font-weight:600;font-size:.9rem}
+.rl{display:grid;grid-template-columns:22px 1fr;gap:4px 6px;padding:6px 0;border-top:1px solid var(--line);font-size:.85rem}
+.rl:first-of-type{border-top:0}
+.ic{font-family:var(--mono);font-weight:600;text-align:center;border-radius:4px;font-size:.8rem;line-height:1.5}
+.ic.y{background:var(--ok-soft);color:var(--ok)} .ic.n{background:var(--bad-soft);color:var(--bad)} .ic.u{background:var(--warn-soft);color:var(--warn)}
+.cl{grid-column:2;display:grid;grid-template-columns:18px 1fr auto;gap:2px 6px;font-size:.78rem;color:var(--muted)}
+.cl .o{font-family:var(--mono);color:var(--ink);text-align:right;word-break:break-word}
+.legend{display:flex;gap:10px;flex-wrap:wrap;font-size:.78rem;color:var(--muted);align-items:center}
+.note{font-size:.82rem;color:var(--muted);margin:0}
+footer{color:var(--muted);font-size:.8rem;padding:24px 0}
+.brand{font-family:var(--display);font-size:1.05rem;font-weight:500;padding:10px 14px 10px 0;margin-right:4px;border-right:1px solid var(--line);color:var(--ink);white-space:nowrap;align-self:center}
+.brand b{color:var(--accent);font-weight:600}
+/* about / landing */
+.hero{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:28px;align-items:start;padding:12px 0 6px}
+@media (max-width:900px){.hero{grid-template-columns:1fr}}
+.eyebrow{font-family:var(--mono);font-size:.74rem;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+.hero h1{font-size:clamp(2.1rem,5.2vw,3.5rem);line-height:1.02;letter-spacing:-.015em;margin:10px 0 14px}
+.hero h1 .kg{color:var(--accent)}
+.hero h1 small{display:block;font-size:.46em;line-height:1.2;letter-spacing:0;color:var(--muted);font-weight:500;margin-top:10px}
+.lede{font-size:1.05rem;max-width:58ch;margin:0 0 18px}
+.cta{display:flex;gap:10px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:6px;padding:9px 14px;border-radius:6px;font-weight:600;font-size:.9rem;text-decoration:none;border:1px solid var(--accent);color:var(--accent);background:transparent}
+.btn.primary{background:var(--accent);color:var(--panel)}
+.btn:hover{filter:brightness(1.08)}
+.btn:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.trace{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:14px;display:flex;flex-direction:column;gap:0;font-size:.84rem;box-shadow:0 1px 0 var(--line)}
+.trace .th{display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap;margin-bottom:8px}
+.stage{position:relative;padding:8px 10px 8px 14px;border-left:2px solid var(--line);margin-left:6px}
+.stage::before{content:"";position:absolute;left:-6px;top:13px;width:10px;height:10px;border-radius:50%;background:var(--panel);border:2px solid var(--line)}
+.stage .sl{font-family:var(--mono);font-size:.68rem;letter-spacing:.07em;text-transform:uppercase;color:var(--muted)}
+.stage .sv{display:flex;flex-wrap:wrap;gap:4px 6px;margin-top:3px}
+.stage code{font-family:var(--mono);font-size:.78rem;background:var(--soft);padding:1px 6px;border-radius:4px;color:var(--ink)}
+.stage .out{font-family:var(--display);font-size:1.12rem;font-weight:600}
+.stage.final{border-left-color:var(--rare)} .stage.final::before{border-color:var(--rare);background:var(--rare)}
+@keyframes lit{0%{border-left-color:var(--line)}40%{border-left-color:var(--accent)}100%{border-left-color:var(--line)}}
+@keyframes dot{0%,100%{background:var(--panel);border-color:var(--line)}40%{background:var(--accent);border-color:var(--accent)}}
+.trace .stage:not(.final){animation:lit 1.6s ease-out both}
+.trace .stage:not(.final)::before{animation:dot 1.6s ease-out both}
+.trace .stage:nth-of-type(2),.trace .stage:nth-of-type(2)::before{animation-delay:.35s}
+.trace .stage:nth-of-type(3),.trace .stage:nth-of-type(3)::before{animation-delay:.7s}
+.trace .stage:nth-of-type(4),.trace .stage:nth-of-type(4)::before{animation-delay:1.05s}
+.story{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+@media (max-width:760px){.story{grid-template-columns:1fr}}
+.story p{margin:0;max-width:62ch}
+.label{font-family:var(--mono);font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:6px;display:block}
+.chain{display:flex;flex-wrap:wrap;align-items:stretch;gap:0;counter-reset:st}
+.chain .lnk{flex:1 1 150px;padding:12px 14px;border:1px solid var(--line);margin:-1px 0 0 -1px;background:var(--panel);counter-increment:st}
+.chain .lnk::before{content:counter(st,decimal-leading-zero);font-family:var(--mono);font-size:.72rem;color:var(--accent);display:block}
+.chain .lnk b{font-family:var(--display);font-size:1.05rem;display:block;margin:2px 0}
+.chain .lnk span{font-size:.84rem;color:var(--muted)}
+.chain .lnk.hr{background:var(--warn-soft)} .chain .lnk.hr::before{color:var(--warn)}
+.layers{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px}
+.layer{border-top:3px solid var(--accent);background:var(--panel);border-radius:0 0 8px 8px;padding:14px;display:flex;flex-direction:column;gap:8px;border-left:1px solid var(--line);border-right:1px solid var(--line);border-bottom:1px solid var(--line)}
+.layer h3{font-size:1.05rem}
+.layer .big{font-family:var(--display);font-size:2rem;line-height:1;font-variant-numeric:tabular-nums}
+.layer .big small{font-size:.45em;color:var(--muted);font-family:var(--body);font-weight:500;margin-left:4px}
+.layer ul{margin:0;padding-left:16px;font-size:.85rem;color:var(--muted)}
+.layer ul b{color:var(--ink);font-weight:500;font-variant-numeric:tabular-nums}
+.role{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:8px;margin:0;padding:0;list-style:none}
+.role li{border:1px solid var(--line);border-radius:6px;padding:10px 12px;font-size:.88rem;background:var(--soft)}
+.role li b{display:block;font-family:var(--display);font-size:1rem}
+.look{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px}
+.look a{display:flex;flex-direction:column;gap:4px;padding:14px;border:1px solid var(--line);border-radius:8px;text-decoration:none;color:var(--ink);background:var(--panel)}
+.look a:hover{border-color:var(--accent)}
+.look a b{font-family:var(--display);font-size:1.05rem;color:var(--accent)}
+.look a span{font-size:.85rem;color:var(--muted)}
+.why{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px;margin-top:12px}
+.why div{padding:10px 12px;border-left:3px solid var(--accent);background:var(--soft);border-radius:0 6px 6px 0;font-size:.86rem}
+.why div b{display:block;font-family:var(--display);font-size:1rem}
+.disclaimer{font-size:.8rem;color:var(--muted);border-top:1px solid var(--line);padding-top:12px}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+</head>
+<body>
+<nav class="tabs" aria-label="Views"><div class="wrap">
+  <span class="brand">Onco<b>KG</b></span>
+  <a href="#about">About</a><a href="#overview">Accuracy</a><a href="#ontology">Ontology</a><a href="#normalization">Normalization</a><a href="#patients">Patients</a>
+</div></nav>
+<main><div class="wrap">
+
+<section class="view" id="v-about">
+  <div class="hero">
+    <div>
+      <span class="eyebrow">Portfolio demo · synthetic data</span>
+      <h1>Onco<span class="kg">KG</span><small>Explainable Oncology Reasoning Demo</small></h1>
+      <p class="lede">Messy, multi-lab molecular test results go in. A guideline-grounded cancer classification comes out, with every rule, threshold and finding behind it shown and open to review.</p>
+      <div class="cta"><a class="btn primary" href="#patients">See a patient trace</a><a class="btn" href="#overview">Accuracy overview</a></div>
+    </div>
+    <div class="trace" id="heroTrace" aria-label="Example reasoning trace for one synthetic patient"></div>
+  </div>
+
+  <div class="story">
+    <div class="panel"><span class="label">Problem</span>
+      <p>Clinical and molecular test data arrives in inconsistent formats, while oncology classification depends on rules, thresholds, synonyms, and subtype logic that change over time.</p></div>
+    <div class="panel"><span class="label">What I built</span>
+      <p>I originally built this capability within a commercial oncology data platform in partnership with bioinformatics SMEs. Because the production system is proprietary, I rebuilt OncoKG as a live, non-proprietary demonstration using synthetic data.</p></div>
+  </div>
+
+  <div class="panel"><span class="label">How it works</span>
+    <div class="chain">
+      <div class="lnk"><b>Ontology</b><span>Cancer classes, biomarkers, synonyms, thresholds and rules, all in one knowledge graph</span></div>
+      <div class="lnk"><b>Normalization</b><span>Lab-specific formats turned into canonical, guideline-interpreted findings</span></div>
+      <div class="lnk"><b>Reasoning</b><span>Tissue of origin, then malignancy, then subtype, then molecular modifiers</span></div>
+      <div class="lnk"><b>Evidence trace</b><span>Every call links to the rule that fired and the findings it used</span></div>
+      <div class="lnk hr"><b>Human review</b><span>Missing, conflicting or borderline data is flagged instead of guessed</span></div>
+    </div>
+  </div>
+
+  <div><span class="label">The four layers</span><div class="layers" id="layers"></div></div>
+
+  <div class="panel"><span class="label">My role</span>
+    <p class="sub" style="margin-bottom:10px">I translated SME knowledge into:</p>
+    <ul class="role">
+      <li><b>Product model</b>What the system decides, for whom, and where a human stays in the loop</li>
+      <li><b>Ontology structure</b>Classes, biomarkers, rules and guideline provenance</li>
+      <li><b>Normalization logic</b>Synonyms, units, scoring systems and QC</li>
+      <li><b>Reasoning flow</b>Ordered, mutually exclusive rule groups with safe handling of missing data</li>
+      <li><b>Explainability model</b>Evidence traces, confidence and review flags</li>
+      <li><b>Interactive explorer</b>This demo</li>
+    </ul>
+  </div>
+
+  <div><span class="label">What to look at in the demo</span>
+    <div class="look">
+      <a href="#overview"><b>Accuracy overview</b><span>Per-class sensitivity and PPV against hidden ground truth, plus safety outcomes</span></a>
+      <a href="#ontology"><b>Ontology</b><span>Disease hierarchy, rare-subtype flags, lineage weights, diagnostic rules and thresholds</span></a>
+      <a href="#normalization"><b>Normalization examples</b><span>Real raw-to-normalized rows: Allred scores, 3-letter HGVS, unit conversions, purity-adjusted copy number</span></a>
+      <a href="#patients"><b>Patient reasoning traces</b><span>For any patient: raw data, normalized findings, each rule's criteria (met, not met or missing), and the final call</span></a>
+    </div>
+  </div>
+
+  <div class="panel"><span class="label">Why it matters</span>
+    <p style="max-width:70ch;margin:0">The architecture separates domain knowledge from application code, making rules easier to extend, test, audit, and govern.</p>
+    <div class="why" id="why"></div>
+  </div>
+
+  <p class="disclaimer">All patients and lab results here are synthetic. No proprietary code, data or rules from any production system are included. Thresholds follow cited published guidelines where noted, but OncoKG is a demonstration, not a validated clinical decision tool.</p>
+</section>
+
+<section class="view" id="v-overview">
+  <div class="tiles" id="tiles"></div>
+  <div class="panel">
+    <h2>Pipeline</h2>
+    <div class="flow" id="flow"></div>
+  </div>
+  <div class="panel">
+    <h2>Accuracy by diagnostic class</h2>
+    <p class="sub">Most specific class per patient (molecular subtype if present, else histology/receptor subtype). Sensitivity = found ÷ true cases; PPV = correct ÷ calls made. Misses are mostly abstentions ("indeterminate" or a correct but less specific parent class), not wrong calls.</p>
+    <div class="tblwrap"><table id="perclass"></table></div>
+  </div>
+  <div class="grid2">
+    <div class="panel"><h2>Triple-negative breast cancer</h2><div id="tnbc"></div></div>
+    <div class="panel"><h2>Safety outcomes</h2><div id="safety"></div></div>
+  </div>
+  <div class="panel">
+    <h2>Molecular modifiers</h2>
+    <p class="sub">Non-exclusive annotations (HER2-low/ultralow/null, BRCA1/2, PIK3CA, TMPRSS2::ERG, PD-L1…). Recall is limited by missing tests, low purity and depth QC; no false positives were produced.</p>
+    <div class="tblwrap"><table id="modtbl"></table></div>
+  </div>
+</section>
+
+<section class="view" id="v-ontology">
+  <div class="tiles" id="otiles"></div>
+  <div class="grid2">
+    <div class="panel">
+      <h2>Disease hierarchy</h2>
+      <p class="sub">owl:Class tree. Counts are true cases / patients the reasoner assigned to that exact class.</p>
+      <div class="legend"><span class="chip rare">rare subtype</span><span class="chip">tier</span></div>
+      <ul class="tree" id="tree" style="margin-top:10px"></ul>
+    </div>
+    <div class="panel">
+      <h2>Tissue-of-origin evidence weights</h2>
+      <p class="sub">okg:LineageEvidence. A lineage is assigned at score ≥ 3 with a margin ≥ 2 over the runner-up; prostate also requires male sex. Specimen site adds 1.5.</p>
+      <div class="tblwrap"><table id="lmtbl"></table></div>
+    </div>
+  </div>
+  <div class="panel">
+    <h2>Diagnostic rules</h2>
+    <p class="sub">Rule groups run in order. Within a group the first rule (by priority) whose criteria all hold assigns its class. Missing data never satisfies a criterion unless the rule says so.</p>
+    <div class="grid2" id="rules"></div>
+  </div>
+  <div class="grid2">
+    <div class="panel"><h2>Thresholds &amp; parameters</h2><div class="tblwrap"><table id="params"></table></div></div>
+    <div class="panel"><h2>Molecular modifiers</h2><div class="tblwrap"><table id="mods"></table></div></div>
+  </div>
+</section>
+
+<section class="view" id="v-normalization">
+  <div class="panel">
+    <h2>What the normalizer harmonised</h2>
+    <p class="sub">Three labs export the same biology differently. Every synonym, unit, reference limit and cut-off below is read from the ontology, not hard-coded.</p>
+    <div class="tiles" id="ntiles"></div>
+  </div>
+  <div class="panel">
+    <h2>Raw → normalized, worked examples</h2>
+    <p class="sub">Real rows from this cohort.</p>
+    <div class="tblwrap"><table id="extbl"></table></div>
+  </div>
+</section>
+
+<section class="view" id="v-patients">
+  <div class="pt-layout">
+    <div class="plist">
+      <div class="controls">
+        <input id="q" type="search" placeholder="Search ID or diagnosis" aria-label="Search patients">
+        <select id="flt" aria-label="Filter patients">
+          <option value="all">All patients</option>
+          <option value="rare">Rare subtypes</option>
+          <option value="tnbc">TNBC family</option>
+          <option value="lung">Lung</option><option value="breast">Breast</option><option value="prostate">Prostate</option>
+          <option value="benign">No malignancy</option>
+          <option value="abst">Abstained / less specific</option>
+          <option value="wrong">Disagrees with truth</option>
+          <option value="edge">Designed edge cases</option>
+        </select>
+      </div>
+      <div class="count" id="cnt"></div>
+      <div class="rows" id="rows" role="listbox" aria-label="Patients"></div>
+    </div>
+    <div class="dx panel" id="dx"></div>
+  </div>
+</section>
+
+<footer>OncoKG · Explainable Oncology Reasoning Demo · synthetic data, not for clinical use.</footer>
+</div></main>
+
+<script>
+const D = __DATA__;
+const $ = s => document.querySelector(s);
+const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const L = id => D.labels[id] || id;
+const pct = x => x == null ? "–" : (x*100).toFixed(x === 1 ? 0 : 1) + "%";
+const LIN = {LungLineage:"Lung", BreastLineage:"Breast", ProstateLineage:"Prostate"};
+const LINC = {LungLineage:"var(--lung)", BreastLineage:"var(--breast)", ProstateLineage:"var(--prostate)"};
+const ev = D.ev;
+
+/* ---------- overview */
+(function(){
+  const h = ev.histology_subtype, m = ev.malignancy, r = ev.rare_subtypes, t = ev.tnbc;
+  const tiles = [
+    ["acc","Patients", D.meta.n, "3 labs · 598 synthetic cases"],
+    ["ok","Tissue of origin", (ev.lineage.correct||0)+" / "+D.meta.n, (ev.lineage.wrong||0)+" wrong · "+(ev.lineage.abstained||0)+" unresolved"],
+    ["ok","Subtype exact", h.correct, (h.correct_less_specific||0)+" less specific · "+(h.abstained||0)+" abstained · "+(h.wrong||0)+" wrong"],
+    ["rare","Rare subtypes found", r.tp+" / "+r.n_true, "PPV "+pct(r.tp/r.n_pred)],
+    ["rare","TNBC", t.tp+" / "+t.true, "sensitivity "+pct(t.sensitivity)+" · PPV "+pct(t.ppv)],
+    ["ok","Cancers called benign", m.cancers_called_benign, m.benign_called_benign+" / "+m.benign+" benign controls correct"],
+  ];
+  $("#tiles").innerHTML = tiles.map(([c,k,v,d]) => `<div class="tile ${c}"><span class="k">${k}</span><span class="v">${v}</span><span class="d">${d}</span></div>`).join("");
+  const steps = [["Raw lab exports","IHC, ISH/FISH, DNA/RNA NGS, CNV, RNA counts, serum, clinical; 3 site formats"],
+    ["Normalize","synonyms, units, Allred→%, HGVS, VAF scale, purity-adjusted CN, housekeeping-normalized RNA"],
+    ["Knowledge graph", D.meta.triples.toLocaleString()+" ontology triples; patients linked to classes"],
+    ["Reason","lineage → malignancy → subtype rules → modifiers, with evidence trail"],
+    ["Interpret","diagnosis, rarity, therapy relevance, flags for human review"]];
+  $("#flow").innerHTML = steps.map((s,i)=>`<div class="step"><b>${s[0]}</b>${s[1]}</div>`+(i<steps.length-1?'<span class="arrow" aria-hidden="true">→</span>':'')).join("");
+  const rows = ev.per_class.slice().sort((a,b)=> (b.rare-a.rare) || b.n_true-a.n_true);
+  $("#perclass").innerHTML = `<thead><tr><th>Class</th><th></th><th class="num">True</th><th class="num">Called</th><th class="num">Correct</th><th>Sensitivity</th><th class="num">PPV</th></tr></thead><tbody>`+
+    rows.map(x=>`<tr><td>${esc(x.label)}</td><td>${x.rare?'<span class="chip rare">rare</span>':''}</td><td class="num">${x.n_true}</td><td class="num">${x.n_pred}</td><td class="num">${x.tp}</td>
+    <td><div style="display:flex;gap:6px;align-items:center"><div class="bar ${x.rare?'rare':''}" style="flex:1"><i style="width:${(x.sensitivity||0)*100}%"></i></div><span class="mono">${pct(x.sensitivity)}</span></div></td><td class="num">${pct(x.ppv)}</td></tr>`).join("")+"</tbody>";
+  $("#tnbc").innerHTML = `<p class="note">TNBC is defined in the ontology as ER &lt; 1%, PR &lt; 1% and HER2-negative (IHC 0, 1+, or 2+ with negative ISH). LAR-like TNBC additionally needs AR ≥ 10%. ER 1–10% goes to the separate ER-low class.</p>
+   <div class="tiles" style="margin-top:10px"><div class="tile rare"><span class="k">Detected</span><span class="v">${t.tp}/${t.true}</span></div><div class="tile rare"><span class="k">PPV</span><span class="v">${pct(t.ppv)}</span></div></div>
+   <p class="note" style="margin-top:8px">Missed as: ${Object.entries(t.missed_as).map(([k,v])=>esc(L(k))+" ("+v+")").join(", ")||"none"}. TNBC with a BRCA1/2 pathogenic variant gets a BRCA modifier; without one, the reasoner recommends germline testing.</p>`;
+  const ab = ev.abstentions_by_reason;
+  $("#safety").innerHTML = `<table><tbody>
+    <tr><td>Cancers called "no malignancy"</td><td class="num">${m.cancers_called_benign}</td></tr>
+    <tr><td>Benign controls called malignant</td><td class="num">${m.benign_called_cancer}</td></tr>
+    <tr><td>Abstained: malignancy evidence equivocal</td><td class="num">${ab["malignancy equivocal"]||0}</td></tr>
+    <tr><td>Abstained: tissue of origin unresolved</td><td class="num">${ab["lineage unresolved"]||0}</td></tr>
+    <tr><td>Wrong subtype calls</td><td class="num">${h.wrong||0}</td></tr></tbody></table>
+    <p class="note" style="margin-top:8px">A benign call is only allowed when genomic profiling was done. Without it the system abstains instead of reassuring.</p>`;
+  $("#modtbl").innerHTML = `<thead><tr><th>Modifier</th><th class="num">True</th><th class="num">Called</th><th class="num">Recall</th><th class="num">Precision</th></tr></thead><tbody>`+
+    ev.modifiers.slice().sort((a,b)=>b.n_true-a.n_true).map(x=>`<tr><td>${esc(D.modlabels[x.modifier]||x.modifier)}</td><td class="num">${x.n_true}</td><td class="num">${x.n_pred}</td><td class="num">${pct(x.recall)}</td><td class="num">${pct(x.precision)}</td></tr>`).join("")+"</tbody>";
+})();
+
+/* ---------- ontology */
+(function(){
+  $("#otiles").innerHTML = [["Classes",D.meta.n_classes],["Diagnostic rules",D.meta.n_rules],["Molecular modifiers",D.meta.n_mods],["Alteration definitions",D.meta.n_alts],["Triples",D.meta.triples.toLocaleString()]]
+    .map(([k,v])=>`<div class="tile acc"><span class="k">${k}</span><span class="v">${v}</span></div>`).join("");
+  const kids = {}; D.classes.forEach(c => (kids[c.parent] = kids[c.parent] || []).push(c));
+  const node = c => `<li><div class="node"><span class="nm">${esc(c.label)}</span>${c.rare?'<span class="chip rare">rare</span>':''}${c.tier?`<span class="chip">${c.tier}</span>`:''}
+     ${(c.nt||c.np)?`<span class="chip acc">${c.nt} / ${c.np}</span>`:''}</div>
+     ${c.prev?`<div class="node meta">${esc(c.prev)}${c.therapy?' · '+esc(c.therapy):''}</div>`:''}
+     ${kids[c.id]?'<ul>'+kids[c.id].map(node).join("")+'</ul>':''}</li>`;
+  $("#tree").innerHTML = (kids["Disease"]||[]).map(node).join("");
+  const mx = 3;
+  const cell = (w,col) => w ? `<span class="heat" style="background:color-mix(in srgb, ${col} ${Math.round(w/mx*55)+10}%, transparent)">${w}</span>` : '<span class="heat" style="color:var(--line)">·</span>';
+  $("#lmtbl").innerHTML = `<thead><tr><th>Evidence</th><th class="num">Lung</th><th class="num">Breast</th><th class="num">Prostate</th></tr></thead><tbody>`+
+    D.lm.map(r=>`<tr><td class="mono">${esc(r.marker)}</td><td class="num">${cell(r.LungLineage,LINC.LungLineage)}</td><td class="num">${cell(r.BreastLineage,LINC.BreastLineage)}</td><td class="num">${cell(r.ProstateLineage,LINC.ProstateLineage)}</td></tr>`).join("")+"</tbody>";
+  $("#rules").innerHTML = D.rules.map(g=>`<div class="rg"><h3>${esc(g.label)}</h3><span class="crit">applies to: ${esc(g.applies)} · output: ${g.slot}</span>`+
+    g.rules.map(r=>`<div class="rule"><span class="p">${r.prio}</span><div><b>${esc(r.assigns)}</b> ${r.rare?'<span class="chip rare">rare</span>':''}<div class="crit">${r.crit.map(esc).join(" <b>AND</b> ")}</div><div class="crit" style="font-style:italic">${esc(r.gl)}</div></div></div>`).join("")+`</div>`).join("");
+  $("#params").innerHTML = `<thead><tr><th>Parameter</th><th class="num">Value</th><th>Source</th></tr></thead><tbody>`+
+    D.params.map(p=>`<tr><td><span class="mono">${esc(p.name)}</span><div class="crit">${esc(p.note)}</div></td><td class="num">${p.value}</td><td class="crit">${esc(p.gl)}</td></tr>`).join("")+"</tbody>";
+  $("#mods").innerHTML = `<thead><tr><th>Modifier</th><th>Applies to</th><th>Therapy relevance</th></tr></thead><tbody>`+
+    D.mods.map(m=>`<tr><td>${esc(m.label)}</td><td class="crit">${esc(m.applies)}</td><td class="crit">${esc(m.tx)}</td></tr>`).join("")+"</tbody>";
+})();
+
+/* ---------- normalization */
+(function(){
+  const r = D.rep;
+  const T = [["IHC stain names mapped",r.ihc_stain_synonyms_mapped],["Allred scores → % range",r.allred_converted],["Ki-67 fractions → %",r.ki67_fraction_converted],
+    ["3-letter HGVS → 1-letter",r.hgvs_3letter_converted],["Variants failing depth QC",r.variant_qc_LOW_DEPTH],["Low-VAF variants filtered",r.variant_qc_LOW_VAF],
+    ["Low-support fusions dropped",r.fusion_qc_LOW_SUPPORT],["Serum values unit-converted",r.serum_unit_converted],["RNA gene IDs remapped",r.rna_gene_ids_remapped],
+    ["IHC vs RNA discordances flagged",r.ihc_rna_discordance],["Receptor status from RNA",r.receptor_status_from_rna],["CN calls withheld (purity < 20%)",r.cn_not_called_low_purity]];
+  $("#ntiles").innerHTML = T.map(([k,v])=>`<div class="tile"><span class="k">${k}</span><span class="v">${(v??0).toLocaleString()}</span></div>`).join("")+
+    `<div class="tile"><span class="k">VAF scale inferred per lab</span><span class="d mono">${Object.entries(r.vaf_scale_by_site).map(([k,v])=>k+": "+v).join("<br>")}</span></div>`;
+  $("#extbl").innerHTML = `<thead><tr><th>Data type</th><th>Raw value</th><th>Normalized</th><th>How</th></tr></thead><tbody>`+
+    D.ex.map(e=>`<tr><td>${esc(e.domain)}</td><td class="mono">${esc(e.raw)}</td><td class="mono">${esc(e.norm)}</td><td class="crit">${esc(e.method)}</td></tr>`).join("")+"</tbody>";
+})();
+
+/* ---------- patients */
+const P = D.pts;
+const organ = p => (p.lin||"").replace("Lineage","").toLowerCase() || "unresolved";
+const outcomeChip = p => {
+  const o = p.ho;
+  if (o==="correct" && ["correct","n/a",""].includes(p.mo)) return '<span class="chip ok">matches truth</span>';
+  if (o==="wrong" || p.mo==="wrong" || p.mo==="false_positive") return '<span class="chip bad">disagrees</span>';
+  if (o==="abstained") return '<span class="chip warn">abstained</span>';
+  return '<span class="chip warn">less specific</span>';
+};
+const confChip = c => `<span class="chip ${c==="High"?"ok":c==="Low"?"warn":"acc"}">${c} confidence</span>`;
+function match(p, f, q){
+  if (q && !(p.id.toLowerCase().includes(q) || p.lab.toLowerCase().includes(q) || L(p.th).toLowerCase().includes(q))) return false;
+  switch(f){
+    case "rare": return p.rare;
+    case "tnbc": return /TripleNegative|TNBC|ERLow/.test(p.h+p.m+p.th);
+    case "lung": case "breast": case "prostate": return organ(p)===f;
+    case "benign": return p.h==="NoMalignancyDetected";
+    case "abst": return p.ho==="abstained"||p.ho==="correct_less_specific";
+    case "wrong": return p.ho==="wrong"||p.mo==="wrong"||p.mo==="false_positive"||p.mo==="missed";
+    case "edge": return !!p.edge;
+  } return true;
+}
+let sel = null;
+function renderList(){
+  const f = $("#flt").value, q = $("#q").value.trim().toLowerCase();
+  const list = P.filter(p => match(p,f,q));
+  $("#cnt").textContent = list.length + " of " + P.length + " patients";
+  $("#rows").innerHTML = list.slice(0,400).map(p=>`<div class="prow" role="option" tabindex="0" data-id="${p.id}" aria-selected="${p.id===sel}">
+    <span class="id">${p.id}</span><span class="lb">${esc(p.lab)}</span>
+    <span class="cs">${p.rare?'<span class="chip rare">rare</span>':''}${outcomeChip(p)}${p.flags.length?`<span class="chip warn">${p.flags.length} flag${p.flags.length>1?"s":""}</span>`:''}</span></div>`).join("") || '<p class="note" style="padding:10px">No patients match this filter.</p>';
+}
+function pick(id){ sel = id; renderList(); renderDx(P.find(p=>p.id===id)); }
+$("#rows").addEventListener("click", e => { const r = e.target.closest(".prow"); if (r) pick(r.dataset.id); });
+$("#rows").addEventListener("keydown", e => { const r = e.target.closest(".prow"); if (r && (e.key==="Enter"||e.key===" ")) { e.preventDefault(); pick(r.dataset.id); } });
+$("#q").addEventListener("input", renderList); $("#flt").addEventListener("change", renderList);
+
+function rawTable(title, cols, rows){
+  if (!rows.length) return "";
+  return `<h3 style="margin-top:6px">${title}</h3><div class="tblwrap"><table><thead><tr>${cols.map(c=>`<th>${c}</th>`).join("")}</tr></thead><tbody>`+
+    rows.map(r=>`<tr>${r.map(v=>`<td class="mono">${esc(v)}</td>`).join("")}</tr>`).join("")+`</tbody></table></div>`;
+}
+function renderDx(p){
+  if (!p) { $("#dx").innerHTML = '<p class="note">Select a patient.</p>'; return; }
+  const maxS = Math.max(8, ...Object.values(p.ls).filter(x=>x!=null));
+  const lin = Object.keys(LIN).map(k=>{
+    const s = p.ls[k], c = p.lc[k]||[];
+    return `<div class="lrow"><span>${LIN[k]}</span><div class="bar"><i style="width:${s==null?0:Math.min(100,s/maxS*100)}%;background:${LINC[k]}"></i></div><span class="mono" style="text-align:right">${s==null?"excl.":s}</span></div>
+      <div class="contrib">${c.length?c.map(x=>esc(x[0])+(x[1]?` (+${x[1]})`:"")).join(" · "):"no supporting evidence"}</div>`;}).join("");
+  const ic = r => r===true?'<span class="ic y">✓</span>':r===false?'<span class="ic n">✗</span>':'<span class="ic u">?</span>';
+  const grp = p.grp.map(g=>`<details class="grp" ${g.fired?"open":""}><summary>${esc(g.g)} → ${g.fired?esc(g.rules.find(r=>r[0]===g.fired)[1]):'<span style="color:var(--warn)">no rule satisfied</span>'}</summary>`+
+     g.rules.map(r=>`<div class="rl">${ic(r[2]==="fired"?true:r[2]==="not met"?false:null)}<div><b>${esc(r[1])}</b> <span class="crit">${esc(r[2])}</span></div>
+        <div class="cl">${r[3].map(c=>`${ic(c[2])}<span>${esc(c[0])}</span><span class="o">${esc(c[1])}</span>`).join("")}</div></div>`).join("")+`</details>`).join("")
+     || '<p class="note">No subtype rules evaluated (no malignancy call or tissue of origin unresolved).</p>';
+  const truth = L(p.th) + (p.tm?" · "+L(p.tm):"");
+  const mods = (p.mods||"").split(";").filter(Boolean);
+  const prov = p.prov.filter(x=>!x[0].startsWith("variant.")&&x[0]!=="fusion");
+  $("#dx").innerHTML = `
+   <div class="dxhead">
+     <span class="mono" style="color:var(--muted)">${p.id} · ${p.site} · ${esc(p.sex)} ${p.age}y</span>
+     <span class="lbl">${esc(p.lab)}</span>
+     <div style="display:flex;gap:6px;flex-wrap:wrap">${p.rare?'<span class="chip rare">rare subtype</span>':''}${confChip(p.conf)}${outcomeChip(p)}</div>
+     <div class="kv"><span>Specimen <b>${esc(p.spec)}</b></span>${p.smoke?`<span>Smoking <b>${esc(p.smoke)}</b></span>`:''}${p.hist?`<span>History <b>${esc(p.hist)}</b></span>`:''}</div>
+     <div class="kv"><span>Ground truth <b>${esc(truth)}</b></span>${p.edge?`<span>Edge case <b>${esc(p.edge)}</b></span>`:''}${p.note?`<span>Scenario <b>${esc(p.note)}</b></span>`:''}</div>
+   </div>
+   ${p.flags.length?`<ul class="flags">${p.flags.map(f=>`<li>${esc(f)}</li>`).join("")}</ul>`:''}
+   ${mods.length||p.tx.length?`<div><h3>Molecular modifiers &amp; therapy relevance</h3><div style="display:flex;gap:4px;flex-wrap:wrap;margin:6px 0">${mods.map(m=>`<span class="chip acc">${esc(D.modlabels[m]||m)}</span>`).join("")}</div>${p.tx.length?`<ul class="note" style="padding-left:18px;margin:4px 0">${p.tx.map(t=>`<li>${esc(t)}</li>`).join("")}</ul>`:''}</div>`:''}
+   <div><h3>1 · Tissue of origin</h3><p class="note">${p.lin?"Assigned "+LIN[p.lin]+" (margin "+p.lm+")":"Not resolved (margin "+p.lm+")"}</p>${lin}</div>
+   <div><h3>2 · Malignancy evidence: ${p.ms} → ${esc(p.mv.replace("_"," "))}</h3><div style="display:flex;gap:4px;flex-wrap:wrap;margin-top:6px">${p.mc.map(c=>`<span class="chip">${esc(c[0])} +${c[1]}</span>`).join("")||'<span class="note">none</span>'}</div></div>
+   <div><h3 style="margin-bottom:6px">3 · Rule trace</h3><div class="legend" style="margin-bottom:6px">${ic(true)} met ${ic(false)} not met ${ic(null)} missing / uncertain</div>${grp}</div>
+   <div><h3>4 · Raw data → normalized findings</h3>
+     ${rawTable("Raw IHC",["Stain","Result"],p.raw.ihc)}
+     ${rawTable("Raw ISH / FISH",["Test","Result"],p.raw.ish)}
+     ${rawTable("Raw variants",["Gene","Protein","cDNA","VAF","Depth","Class"],p.raw.ngs_variants)}
+     ${rawTable("Normalized variants",["Normalized","Raw"],p.prov.filter(x=>x[0].startsWith("variant.")).map(x=>[x[0].slice(8)+" "+x[1], x[3]]))}
+     ${rawTable("Raw fusions",["Fusion","Reads"],p.raw.ngs_fusions)}
+     ${rawTable("Raw serum",["Analyte","Value","Unit"],p.raw.serum)}
+     ${rawTable("Normalized findings",["Feature","Value","Raw","Method"],prov.map(x=>[x[0], x[1]+(x[2]?" "+x[2]:""), x[3], D.methods[x[4]]]))}
+   </div>`;
+}
+
+/* ---------- about */
+function renderAbout(p){
+  const m = D.meta, ev2 = D.ev, c = m.cohort, r = D.rep;
+  const ihc = p.raw.ihc.filter(x => /^(ER|ESR1|Estrogen|PR|PgR|Progest|HER|c-erbB|AR|Androgen)/i.test(x[0])).slice(0,4);
+  const pv = k => (p.prov.find(x=>x[0]===k)||[])[1];
+  const norm = [["ER",pv("ER_status")],["PR",pv("PR_status")],["HER2",pv("HER2_status")],["AR %",pv("AR_pct")]].filter(x=>x[1]!=null);
+  const fired = p.grp.filter(g=>g.fired).map(g=>g.rules.find(r=>r[0]===g.fired));
+  const mods = (p.mods||"").split(";").filter(Boolean).map(x=>D.modlabels[x]||x);
+  $("#heroTrace").innerHTML = `<div class="th"><span class="mono" style="color:var(--muted)">${p.id} · ${p.site} · ${esc(p.spec)}</span><span class="chip ok">matches ground truth</span></div>
+    <div class="stage"><div class="sl">Raw lab export</div><div class="sv">${ihc.map(x=>`<code>${esc(x[0])}: ${esc(x[1])}</code>`).join("")}</div></div>
+    <div class="stage"><div class="sl">Normalized (ASCO/CAP)</div><div class="sv">${norm.map(x=>`<code>${x[0]} = ${esc(x[1])}</code>`).join("")}</div></div>
+    <div class="stage"><div class="sl">Rules fired</div><div class="sv">${fired.map(r=>`<code>${esc(r[1])} rule ✓ ${r[3].length}/${r[3].length} criteria</code>`).join("")}</div></div>
+    <div class="stage"><div class="sl">Lineage + malignancy</div><div class="sv"><code>${LIN[p.lin]||"?"} · margin ${p.lm}</code><code>malignancy score ${p.ms}</code></div></div>
+    <div class="stage final"><div class="sl">Call</div><div class="out">${esc(p.lab)}</div><div class="sv" style="margin-top:6px">${p.rare?'<span class="chip rare">rare subtype</span>':''}${mods.map(x=>`<span class="chip acc">${esc(x)}</span>`).join("")}</div></div>`;
+  const h = ev2.histology_subtype;
+  $("#layers").innerHTML = [
+    ["Ontology", m.triples.toLocaleString(), "triples", [[m.n_classes,"classes, incl. rare subtypes"],[m.n_rules,"diagnostic rules"],[m.n_mods,"molecular modifiers"],[m.n_alts,"genomic alteration definitions"]]],
+    ["598 synthetic patients, three labs", m.n_raw.toLocaleString(), "raw records", [[c.lung,"lung"],[c.breast,"breast"],[c.prostate,"prostate"],[c.benign,"benign controls"],[m.n_rna,"RNA expression profiles"]]],
+    ["Normalization", m.n_findings.toLocaleString(), "normalized findings", [[r.ihc_stain_synonyms_mapped.toLocaleString(),"stain synonyms mapped"],[r.allred_converted,"Allred scores converted"],[r.hgvs_3letter_converted,"HGVS variants harmonised"],[r.serum_unit_converted,"serum values unit-converted"],[r.ihc_rna_discordance,"discordances flagged"]]],
+    ["Reasoning", h.correct, "of "+m.n+" exact", [[h.correct_less_specific,"correct but less specific"],[h.wrong,"wrong subtype call"],[ev2.malignancy.cancers_called_benign,"cancers called benign"],[ev2.tnbc.tp+"/"+ev2.tnbc.true,"TNBC detected"],[h.abstained,"routed to human review"]]],
+  ].map(([t,big,unit,items])=>`<div class="layer"><h3>${t}</h3><div class="big">${big}<small>${unit}</small></div><ul>${items.map(i=>`<li><b>${i[0]}</b> ${i[1]}</li>`).join("")}</ul></div>`).join("");
+  $("#why").innerHTML = [
+    ["Extend","Adding a subtype means adding a rule and its criteria to the ontology. No pipeline code changes."],
+    ["Test","Every rule runs against "+m.n+" labelled cases; per-class sensitivity and PPV are reported."],
+    ["Audit","Each diagnosis records the rule that fired and the exact findings it used."],
+    ["Govern","Every threshold carries its guideline source, so updates are reviewable, versioned edits."],
+  ].map(([b,t])=>`<div><b>${b}</b>${t}</div>`).join("");
+}
+
+/* ---------- routing */
+const views = ["about","overview","ontology","normalization","patients"];
+function route(){
+  const h = (location.hash||"#about").slice(1);
+  const v = views.includes(h) ? h : "about";
+  views.forEach(x => $("#v-"+x).classList.toggle("on", x===v));
+  document.querySelectorAll("nav.tabs a").forEach(a => a.setAttribute("aria-current", a.getAttribute("href")==="#"+v ? "page" : "false"));
+}
+window.addEventListener("hashchange", route); route();
+const start = P.find(p => p.th==="TripleNegativeBreastCancer" && /BRCA1/.test(p.mods) && p.ho==="correct") || P[0];
+$("#flt").value = "rare"; pick(start.id); renderAbout(start);
+window.addEventListener("hashchange", () => window.scrollTo(0, 0));
+</script>
+</body>
+</html>
